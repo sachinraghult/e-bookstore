@@ -8,9 +8,12 @@
 </head>
 <body>
 
+
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
 </div>
+
+<div style="display:block; padding:16px; background-color:black;">E-BOOKSTORE</div>
