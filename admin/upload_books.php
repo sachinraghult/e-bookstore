@@ -19,17 +19,20 @@
     <label for="author"><b>Author</b></label>
     <input type="text" placeholder="Enter author" name="author" required>
 
-    <label for="book_category"><b>Category&emsp;&emsp;&emsp;&ensp;</b></label>
-    <select name="book_category" style="background-color: rgb(240, 235, 235);" >
+    <label for="keywords" style="margin :auto;"><b>Keywords&emsp;&emsp;&emsp;</b></label>
+    <br>
+    <div style="padding-top:7px">
+    <textarea name="keywords" placeholder="Enter keywords" rows="3" cols="35" style="background-color : rgb(243, 243, 243);"></textarea>
+    </div>
+    <br>
+
+    <label for="book_category"><b>Category&emsp;&emsp;&emsp;&nbsp;</b></label>
+    <select name="book_category" style="background-color: rgb(235, 235, 235);" >
+        <option>select category</option>
         <option value="hi">Hi</option>
         <option value="hello">Hello</option>
     </select>
     <br><br>
-
-    <label for="keywords" style="margin :auto;"><b>Keywords&emsp;&emsp;&emsp;</b></label>
-    <textarea name="keywords"></textarea>
-    <br> <br>
-
 
     <label for="book_img"><b>Book Image&emsp;&emsp;</b></label>
     <input type="file" placeholder="Image of book" name="book_img" required>
