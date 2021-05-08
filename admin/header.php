@@ -24,7 +24,7 @@
 <div class="sidebar">
   <a class="active" href="index.php">Home</a>
   <a href="cust_det.php">Customer Details</a>
-  <a href="#.php">Upload Books</a>
+  <a href="upload_books.php">Upload Books</a>
   <a href="create_cat.php">Create Category</a>
   <a href="view_books.php">View Books</a>
   <a href="#.php">View Requsts</a>
