@@ -1,78 +1,67 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-image: url('assets/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: sans-serif;
+body {
+    font-family: Arial, Helvetica, sans-serif;  
+}
+* {
+    box-sizing: border-box
 }
 
-.login-container{
-    width: 370px;
-    height: 400px;
-    
-    position: center;
-    background: #000;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    color: #fff;
-    padding: 40px 20px;
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
 
-.login-container img{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: calc(50% - 50px);
-    border-radius: 50%;
-   
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
 }
 
-.login-container h1{
-    text-align: center;
-    font-size: 20px;
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
 }
 
-.login-container label{
-    display: block;
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
 
-.login-container div{
-    margin-bottom: 20px;
+button:hover {
+  opacity:1;
 }
 
-.login-container input[type="text"], input[type="password"]{
-    width: 100%;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #ffff;
-    background: transparent;
-    color: #ffff;
-    height: 40px;
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
 }
 
-.login-container input[type="submit"]{
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 40px;
-    background-image: linear-gradient(to right,#F26FC9, #8772EF);
-    color: #ffff;
-    
-}
-.login-container input[type="submit"]:hover{
-    cursor: pointer;
-    box-shadow: 1px 1px 10px #696969;
-}
-a{
-    display: block;
-    text-align: right;
-    text-decoration: none;
-    color: #fff;
-    font-size: 12px;
-    margin-top: 10px;
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
 }
 
-a:hover{
-    color: #d3d3d3;
+.container {
+  padding: 16px;
+  position: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: flex;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <style>
     body{
         background-image: url(images/library.jpg);
@@ -24,8 +24,8 @@
     <input type="password" placeholder="Password" name="pwd" required>
 
     <br><br>
-    <div class="clearfix" style="padding-left: 140px">
-      <button type="submit" class="signupbtn">Login</button>
+    <div class="clearfix" style="padding-left: 3px">
+      <button type="submit" class="loginbtn">Login</button>
     </div>
   </div>
 </form>
