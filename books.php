@@ -3,6 +3,13 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <style>
+        body{
+        background-image: url(images/library.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
 </head>
 <body>
 

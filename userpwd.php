@@ -5,6 +5,8 @@
     <style>
     body{
         background-image: url(images/library.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     </style>
 </head>

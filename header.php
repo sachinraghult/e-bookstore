@@ -6,6 +6,11 @@
     *{
       font-family: "Nunito", sans-serif;
     }
+    body{
+        background-image: url(images/library.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
