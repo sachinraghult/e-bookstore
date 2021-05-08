@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>E-Book Store</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
 </head>
 <body>
 
-<?php 
-    $title = "Welcome";
-    include("header.php");
-?>
+<?php include("header.php");?>
 
 <div class="content">
     <div class="wrapper">

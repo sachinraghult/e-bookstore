@@ -6,10 +6,7 @@
 </head>
 <body>
 
-<?php 
-    $title = "Welcome";
-    include("header.php");
-?>
+<?php include("header.php");?>
 
 
    <div class="login-container content">
