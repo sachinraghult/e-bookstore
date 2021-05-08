@@ -1,2 +1,2 @@
-# e-storebook
-e-storebook
+# e-bookstore
+e-bookstore
