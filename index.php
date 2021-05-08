@@ -3,7 +3,7 @@
     include("header.php");
 ?>
 
-<div class="container" style="margin-top:50px"">
+<div class="content" style="margin-top:50px"">
   <h3>Right Aligned Navbar</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
