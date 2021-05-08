@@ -11,13 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">E-BOOSTORE</a>
-    </div>
-  </div>
-</nav>
+
 
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
