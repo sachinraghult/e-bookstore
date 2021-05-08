@@ -29,20 +29,20 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link active" data-class="fixed-left">
+                <a class="nav-link active" data-class=".fixed-left">
                     <i class="fa fa-arrow-left"></i>
                     Fixed Left
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-class="fixed-top">
+                <a class="nav-link" data-class=".fixed-top">
                     <i class="fa fa-arrow-up"></i>
                     Fixed Top
                     <small>(original)</small>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-class="fixed-right">
+                <a class="nav-link" data-class=".fixed-right">
                     <i class="fa fa-arrow-right"></i>
                     Fixed Right
                 </a>
