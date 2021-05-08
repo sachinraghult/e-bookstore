@@ -4,7 +4,7 @@
     <title>E-Book Store</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
 </head>
-<body>
+<body style="size: 16px">
 
 <?php include("header.php");?>
 
@@ -14,7 +14,7 @@
       
         <div class="card_item">
         <div class="card_inner">
-          <button>
+          <button onclick="location.href='books.php'">
             <div class="card_top">
             <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
             </div>
@@ -30,7 +30,7 @@
 
         <div class="card_item">
         <div class="card_inner">
-          <button>
+          <button onclick="location.href='books.php'">
             <div class="card_top">
             <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
             </div>
@@ -45,7 +45,7 @@
 
         <div class="card_item">
         <div class="card_inner">
-          <button>
+          <button onclick="location.href='books.php'">
             <div class="card_top">
             <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
             </div>
