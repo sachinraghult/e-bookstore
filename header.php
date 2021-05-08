@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<div style="position: sticky; top:0; display:block; padding:16px; background-color:black; color:white;text-align:center">E-BOOKSTORE</div>
 
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
@@ -15,5 +16,3 @@
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
 </div>
-
-<div style="display:block; padding:16px; background-color:black;">E-BOOKSTORE</div>
