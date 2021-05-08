@@ -16,4 +16,5 @@
   <a href="login.php">Login</a>
   <a href="register.php">Register</a>
   <a href="#admin">Admin</a>
+  <a href="profile.php">Profile</a>
 </div>

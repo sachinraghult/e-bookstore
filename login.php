@@ -13,7 +13,7 @@
 <?php include("header.php");?>
 
 <form action="/action_page.php" style="border:1px solid #ccc">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
     <h1>Login</h1>
     <hr>
 
@@ -25,7 +25,7 @@
 
     <br><br>
     <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="loginbtn">Login</button>
+      <button type="submit" class="login">Login</button>
     </div>
   </div>
 </form>

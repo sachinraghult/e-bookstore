@@ -33,8 +33,8 @@
     <label for="profile"><b>Profile pic</b></label>
     <input type="file" placeholder="profile" name="profile" required>
     <br><br>
-    <div class="clearfix" style="padding-left: 140px">
-      <button type="submit" class="signupbtn">Sign Up</button>
+    <div class="clearfix" style="padding-left: 3px">
+      <button type="submit" class="signup">Sign Up</button>
     </div>
   </div>
 </form>
