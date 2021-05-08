@@ -14,8 +14,7 @@
 <body>
 
 <?php 
-    $title = "Welcome";
-    include("header.php");
+    include("includes/header.php");
 ?>
 
 <div class="content">
@@ -84,8 +83,9 @@
                 By Alex Kato
             </div>
             </div>
+            
         </div>
         </div>
 
 
-<?php include("footer.php"); ?>
+<?php include("includes/footer.php"); ?>

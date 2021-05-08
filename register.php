@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<?php include("header.php");?>
+<?php include("includes/header.php");?>
 
 <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -41,7 +41,7 @@
   </div>
 </form>
 
-<?php include("footer.php"); ?>
+<?php include("includes/footer.php"); ?>
 
 </body>
 </html>

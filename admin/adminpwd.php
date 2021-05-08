@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/register.css">
-    <style>
-    body{
-        background-image: url(images/library.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
 </head>
 <body>
 
-<?php include("includes/header.php");?>
+<?php include("header.php");?>
 
 <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -34,8 +27,6 @@
     </div>
   </div>
 </form>
-
-<?php include("includes/footer.php"); ?>
 
 </body>
 </html>

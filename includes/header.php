@@ -6,11 +6,6 @@
     *{
       font-family: "Nunito", sans-serif;
     }
-    body{
-        background-image: url(images/library.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,8 +18,11 @@
 
 <div class="sidebar">
   <a class="active" href="index.php">Home</a>
+  <a href="search_books.php">Search Books</a>
   <a href="login.php">Login</a>
   <a href="register.php">Register</a>
-  <a href="#admin">Admin</a>
   <a href="profile.php">Profile</a>
+  <a href="admin_login.php">Admin</a>
+  <a href="#.php">Logout</a>
+
 </div>

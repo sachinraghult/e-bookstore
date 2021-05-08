@@ -16,11 +16,11 @@
 
 <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
-    <h1>Login</h1>
+    <h1>Admin Login</h1>
     <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Username" name="username" required>
 
     <label for="pwd"><b>Password</b></label>
     <input type="password" placeholder="Password" name="pwd" required>

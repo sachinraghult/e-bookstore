@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<?php include("header.php");?>
+<?php include("includes/header.php");?>
 
 <h2 style="text-align:center; margin-top:200px">User Profile Card</h2>
 

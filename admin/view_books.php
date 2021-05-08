@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>E-Book Store</title>
-    <link rel="stylesheet" type="text/css" href="css/cards.css">
-    <style>
-        body{
-        background-image: url(images/library.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
+    <title>View Books</title>
+    <link rel="stylesheet" type="text/css" href="../css/cards.css">
 </head>
-<body style="size: 16px">
+<body>
 
-<?php include("includes/header.php");?>
-
+<?php 
+    include("header.php");
+?>
+<h1 style="color: blue; text-align:center">All Books</h1>
 <div class="content">
     <div class="wrapper">
     <div class="cards_wrap">
-      
         <div class="card_item">
         <div class="card_inner">
-          <button onclick="location.href='books.php'">
             <div class="card_top">
             <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
             </div>
             <div class="card_bottom">
+            <div class="card_category">
+                Travel
+            </div>
             <div class="card_info">
                 <p class="title">10 Best Things about Travel</p>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ab.
+                </p>
+            </div>
+            <div class="card_creator">
+                By Alex Kato
             </div>
             </div>
-          </button>
-        </div>
-        </div>
-      
-
-        <div class="card_item">
-        <div class="card_inner">
-          <button onclick="location.href='books.php'">
-            <div class="card_top">
-            <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
-            </div>
-            <div class="card_bottom">
-            <div class="card_info">
-                <p class="title">10 Best Things about Travel</p>
-            </div>
-            </div>
-          </button>
         </div>
         </div>
 
         <div class="card_item">
         <div class="card_inner">
-          <button onclick="location.href='books.php'">
             <div class="card_top">
             <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
             </div>
             <div class="card_bottom">
+            <div class="card_category">
+                Travel
+            </div>
             <div class="card_info">
                 <p class="title">10 Best Things about Travel</p>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ab.
+                </p>
+            </div>
+            <div class="card_creator">
+                By Alex Kato
             </div>
             </div>
-          </button>
         </div>
         </div>
 
+        <div class="card_item">
+        <div class="card_inner">
+            <div class="card_top">
+            <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
+            </div>
+            <div class="card_bottom">
+            <div class="card_category">
+                Travel
+            </div>
+            <div class="card_info">
+                <p class="title">10 Best Things about Travel</p>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ab.
+                </p>
+            </div>
+            <div class="card_creator">
+                By Alex Kato
+            </div>
+            </div>
+            
+        </div>
+        </div>
 
-<?php include("includes/footer.php"); ?>
+    </div>
+    </body>
+    </html>
