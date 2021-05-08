@@ -83,7 +83,7 @@ button:hover {
 ?>
 
 <form action="/action_page.php" style="border:1px solid #ccc">
-  <div class="container content" style="width: 30%; height: 50%; position: center; background-color:ivory">
+  <div class="container content" style="width: 30%; height: 50%; margin:auto; margin-top: 80px; background-color:ivory">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
