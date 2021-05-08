@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <style>
+    body{
+        background-image: url(images/library.jpg);
+    }
+    </style>
 </head>
 <body>
 
 <?php include("header.php");?>
 
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+    <h1>Login</h1>
+    <hr>
 
-   <div class="login-container content">
-       <img src="assets/avatar.jpg" alt="avatar image">
-       <form action="">
-           <h1>LOGIN</h1>
-           <div>
-               <label>Username</label>
-               <input type="text" name="username" placeholder="Enter your username here" value="">
-           </div>
-           <div>
-               <label>Password</label>
-               <input type="password" name="password" placeholder="Enter your password here" value="">
-           </div>
-           <input type="submit" name="login" value="LOGIN">
-           <a href="#">Forgot Password?</a>
-           <a href="#">Forgot Username?</a>
-       </form>
-   </div>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email" required>
+
+    <label for="pwd"><b>Password</b></label>
+    <input type="password" placeholder="Password" name="pwd" required>
+
+    <br><br>
+    <div class="clearfix" style="padding-left: 140px">
+      <button type="submit" class="signupbtn">Login</button>
+    </div>
+  </div>
+</form>
 
 <?php include("footer.php"); ?>
-    
+
 </body>
 </html>

@@ -1,2 +1,0 @@
-# e-bookstore
-e-bookstore
