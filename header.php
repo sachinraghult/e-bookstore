@@ -3,6 +3,9 @@
 <head>
   <style>
     @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+    *{
+      font-family: "Nunito", sans-serif;
+    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
