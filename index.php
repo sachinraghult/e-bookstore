@@ -1,8 +1,8 @@
-<html>
-<head>
-<title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World<h1>
-</body>
-</html>
+<?php 
+    $title = "Welcome";
+    include("header.php");
+?>
+
+
+
+<?php include("footer.php"); ?>
