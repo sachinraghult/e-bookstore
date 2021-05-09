@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/cards.css">
     <style>
         body{
-        background-image: url(images/library.jpg);
+        background-image: url(images/library.gif);
         background-repeat: no-repeat;
         background-size: cover;
     }
