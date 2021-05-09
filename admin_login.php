@@ -29,6 +29,9 @@
     <div class="clearfix" style="padding-left: 3px">
       <button type="submit" class="login">Login</button>
     </div>
+    <div><br>
+    <a href="admin/index.php" target="_blank">Click here for admin panel</a>
+    </div>
   </div>
 </form>
 
