@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2021 at 08:47 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Generation Time: May 10, 2021 at 11:20 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -58,6 +57,14 @@ CREATE TABLE `book` (
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`bid`, `bname`, `author`, `bimage`, `bfile`, `keywords`, `cat_id`, `price`) VALUES
+(1, 'hello world', 'sanjeev', 'image.png', 'book1.pdf', 'hello', 2, 200),
+(2, 'xampp', 'apache', 'bit.image', 'bit.pdf', 'bit', 4, 150);
+
 -- --------------------------------------------------------
 
 --
@@ -77,7 +84,11 @@ INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
 (1, 'MAGAZINES'),
 (2, 'COMICS'),
 (3, 'LITERATURE'),
-(4, 'SCIENCE');
+(4, 'SCIENCE'),
+(5, 'HORROR'),
+(6, 'THRILLER'),
+(7, 'STORY'),
+(8, 'SUMMA');
 
 -- --------------------------------------------------------
 
@@ -107,6 +118,14 @@ CREATE TABLE `customer` (
   `cus_pass` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`cus_id`, `cus_name`, `cus_image`, `cus_mail`, `cus_pass`) VALUES
+(1, 'Hello', 'image.cd', 'cueifwhdius', 'sdadads'),
+(2, 'dasdas', 'sdasd.f', 'dsadsaf', 'dsdagf');
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +138,16 @@ CREATE TABLE `payments` (
   `cus_id` int(11) NOT NULL,
   `bid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`bill_id`, `txn_id`, `cus_id`, `bid`) VALUES
+(1, 'dsdad', 1, 1),
+(2, 'dsfgg', 2, 1),
+(3, 'fsssd', 2, 2),
+(4, 'sadasd', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -220,13 +249,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -238,13 +267,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `request`
