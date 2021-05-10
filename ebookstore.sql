@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2021 at 11:20 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: May 10, 2021 at 03:21 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -88,7 +89,8 @@ INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
 (5, 'HORROR'),
 (6, 'THRILLER'),
 (7, 'STORY'),
-(8, 'SUMMA');
+(8, 'SUMMA'),
+(9, 'SUMMA');
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,14 @@ CREATE TABLE `comment` (
   `comment` varchar(250) NOT NULL,
   `logs` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`com_id`, `cus_id`, `bid`, `comment`, `logs`) VALUES
+(3, 2, 1, 'Very nice', '2021-05-27 03:26:20'),
+(4, 1, 2, 'Interesting sir!', '2021-05-10 20:38:28');
 
 -- --------------------------------------------------------
 
@@ -162,6 +172,14 @@ CREATE TABLE `request` (
   `request` varchar(250) NOT NULL,
   `logs` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `request`
+--
+
+INSERT INTO `request` (`rid`, `cus_id`, `bname`, `request`, `logs`) VALUES
+(3, 1, 'comp sci', 'I need urgently', '2021-05-18 07:23:33'),
+(4, 2, 'upsc books', 'i am an civil aspirant', '2021-05-08 10:28:28');
 
 -- --------------------------------------------------------
 
@@ -255,13 +273,13 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -279,7 +297,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subs`
