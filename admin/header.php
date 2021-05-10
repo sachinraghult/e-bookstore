@@ -33,3 +33,5 @@
   <a href="adminpwd.php">Change Password</a>
   <a href="../logout.php">Logout</a>
 </div>
+
+<div class="content">
