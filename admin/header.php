@@ -31,5 +31,5 @@
   <a href="#.php">View Comments</a>
   <a href="#.php">View Billing History</a>
   <a href="adminpwd.php">Change Password</a>
-  <a href="#.php">Logout</a>
+  <a href="../logout.php">Logout</a>
 </div>

@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if(isset($_SESSION["AID"])){
+    header("location:admin/");
+  }
   include("db.php");
 ?>
 
@@ -19,27 +22,28 @@
 
 <?php include("includes/header.php");?>
 
-<?php
-  if(isset($_POST["submit"])){
-    $sql = "SELECT * FROM ADMIN WHERE ANAME = {$_POST["aname"]} AND APASS = {$_POST["apass"]}";
-    $res = $db->query($sql);
-    $count = mysqli_num_rows($res);
-    if($count>0){
-      $row = $res->fetch_assoc();
-      $_SESSION["AID"] = $row["AID"];
-      $_SESSION["ANAME"] = $row["ANAME"];
-      header("location:admin/");
-    }
-    else{
-      echo "<p style='color: red'>Invalid user details!</p>";
-    }
-  }
-?>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
     <h1>Admin Login</h1>
     <hr>
+
+    <?php
+      if(isset($_POST["submit"])){
+        $sql = "SELECT * FROM ADMIN WHERE ANAME = '{$_POST["aname"]}' AND APASS = '{$_POST["apass"]}'";
+        $res = $db->query($sql);
+        
+        if($res->num_rows>0){
+          $row = $res->fetch_assoc();
+          $_SESSION["AID"] = $row["aid"];
+          $_SESSION["ANAME"] = $row["aname"];
+          header("location:admin/");
+        }
+        else{
+          echo "<p style='color: red'>Invalid user details!</p>";
+        }
+      }
+    ?>
 
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Username" name="aname" required>
@@ -52,7 +56,6 @@
       <button type="submit" class="login" name="submit">Login</button>
     </div>
     <div><br>
-    <a href="admin/index.php" target="_blank">Click here for admin panel</a>
     </div>
   </div>
 </form>
