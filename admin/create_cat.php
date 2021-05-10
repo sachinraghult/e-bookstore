@@ -17,7 +17,7 @@
 <?php include("header.php");?>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" style="border:1px solid #ccc">
-  <div class="container content" style="width: 500px; height: 50%; margin-left:500px; margin-top: 40px; background-color:ivory">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
   <?php 
       if(isset($_POST["submit"])){
         $sql = "INSERT INTO category (cat_name) VALUES ('{$_POST["cat_name"]}');";
