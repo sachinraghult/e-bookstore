@@ -16,7 +16,7 @@
 
 <?php include("header.php");?>
 
-<form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "POST" style="border:1px solid #ccc">
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
     <h1>Upload books</h1>
     <hr>
@@ -32,9 +32,8 @@
         move_uploaded_file($_FILES["bookfile"]["tmp_name"],$target_file_dir)) 
         {
           $sql = "INSERT INTO book (bname, author, bimage, bfile, keywords, cat_id, price) 
-           VALUES ({$_POST['name']},{$_POST['author']},{$target_img_dir},{$target_file_dir},{$_POST['keywords']},{$_POST['book_category']},{$_POST['price']});";
+           VALUES ('{$_POST['name']}','{$_POST['author']}', '{$target_img_dir}', '{$target_file_dir}','{$_POST['keywords']}',{$_POST['book_category']},{$_POST['price']});";
            $res = $db->query($sql);
-           print_r($res);
            echo "<p style='color:green'>Upload successful</p>";
         }
         else {
@@ -59,8 +58,8 @@
     <select name="book_category" style="background-color: rgb(235, 235, 235);" >
         <option>select category</option>
         <?php
-          $sql = "SELECT * from category";
-          $res = $db->query($sql);
+          $sql1 = "SELECT * from category";
+          $res = $db->query($sql1);
           while ($rows = $res->fetch_assoc()) {
             echo "
             <option value={$rows['cat_id']}>{$rows['cat_name']}</option>
