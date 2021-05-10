@@ -7,9 +7,9 @@
 
     if(isset($_GET['id']))
     {
-        $sql="DELETE FROM request where rid={$_GET['id']};";
+        $sql="DELETE FROM comment where com_id={$_GET['id']};";
         $res=$db->query($sql);
-        header('location: request.php');
+        header('location: comment.php');
     }
 ?>
 
@@ -24,12 +24,13 @@
     include("header.php");
 ?>
 <?php
-    $sql="SELECT customer.cus_name, request.*
-    from request inner join customer
-    where customer.cus_id=request.cus_id;";
+    $sql="SELECT customer.cus_name, book.bname, comment.*
+    from comment inner join customer on customer.cus_id=comment.cus_id
+    inner join book on book.bid=comment.bid
+    order by comment.com_id DESC;";
     $res=$db->query($sql);
 
-    echo "<h3 style='text-align: center;'>CUSTOMER REQUESTS</h3>";
+    echo "<h3 style='text-align: center;'>CUSTOMER COMMENTS</h3>";
     if($res->num_rows>0)
     {
         echo "
@@ -38,7 +39,7 @@
             <tr>
                 <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
-                <th>REQUEST</th>
+                <th>COMMENT</th>
                 <th>TIME LOG</th>
                 <th>DELETE</th>
             </tr>
@@ -49,9 +50,9 @@
                 <tr>
                     <td>{$rows["cus_name"]}</td>
                     <td>{$rows["bname"]}</td>
-                    <td>{$rows["request"]}</td>
+                    <td>{$rows["comment"]}</td>
                     <td>{$rows["logs"]}</td>
-                    <td><a style='color: red' href='request.php?id={$rows['rid']}'>Delete</a></td>
+                    <td><a style='color: red' href='comment.php?id={$rows['com_id']}'>Delete</a></td>
                 </tr>
             ";
         }
@@ -63,7 +64,7 @@
     }   
     else
     {
-        echo "<p style='color: red'>No requests</p>";
+        echo "<p style='color: red'>No comments</p>";
     }
 ?>
     

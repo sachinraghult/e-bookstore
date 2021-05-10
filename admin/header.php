@@ -27,9 +27,9 @@
   <a href="upload_books.php">Upload Books</a>
   <a href="create_cat.php">Create Category</a>
   <a href="view_books.php">View Books</a>
-  <a href="#.php">View Requsts</a>
-  <a href="#.php">View Comments</a>
-  <a href="#.php">View Billing History</a>
+  <a href="request.php">View Requsts</a>
+  <a href="comment.php">View Comments</a>
+  <a href="transaction.php">View Billing History</a>
   <a href="adminpwd.php">Change Password</a>
   <a href="../logout.php">Logout</a>
 </div>

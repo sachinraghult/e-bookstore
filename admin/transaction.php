@@ -17,17 +17,13 @@
     include("header.php");
 ?>
 <?php
-    $sql="SELECT book.bname, book.price, payments.txn_id
-    from payments inner join book 
-    where book.bid=payments.bid AND payments.cus_id={$_GET["id"]}
+    $sql="SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+    from payments inner join book on book.bid=payments.bid
+    inner join customer on customer.cus_id=payments.cus_id
     order by payments.bill_id DESC;";
     $res=$db->query($sql);
 
-    $sql1="SELECT cus_name from customer where cus_id={$_GET["id"]}";
-    $res1=$db->query($sql1);
-    $rows1=$res1->fetch_assoc();
-
-    echo "<h3 style='text-align: center;'>{$rows1["cus_name"]} TRANSACTION DETAILS</h3>";
+    echo "<h3 style='text-align: center;'>CUSTOMERS BILLING HISTORY</h3>";
     if($res->num_rows>0)
     {
         echo "
@@ -35,6 +31,7 @@
         <table>
             <tr>
                 <th>TRANSACTION ID</th>
+                <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
             </tr>
@@ -44,6 +41,7 @@
             echo"
                 <tr>
                     <td>{$rows["txn_id"]}</td>
+                    <td>{$rows["cus_name"]}</td>
                     <td>{$rows["bname"]}</td>
                     <th>{$rows["price"]}</th>
                 </tr>
