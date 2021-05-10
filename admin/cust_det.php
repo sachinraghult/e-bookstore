@@ -26,33 +26,30 @@
     if($res->num_rows>0)
     {
         echo' <div class="wrapper">
-            <div class="cards_wrap">';
-        while($rows=$res->fetch_assoc())
-        {
-            echo '
-                <div class="card_item">
-                <div class="card_inner">
-                    <div class="card_top">
-                        <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
+             <div class="cards_wrap">';
+            while($rows=$res->fetch_assoc())
+            {
+                echo "
+                    <div class='card_item'>
+                    <div class='card_inner'>
+                        <div class='card_top'>
+                            <img src={$rows["cus_image"]} alt='profile' />
+                        </div>
+                        <div class='card_bottom'>
+                        <div class='card_info'>
+                            <p class='title'>{$rows["cus_name"]}</p>
+                            <p>
+                            {$rows['cus_mail']}
+                            </p>
+                        </div>
+                        <div class='card_creator'>
+                        <a href='cust_trans.php?id={$rows["cus_id"]}'><button>View Transaction Details</button></a>
+                        </div>
+                        </div>
                     </div>
-                    <div class="card_bottom">
-                    <div class="card_category">
-                        Travel
                     </div>
-                    <div class="card_info">
-                        <p class="title">10 Best Things about Travel</p>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ab.
-                        </p>
-                    </div>
-                    <div class="card_creator">
-                        By Alex Kato
-                    </div>
-                    </div>
-                </div>
-                </div>
-                ';
-        }
+                    ";
+            }
         echo "
         </div>
         </div>
