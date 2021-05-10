@@ -25,15 +25,15 @@
 
     if($res->num_rows>0)
     {
+        echo' <div class="wrapper">
+            <div class="cards_wrap">';
         while($rows=$res->fetch_assoc())
         {
             echo '
-            <div class="wrapper">
-            <div class="cards_wrap">
                 <div class="card_item">
                 <div class="card_inner">
                     <div class="card_top">
-                    <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
+                        <img src="https://i.imgur.com/qhE9KtV.jpg" alt="car" />
                     </div>
                     <div class="card_bottom">
                     <div class="card_category">
