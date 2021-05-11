@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+<?php
+  session_start();
+  if(isset($_SESSION["CUS_ID"])){
+    header("location:index.php");
+  }
+  include("db.php");
+?>
+
+<!DOCTYPE html>
+<html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/register.css">
     <style>
@@ -9,16 +19,54 @@
         background-size: cover;
     }
     </style>
+
+    <script type="text/javascript">
+    function check() 
+    {
+      if (document.getElementById('pwd').value ==
+      document.getElementById('cnfmpwd').value) 
+      {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'matching';
+      } 
+      else 
+      {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+      }
+    }
+  </script>
+
 </head>
 <body>
 
 <?php include("includes/header.php");?>
 
-<form action="/action_page.php" style="border:1px solid #ccc">
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
+
+    <?php
+      if(isset($_POST['submit']))
+      {
+        $target_img = "admin/media/profile_img/";
+        $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
+        
+        if (move_uploaded_file($_FILES["profile"]["tmp_name"],$target_img_dir)) 
+        {
+          $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
+           $res = $db->query($sql);
+           echo "<p style='color:green'>Registration Successful</p>";
+
+           header("location:index.php");
+        }
+        else {
+          echo "<p style='color:red'>Registration failed</p>";
+        }
+      }
+    ?>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Name" name="name" required>
@@ -27,16 +75,19 @@
     <input type="text" placeholder="Email" name="email" required>
 
     <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="pwd" required>
+    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="check()" required>
 
     <label for="cnfm-pwd"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="cnfm-pwd" required>
+    <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check()" required>
     
+    <i><div id="message"></div><i>
+    <br><br>
+
     <label for="profile"><b>Profile pic</b></label>
-    <input type="file" placeholder="profile" name="profile" required>
+    <input type="file" placeholder="profile" name="profile" accept="image/*" required>
     <br><br>
     <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup">Sign Up</button>
+      <button type="submit" class="signup" name="submit">Sign Up</button>
     </div>
   </div>
 </form>

@@ -23,6 +23,6 @@
   <a href="register.php">Register</a>
   <a href="profile.php">Profile</a>
   <a href="admin_login.php">Admin</a>
-  <a href="#.php">Logout</a>
+  <a href="logout.php">Logout</a>
 
 </div>
