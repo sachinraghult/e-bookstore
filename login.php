@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<?php include("includes/header.php");?>
+<?php include("includes/main_header.php");?>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
@@ -32,7 +32,8 @@
         $sql = "SELECT * FROM CUSTOMER WHERE CUS_MAIL = '{$_POST["email"]}' AND CUS_PASS = '{$_POST["pwd"]}'";
         $res = $db->query($sql);
         
-        if($res->num_rows>0){
+        if($res->num_rows>0)
+        {
           $row = $res->fetch_assoc();
           $_SESSION["CUS_ID"] = $row["cus_id"];
           $_SESSION["CUS_NAME"] = $row["cus_name"];
