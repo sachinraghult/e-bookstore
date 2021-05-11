@@ -6,6 +6,12 @@
     *{
       font-family: "Nunito", sans-serif;
     }
+    /*
+    body{
+      background: #eedfcc;
+      color: #555555;
+      font-size: 16px;
+    }*/
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

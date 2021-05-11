@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(!isset($_SESSION["CUS_ID"])){
+    header("location:login.php");
+  }
+  include("db.php");
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +28,18 @@
 
 <h2 style="text-align:center; margin-top:200px">User Profile Card</h2>
 
-<div class="card">
-  <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-  <h1>John Doe</h1>
-  <p>johndoe@gmail.com</p>
-  <p><button onclick="location.href='cust_transaction.php'" style="margin-bottom: 0%;">View Transactions</button></p>
-</div>
+<?php
+  $sql = "SELECT * from customer where customer.cus_id={$_SESSION["CUS_ID"]}";
+  $res = $db->query($sql);
+  $row = $res->fetch_assoc();
+  echo"
+    <div class='card'>
+      <img src='{$row['cus_image']}' alt='profile' style='width:100%'>
+      <h1>{$row['cus_name']}</h1>
+      <p>{$row['cus_mail']}</p>
+      <p><a href='cust_transaction.php'><button style='margin-bottom: 0%;'>View Transactions</button></a></p>
+    </div>";
+?>
 
 </body>
 </html>
