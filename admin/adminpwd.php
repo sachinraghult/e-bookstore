@@ -76,7 +76,7 @@
     <input type="password" placeholder="Password" name="oldpwd" required>
 
     <label for="newpwd"><b>New Password</b></label>
-    <input type="password" placeholder="Password" name="newpwd" id="newpwd" required>
+    <input type="password" placeholder="Password" name="newpwd" id="newpwd" onkeyup="check();" required>
 
     <label for="cnfmpwd"><b>Confirm New Password</b></label>
     <input type="password" placeholder="Confirm New Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check();" required>

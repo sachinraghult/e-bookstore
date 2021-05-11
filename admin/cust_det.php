@@ -11,6 +11,7 @@
 <head>
     <title>Customer Details</title>
     <link rel="stylesheet" type="text/css" href="../css/cards.css">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
 </head>
 <body>
 
@@ -18,11 +19,28 @@
     include("header.php");
 ?>
 <h1 style="color: blue; text-align:center">Customer details</h1>
+
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post" style="border:1px solid #ccc">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+    <h1>Search Customer</h1>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Name" name="name" required>
+    <br>
+    <div class="clearfix" style="padding-left: 3px">
+      <button type="submit" class="signup" name="search">Search</button>
+    </div>
+  </div>
+</form>
 <?php
-
-    $sql = "SELECT * FROM CUSTOMER";
+    if (!isset($_POST["search"])) {
+        $sql = "SELECT * FROM CUSTOMER";
+    }
+    else {
+        $sql = "SELECT * FROM CUSTOMER WHERE cus_name LIKE '%{$_POST['name']}%'";
+    }
     $res = $db->query($sql);
-
     if($res->num_rows>0)
     {
         echo' <div class="wrapper">
