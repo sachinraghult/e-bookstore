@@ -19,11 +19,9 @@
 <div class="sidebar">
   <a class="active" href="index.php">Home</a>
   <a href="search_books.php">Search Books</a>
-  <a href="book_purchased.php">In Your Store</a>
-  <a href="cust_request.php">Request</a>
-  <a href="profile.php">Profile</a>
-  <a href="cust_pwd.php">Change Password</a>
-  <a href="logout.php">Logout</a>
+  <a href="login.php">Login</a>
+  <a href="register.php">Register</a>
+  <a href="admin_login.php">Admin</a>
   
 
 </div>

@@ -23,7 +23,7 @@
   <img src="/w3images/team2.jpg" alt="John" style="width:100%">
   <h1>John Doe</h1>
   <p>johndoe@gmail.com</p>
-  <p><button onclick="location.href='userpwd.php'" style="margin-bottom: 0%;">Change Password</button></p>
+  <p><button onclick="location.href='cust_transaction.php'" style="margin-bottom: 0%;">View Transactions</button></p>
 </div>
 
 </body>

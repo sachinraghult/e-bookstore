@@ -20,14 +20,21 @@
 </head>
 <body style="size: 16px">
 
-<?php include("includes/header.php");?>
+<?php 
+    if(isset($_SESSION['CUS_ID']))
+    {
+        include("includes/header.php");
+    }
+    else
+    {
+        include("includes/main_header.php");
+    }
 
-    <?php
     if(!isset($_SESSION["CUS_ID"])){
-        echo'<h1>Welcome</h1>';
+        echo'<br><h1>&ensp;Welcome</h1>';
     }
     else{
-      echo"<h1 style='text-align: center'>Welcome {$_SESSION['CUS_NAME']}</h1>";
+      echo"<br><h1 style='text-align: center'>&ensp;Welcome {$_SESSION['CUS_NAME']}</h1>";
     }
 
     $sql="SELECT * FROM CATEGORY;";

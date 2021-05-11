@@ -14,7 +14,16 @@
 </head>
 <body>
 
-<?php include("includes/header.php");?>
+<?php 
+    if(isset($_SESSION['CUS_ID']))
+    {
+        include("includes/header.php");
+    }
+    else
+    {
+        include("includes/main_header.php");
+    }
+?>
 
 <form action="/action_page.php" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">

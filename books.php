@@ -20,11 +20,14 @@
 <body>
 
 <?php 
-    include("includes/header.php");
-?>
-
-    <?php
-
+    if(isset($_SESSION['CUS_ID']))
+    {
+        include("includes/header.php");
+    }
+    else
+    {
+        include("includes/main_header.php");
+    }
 
     if(!isset($_SESSION["CUS_ID"]))
     {
@@ -77,7 +80,7 @@
         $rows1=$res1->fetch_assoc();
         echo"<h1 style='text-align: center'>{$rows1['cat_name']}</h1>";
 
-        $sql2="SELECT book.* from book inner join subs where subs.bid=book.bid and subs.cus_id={$_SESSION['CUS_ID']}
+        $sql2="SELECT book.* from book inner join payments where payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']}
                and book.cat_id={$_GET['id']};";
         $res2=$db->query($sql2);
 
@@ -91,25 +94,24 @@
             ';
             while($rows2=$res2->fetch_assoc())
             {
-                echo '
-                <div class="card_item">
-                <div class="card_inner">
-                    <div class="card_top">
-                    <img src="admin/{$rows2["bimage"]}"" alt="image" />
+                echo "
+                <div class='card_item'>
+                <div class='card_inner'>
+                    <div class='card_top'>
+                    <img src='admin/{$rows2['bimage']}' alt='image' />
                     </div>
-                    <div class="card_bottom">
-                    <div class="card_info">
-                        <p class="title">{$rows2["bname"]}</p>
-                        <p>{$rows2["author"]}</p>
+                    <div class='card_bottom'>
+                    <div class='card_info'>
+                        <p class='title'>{$rows2['bname']}</p>
+                        <p>{$rows2['author']}</p>
                     </div>
-                    <div class="card_creator">
-                        <a href="book_det.php?id={$rows2["bid"]}"><button>View Book</button></a>
+                    <div class='card_creator'>
+                        <a href='book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
                 </div>            
-                ';
-
+                ";
             }
             echo '
             </div>
@@ -121,9 +123,9 @@
             echo "<p style='color: red'>You did'nt purchase any book in {$rows1['cat_name']}  :(</p>";
         }
 
-        $sql3="SELECT * from book
-               where not exists (SELECT book.* from book inner join subs where subs.bid=book.bid and subs.cus_id={$_SESSION['CUS_ID']})
-               and book.cat_id={$_GET['id']};";
+        $sql3="SELECT * from book where book.cat_id={$_GET["id"]}
+               EXCEPT
+               (SELECT book.* from book inner join payments where payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']});";
         $res3=$db->query($sql3);
 
         echo "<br><br><h3>RECOMENDATIONS :</h3>";

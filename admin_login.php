@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<?php include("includes/header.php");?>
+<?php include("includes/main_header.php");?>
 
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" style="border:1px solid #ccc">

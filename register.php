@@ -40,7 +40,7 @@
 </head>
 <body>
 
-<?php include("includes/header.php");?>
+<?php include("includes/main_header.php");?>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -51,19 +51,31 @@
     <?php
       if(isset($_POST['submit']))
       {
-        $target_img = "admin/media/profile_img/";
-        $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
-        
-        if (move_uploaded_file($_FILES["profile"]["tmp_name"],$target_img_dir)) 
-        {
-          $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
-           $res = $db->query($sql);
-           echo "<p style='color:green'>Registration Successful</p>";
 
-           header("location:index.php");
+        $sql1="SELECT * from customer where customer.cus_mail='{$_POST['email']}';";
+        $res1=$db->query($sql1);
+
+        if($res1->num_rows==0)
+        {
+          $target_img = "admin/media/profile_img/";
+          $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
+          
+          if (move_uploaded_file($_FILES["profile"]["tmp_name"],$target_img_dir)) 
+          {
+            $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
+             $res = $db->query($sql);
+             echo "<p style='color:green'>Registration Successful</p>";
+  
+             header("location:index.php");
+          }
+          else 
+          {
+            echo "<p style='color:red'>Registration failed</p>";
+          }
         }
-        else {
-          echo "<p style='color:red'>Registration failed</p>";
+        else
+        {
+          echo "<p style='color:red'>Email Id already exists !</p>";
         }
       }
     ?>
