@@ -29,6 +29,7 @@
           <option value="book.bname">Name</option>
           <option value="book.author">Author</option>
           <option value="category.cat_name">Category</option>
+          <option value="book.keywords">Keywords</option>
     </select>
     <br><br>
 
