@@ -55,7 +55,7 @@
                         <p>{$rows['author']}</p>
                     </div>
                     <div class='card_creator'>
-                        <a href='a.php?id={$rows['bid']}'><button>PAY</button></a>
+                        <a href='a.php?id={$rows['bid']}'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                         <p>{$rows2['author']}</p>
                     </div>
                     <div class='card_creator'>
-                        <a href='book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
+                        <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         <p>{$rows3['author']}</p>
                     </div>
                     <div class='card_creator'>
-                        <a href='a.php?id={$rows3['bid']}'><button>PAY</button></a>
+                        <a href='a.php?id={$rows3['bid']}'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
