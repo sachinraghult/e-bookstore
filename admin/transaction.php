@@ -21,7 +21,7 @@
 <h3 style='text-align: center;'>CUSTOMERS BILLING HISTORY</h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
-    <h1>Search books</h1>
+    <h1>Search Billing History</h1>
     <hr>
 
     <label for="searchby">Search by&ensp;&ensp;</label>
