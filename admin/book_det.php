@@ -11,19 +11,21 @@
 <head>
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="../css/cards.css">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
 </head>
 <body>
 
 <?php 
     include("header.php");
-    $sql = "SELECT book.*,category.cat_name,comment.comment,comment.logs from book inner join category on book.cat_id = category.cat_id 
-    inner join comment on book.bid = comment.bid where book.bid = '{$_GET['id']}' 
+    $sql = "SELECT book.*,category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
+    $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
     ORDER BY comment.com_id DESC;";
     $res = $db->query($sql);
+    $res1 = $db->query($sql1);
     $rows = $res->fetch_assoc();
     if($res->num_rows>0)
     {
-    echo"<div class='wrapper'>
+    echo"<div class='wrapper' style='margin:auto;float:left;'>
             <div class='cards_wrap'>
             <div class='card_item'>
             <div class='card_inner'>
@@ -41,7 +43,7 @@
                         </p>
                     </div>
                     <div class='card_creator'>
-                    <a href='media/book_file/'{$rows["bfile"]}'/' target = '_blank'><button>View Book</button></a>
+                    <a href='{$rows["bfile"]}' target = '_blank'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
@@ -50,11 +52,33 @@
         </div>
         ";
     }
-    else
-    {
+    else {
         echo "<p style='color: red'>No Records found</p>";
     }
 
+    if ($res1->num_rows > 0) {
+        echo "<div  style='text-align: center;margin-left:40%;margin-top:'>
+        <table>
+        <tr>
+            <th>CUSTOMER NAME</th>
+            <th>COMMENT</th>
+            <th>TIME LOG</th>
+        </tr>
+        ";
+        while($rows1 = $res1->fetch_assoc()){
+            echo"
+                <tr>
+                    <td>{$rows1['cus_name']}</td>
+                    <td>{$rows1['comment']}</td>
+                    <td>{$rows1['logs']}</td>
+                </tr>
+                </table>
+            </div>";
+        }
+    }
+    else {
+        echo "<p style='color: red'>No Comments</p>";
+    }
 ?>
 
 
