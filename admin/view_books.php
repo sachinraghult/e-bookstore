@@ -24,8 +24,8 @@
     <h1>Search books</h1>
     <hr>
 
-    <label for="searchby">Search by&ensp;&ensp;&ensp;</label>
-    <select name="searchby" style="background-color: rgb(235, 235, 235);" >
+    <label for="searchby">Search by&ensp;&ensp;</label>
+    <select name="searchby" style="background-color: rgb(235, 235, 235);width:80%;height:40px;" >
           <option value="book.bname">Name</option>
           <option value="book.author">Author</option>
           <option value="category.cat_name">Category</option>
@@ -33,10 +33,11 @@
     <br><br>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter name of book or author" name="name" required>
+    <input type="text" placeholder="Enter name of book or author" name="name">
     <br>
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup" name="search">Search</button>
+    <div class="clearfix" style="padding-left: 3px"> 
+      <button type="submit" class="signup" name="search" style="width: 48%;">Search</button>
+      <a href="<?php echo $_SERVER["PHP_SELF"];?>"><button class="signup" style="background-color: red;width:48%;float:right;">Clear</button></a>
     </div>
   </div>
 </form>
@@ -45,12 +46,12 @@
         $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id";
     }
     else {
-        $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id and '{$_POST['searchby']}' LIKE '%{$_POST['name']}%'";
+        $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'";
     }
     $res = $db->query($sql);
     if($res->num_rows>0)
     {
-        echo' <div class="wrapper">
+        echo'<div class="wrapper">
              <div class="cards_wrap">';
             while($rows=$res->fetch_assoc())
             {
@@ -71,7 +72,7 @@
                             </p>
                         </div>
                         <div class='card_creator'>
-                        <a href='cust_trans.php?id={$rows["bid"]}'><button>View Transaction Details</button></a>
+                        <a href='book_det.php?id={$rows["bid"]}'><button>View Book</button></a>
                         </div>
                         </div>
                     </div>

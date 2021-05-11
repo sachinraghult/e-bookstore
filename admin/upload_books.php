@@ -55,8 +55,7 @@
     <br>
 
     <label for="book_category"><b>Category&emsp;&emsp;&emsp;&nbsp;</b></label>
-    <select name="book_category" style="background-color: rgb(235, 235, 235);" >
-        <option>select category</option>
+    <select name="book_category" style="background-color: rgb(235, 235, 235);width:60%;height:40px;" required>
         <?php
           $sql1 = "SELECT * from category";
           $res = $db->query($sql1);

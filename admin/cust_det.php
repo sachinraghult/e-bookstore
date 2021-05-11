@@ -26,10 +26,11 @@
     <hr>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Name" name="name">
     <br>
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup" name="search">Search</button>
+    <div class="clearfix" style="padding-left: 3px"> 
+      <button type="submit" class="signup" name="search" style="width: 48%;">Search</button>
+      <a href="<?php echo $_SERVER["PHP_SELF"];?>"><button class="signup" style="background-color: red;width:48%;float:right;">Clear</button></a>
     </div>
   </div>
 </form>
