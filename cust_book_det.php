@@ -99,14 +99,14 @@
     }
     ?>
 
-    <form action='<?php echo $_SERVER['REQUEST_URI'];?>' method='post' style='border:1px solid #ccc'>
-    <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
-        <h1>Add Comment</h1>
-        <hr>
 
     <?php
     if ($res1->num_rows > 0) {
         if($res2->num_rows>0){
+            echo "<form action='{$_SERVER['REQUEST_URI']}' method='post' style='border:1px solid #ccc'>
+            <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
+                <h1>Add Comment</h1>
+                <hr>";
             if(isset($_POST["submit"])){
                 $sql3 = "INSERT into comment (cus_id, bid, comment, logs) values ({$_SESSION["CUS_ID"]}, {$_GET["id"]}, '{$_POST["comment"]}', now())";
                 $res3 = $db->query($sql3);
