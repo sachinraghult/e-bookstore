@@ -13,8 +13,17 @@
 <body>
 
 <?php 
-    include("includes/header.php");
+    if(!isset($_SESSION['CUS_ID']))
+    {
+        include("includes/main_header.php");
+    }
+    else
+    {
+        include("includes/header.php");
+    }
+
 ?>
+
 <h1 style="color: blue; text-align:center">All Books</h1>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -40,51 +49,145 @@
   </div>
 </form>
 <?php
-    if (!isset($_POST["search"])) {
-        $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id";
-    }
-    else {
-        $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'";
-    }
-    $res = $db->query($sql);
-    if($res->num_rows>0)
-    {
-        echo'<div class="wrapper">
-             <div class="cards_wrap">';
-            while($rows=$res->fetch_assoc())
+    if (isset($_SESSION["CUS_ID"])) {
+        $sql2="SELECT book.*,category.cat_name from book inner join payments on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']}
+        inner join category on category.cat_id = book.cat_id";
+        $res2=$db->query($sql2);
+
+        echo"<h3>BOOKS PURCHASED :</h3><br>";
+        
+        if($res2->num_rows>0)
+        {
+            echo "
+            <div class='wrapper'>
+            <div class='cards_wrap'>
+            ";
+            while($rows2=$res2->fetch_assoc())
             {
                 echo "
-                    <div class='card_item'>
-                    <div class='card_inner'>
-                        <div class='card_top'>
-                            <img src={$rows["bimage"]} alt='profile' />
-                        </div>
-                        <div class='card_bottom'>
-                        <div class='card_info'>
-                            <p class='title'>{$rows["bname"]}</p>
-                            <p>
-                            {$rows['author']}
-                            </p>
-                            <p>
-                            {$rows['cat_name']}
-                            </p>
-                        </div>
-                        <div class='card_creator'>
-                        <a href='login.php'><button>Pay</button></a>
-                        </div>
-                        </div>
+                <div class='card_item'>
+                <div class='card_inner'>
+                    <div class='card_top'>
+                    <img src='admin/{$rows2['bimage']}' alt='image' />
+                    </div>
+                    <div class='card_bottom'>
+                    <div class='card_info'>
+                        <p class='title'>{$rows2['bname']}</p>
+                        <p>{$rows2['author']}</p>
+                        <p>{$rows2['cat_name']}</p>
+                    </div>
+                    <div class='card_creator'>
+                        <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
-                    ";
+                </div>
+                </  div>            
+                ";
             }
-        echo "
-        </div>
-        </div>
-        ";
-    }
-    else
-    {
-        echo "<p style='color: red'>No Records found</p>";
+            echo '
+            </div>
+            </div>
+            ';
+        }
+        else
+        {
+            echo "<p style='color: red'>You did'nt purchase any book in {$rows1['cat_name']}  :(</p>";
+        }
+
+        $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id
+               EXCEPT
+               (SELECT book.*,category.cat_name from book inner join payments
+                on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";
+        $res3=$db->query($sql3);
+
+        echo "<h3>RECOMENDATIONS :</h3>";
+        
+        if($res3->num_rows>0)
+        {
+            echo "
+            <div class='wrapper'>
+            <div class='cards_wrap'>
+            ";
+            while($rows3=$res3->fetch_assoc())
+            {
+                echo "
+                <div class='card_item'>
+                <div class='card_inner'>
+                    <div class'card_top'>
+                    <img src='admin/{$rows3['bimage']}' alt='image' />
+                    </div>
+                    <div class='card_bottom'>
+                    <div class='card_info'>
+                        <p class='title'>{$rows3['bname']}</p>
+                        <p>{$rows3['author']}</p>
+                        <p>{$rows3['cat_name']}</p>
+                    </div>
+                    <div class='card_creator'>
+                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Book</button></a>
+                    </div>
+                    </div>
+                </div>
+                </div>            
+                ";
+            }
+            echo '
+            </div>
+            </div>
+            ';
+        }
+        else
+        {
+            echo "<p style='color: red'>No Books found  :(</p>";
+        }
+    } 
+    else {
+
+        if (!isset($_POST["search"])) {
+            $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id";
+        }
+        else {
+            $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'";
+        }
+        $res = $db->query($sql);
+        if($res->num_rows>0)
+        {
+            echo'<div class="wrapper">
+                <div class="cards_wrap">';
+                while($rows=$res->fetch_assoc())
+                {
+                    echo "
+                        <div class='card_item'>
+                        <div class='card_inner'>
+                            <div class='card_top'>
+                                <img src={$rows["bimage"]} alt='profile' />
+                            </div>
+                            <div class='card_bottom'>
+                            <div class='card_info'>
+                                <p class='title'>{$rows["bname"]}</p>
+                                <p>
+                                {$rows['author']}
+                                </p>
+                                <p>
+                                {$rows['cat_name']}
+                                </p>
+                            </div>
+                            <div class='card_creator'>
+                            <a href='login.php'><button>Pay</button></a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        ";
+                }
+            echo "
+            </div>
+            </div>
+            ";
+        }
+        else
+        {
+            echo "<p style='color: red'>No Records found</p>";
+        }
     }
 
 ?>
