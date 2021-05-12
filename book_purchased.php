@@ -1,6 +1,9 @@
 <?php
   session_start();
   include("db.php");
+  if(!isset($_SESSION["CUS_ID"])){
+    header("location:login.php");
+  }
 ?>
 
 <!DOCTYPE html>
