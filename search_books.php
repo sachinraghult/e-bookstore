@@ -49,11 +49,20 @@
   </div>
 </form>
 <?php
-    if (isset($_SESSION["CUS_ID"])) {
-        $sql2="SELECT book.*,category.cat_name from book inner join payments on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']}
-        inner join category on category.cat_id = book.cat_id";
-        $res2=$db->query($sql2);
+    if (isset($_SESSION["CUS_ID"])) 
+    {
+        if(!isset($_POST["search"]))
+        {
+            $sql2="SELECT book.*,category.cat_name from book inner join payments on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']}
+            inner join category on category.cat_id = book.cat_id";
+        }
+        else
+        {
+            $sql2="SELECT book.*,category.cat_name from book inner join payments on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']}
+            inner join category on category.cat_id = book.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'";
+        }
 
+        $res2=$db->query($sql2);
         echo"<h3>BOOKS PURCHASED :</h3><br>";
         
         if($res2->num_rows>0)
@@ -81,7 +90,7 @@
                     </div>
                     </div>
                 </div>
-                </  div>            
+                </div>            
                 ";
             }
             echo '
@@ -91,15 +100,24 @@
         }
         else
         {
-            echo "<p style='color: red'>You did'nt purchase any book in {$rows1['cat_name']}  :(</p>";
+            echo "<p style='color: red'>You did'nt purchase any book  :(</p>";
         }
 
-        $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id
-               EXCEPT
-               (SELECT book.*,category.cat_name from book inner join payments
-                on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";
-        $res3=$db->query($sql3);
+        if(!isset($_POST["search"]))
+        {
+            $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id
+                   EXCEPT
+                   (SELECT book.*,category.cat_name from book inner join payments
+                   on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";
+        }
+        else{
+            $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'
+                   EXCEPT
+                   (SELECT book.*,category.cat_name from book inner join payments
+                   on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";    
+        }
 
+        $res3=$db->query($sql3);
         echo "<h3>RECOMENDATIONS :</h3>";
         
         if($res3->num_rows>0)
@@ -123,7 +141,7 @@
                         <p>{$rows3['cat_name']}</p>
                     </div>
                     <div class='card_creator'>
-                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Book</button></a>
+                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>Pay</button></a>
                     </div>
                     </div>
                 </div>
