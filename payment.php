@@ -10,6 +10,7 @@
     header("Pragma: no-cache");
     header("Cache-Control: no-cache");
     header("Expires: 0");
+    $ran = "OD".rand(10000,9999999);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,9 @@
     $res=$db->query($sql);
     $rows=$res->fetch_assoc();
 
+    $sql1="INSERT INTO temp_payments (txn_id, cus_id, bid) values ('{$ran}', {$_SESSION['CUS_ID']}, {$_GET['id']});";
+    $db->query($sql1);
+
     if(isset($_POST["ODRER_ID"]))
     {
         header("location:profile.php");
@@ -47,9 +51,9 @@
     <h1>Payment Details</h1>
     <hr>
     <label for="ORDER_ID">Transaction ID</label>
-    <input id="ORDER_ID"  name="ORDER_ID" value="<?php echo "OD".rand(10000,500000) ?>" type="text" readonly/>
+    <input id="ORDER_ID"  name="ORDER_ID" value="<?php echo $ran ?>" type="text" readonly/>
 
-    <label for="CUST_ID">Customer Name</label>
+    <label for="CUST_NAME">Customer Name</label>
     <input type="text" id="CUST_ID" name="CUST_ID" 
     value="<?php echo $_SESSION['CUS_NAME'];?>" readonly/>
 
@@ -70,7 +74,6 @@
     <br><br>
 
     <div class="clearfix" style="padding-left: 3px">
-    <input type="hidden" name="bid" value="<?php echo $_GET["id"]; ?>"/>
     <button type="submit"/>Pay</button>
     </div>
   </div>

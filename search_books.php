@@ -177,7 +177,7 @@
                         <div class='card_item'>
                         <div class='card_inner'>
                             <div class='card_top'>
-                                <img src={$rows["bimage"]} alt='profile' />
+                                <img src='admin/{$rows["bimage"]}' alt='profile' />
                             </div>
                             <div class='card_bottom'>
                             <div class='card_info'>

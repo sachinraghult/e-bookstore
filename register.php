@@ -66,7 +66,7 @@
              $res = $db->query($sql);
              echo "<p style='color:green'>Registration Successful</p>";
   
-             header("location:index.php");
+             header("location:login.php");
           }
           else 
           {

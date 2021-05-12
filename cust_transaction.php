@@ -17,7 +17,7 @@
 
 <?php include("includes/header.php");?>
 
-<h3 style='text-align: center;'><?php echo $_SESSION['CUS_NAME']?>'s BILLING HISTORY</h3>
+<h3 style='text-align: center;'>YOUR BILLING HISTORY</h3>
 
 <?php
     $sql = "SELECT book.bname, book.price, payments.txn_id
