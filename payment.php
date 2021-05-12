@@ -70,7 +70,7 @@
     <br><br>
 
     <div class="clearfix" style="padding-left: 3px">
-    <input type="hidden" name="CALLBACK_URL" value="http://localhost/e-bookstore/success.php"/>
+    <input type="hidden" name="bid" value="<?php echo $_GET["id"]; ?>"/>
     <button type="submit"/>Pay</button>
     </div>
   </div>

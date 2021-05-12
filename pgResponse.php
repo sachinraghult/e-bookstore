@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION["CUS_ID"])){
+    header("location:login.php");
+}
+include("db.php");
 header("Pragma: no-cache");
 header("Cache-Control: no-cache");
 header("Expires: 0");
@@ -19,14 +24,13 @@ $isValidChecksum = verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecks
 
 
 if($isValidChecksum == "TRUE") {
-    echo "<b>Checksum matched and following are the transaction details:</b>" . "<br/>";
     if ($_POST["STATUS"] == "TXN_SUCCESS") {
-        echo "<b>Transaction status is success</b>" . "<br/>";
+        echo "<br><h1 style='text-align:center; color:green;'>Transaction successful</h1>" . "<br/>";
         //Process your transaction here as success transaction.
         //Verify amount & order id received from Payment gateway with your application's order id and amount.
     }
     else {
-        echo "<b>Transaction status is failure</b>" . "<br/>";
+        echo "<br><h1 style='text-align:center; color:red;'>Transaction status failure</h1>" . "<br/>";
     }
 
     if (isset($_POST) && count($_POST)>0 )
