@@ -83,7 +83,7 @@
                                 </p>
                             </div>
                             <div class='card_creator'>
-                            <a href='#.php' target = '_blank'><button>Pay</button></a>
+                            <a href='payment.php'><button>Pay</button></a>
                             </div>
                             </div>
                         </div>
