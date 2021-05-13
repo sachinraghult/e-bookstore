@@ -18,6 +18,7 @@ $paytmChecksum = isset($_POST["CHECKSUMHASH"]) ? $_POST["CHECKSUMHASH"] : ""; //
 //Verify all parameters received from Paytm pg to your application. Like MID received from paytm pg is same as your application�s MID, TXN_AMOUNT and ORDER_ID are same as what was sent by you to Paytm PG for initiating transaction etc.
 $isValidChecksum = verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecksum); //will return TRUE or FALSE string.
 
+echo "<body style='background-color: #ffcc99'>";
 
 if($isValidChecksum == "TRUE") {
     if ($_POST["STATUS"] == "TXN_SUCCESS") {
@@ -50,9 +51,21 @@ if($isValidChecksum == "TRUE") {
 
     if (isset($_POST) && count($_POST)>0 )
     {
-        foreach($_POST as $paramName => $paramValue) {
-                echo "<br/>" . $paramName . " = " . $paramValue;
+        echo "<table style='float: center; margin: auto; border: 1px solid black; border-collapse: collapse; width : 50%'>";
+        foreach($_POST as $paramName => $paramValue) 
+        {
+            if(($paramName == 'MID') || ($paramName == 'TXNID') || ($paramName == 'RESPCODE') || ($paramName == 'CHECKSUMHASH'))
+                continue;
+            else
+                echo "<tr><td style='border: .5px solid black; padding: 10px;'>" . $paramName . "</td><td style='border: .5px solid black; padding: 10px;'>" . $paramValue . "</td></tr>";
         }
+        echo "</table>";
+        echo "
+        <div style='display: inline;' align='center'>
+        <div><button onclick='window.print()' style='color: white; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;''>Print</button></div>
+        <div><a href='book_purchased.php'><button style='color: white; background-color: #4caf50; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;'>Back</button></a></div>
+        </div>
+        ";
     }
     
 
@@ -63,3 +76,4 @@ else {
 }
 
 ?>
+
