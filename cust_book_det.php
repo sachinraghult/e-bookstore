@@ -65,7 +65,9 @@
                 ";
         }
         else{
-            echo"<div class='wrapper'>
+            echo"<div>
+            <div style='width:80%; float:left; align:center'>
+            <div class='wrapper'>
                     <div class='cards_wrap'>
                     <div class='card_item'>
                     <div class='card_inner'>
@@ -83,11 +85,12 @@
                                 </p>
                             </div>
                             <div class='card_creator'>
-                            <a href='payment.php?id={$rows['bid']}'><button>Pay</button></a>
+                            <a href='payment.php?id={$rows['bid']}'><button>&#8377; {$rows['price']}</button></a>
                             </div>
                             </div>
                         </div>
                         </div>
+                </div>
                 </div>
                 </div>
                 ";
@@ -101,31 +104,33 @@
 
 
     <?php
-    if ($res1->num_rows > 0) {
-        if($res2->num_rows>0){
-            echo "<form action='{$_SERVER['REQUEST_URI']}' method='post'>
-            <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
-                <h1>Add Comment</h1>
-                <hr>";
-            if(isset($_POST["submit"])){
-                $sql3 = "INSERT into comment (cus_id, bid, comment, logs) values ({$_SESSION["CUS_ID"]}, {$_GET["id"]}, '{$_POST["comment"]}', now())";
-                $res3 = $db->query($sql3);
-                if($res){
-                    echo "<p style='color:green'>Comment added</p>";
-                    header("location:{$_SERVER['REQUEST_URI']}");
-                }
+
+    if($res2->num_rows>0){
+        echo "<form action='{$_SERVER['REQUEST_URI']}' method='post'>
+        <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
+            <h1>Add Comment</h1>
+            <hr>";
+        if(isset($_POST["submit"])){
+            $sql3 = "INSERT into comment (cus_id, bid, comment, logs) values ({$_SESSION["CUS_ID"]}, {$_GET["id"]}, '{$_POST["comment"]}', now())";
+            $res3 = $db->query($sql3);
+            if($res){
+                echo "<p style='color:green'>Comment added</p>";
+                header("location:{$_SERVER['REQUEST_URI']}");
             }
-                echo"
-                <label for='name'><b>Comment</b></label>
-                <input type='text' placeholder='Search comments' name='comment' required>
-                <br>
-                <div class='clearfix' style='padding-left: 3px'>
-                <button type='submit' class='signup' name='submit'>Submit</button>
-                </div>
-            </div>
-            </form>";
         }
-        echo "<div style='text-align: center;'>
+            echo"
+            <label for='name'><b>Comment</b></label>
+            <input type='text' placeholder='Search comments' name='comment' required>
+            <br>
+            <div class='clearfix' style='padding-left: 3px'>
+            <button type='submit' class='signup' name='submit'>Submit</button>
+            </div>
+        </div>
+        </form>";
+    }
+    
+    if ($res1->num_rows > 0) {
+        echo "
         <table>
         <tr>
             <th>CUSTOMER NAME</th>
@@ -134,7 +139,7 @@
         </tr>
         ";
         while($rows1 = $res1->fetch_assoc()){
-            echo"
+            echo"<div style='width:50%; float:right; align:center'>
                 <tr>
                     <td>{$rows1['cus_name']}</td>
                     <td>{$rows1['comment']}</td>
@@ -143,7 +148,9 @@
         }
         echo "  
             </table>
-            </div>";
+            </div>
+            </div>
+            ";
     }
     else {
         echo "<p style='color: red'>No Comments</p>";
