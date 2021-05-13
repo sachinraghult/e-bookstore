@@ -21,6 +21,40 @@
     </style>
 
     <script type="text/javascript">
+    function CheckPassword(inputtxt) 
+    { 
+      var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
+      if(document.getElementById('pwd').value.match(decimal)) 
+      { 
+        document.getElementById('usermessage').style.color = 'green';
+        document.getElementById('usermessage').innerHTML = 'Valid Password';
+        return true;
+        //document.getElementById("submit").removeAttribute("disabled");
+      }
+      else
+      { 
+        document.getElementById('usermessage').style.color = 'red';
+        document.getElementById('usermessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
+        return false;
+        //document.getElementById("submit").setAttribute("disabled", "disabled");
+      }
+      if (document.getElementById('pwd').value ==
+      document.getElementById('cnfmpwd').value) 
+      {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'matching';
+        return true;
+        //document.getElementById("submit").removeAttribute("disabled");
+  
+      } 
+      else 
+      {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+        return false;
+        //document.getElementById("submit").setAttribute("disabled", "disabled");
+      }
+    }
     function check() 
     {
       if (document.getElementById('pwd').value ==
@@ -28,12 +62,38 @@
       {
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerHTML = 'matching';
+        return true;
+        //document.getElementById("submit").removeAttribute("disabled");
       } 
       else 
       {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'not matching';
+        return false;
+        //document.getElementById("submit").setAttribute("disabled", "disabled");
       }
+    }
+    function userCheck()
+    {
+      var regex = /^[A-Za-z0-9_@.|-]*$/;
+      if (document.getElementById('name').value.match(regex)) 
+      {
+        document.getElementById('usermessage').style.color = 'green';
+        document.getElementById('usermessage').innerHTML = 'Valid Username';
+        //document.getElementById("submit").removeAttribute("disabled");
+      } 
+      else 
+      {
+        document.getElementById('usermessage').style.color = 'red';
+        document.getElementById('usermessage').innerHTML = 'Only special characters   _ @ . | -  are allowed';
+        return false;
+        //document.getElementById("submit").setAttribute("disabled", "disabled");
+      }
+    }
+    function disfunc()
+    {
+      if()
+        document.getElementById("submit").removeAttribute("disabled");
     }
   </script>
 
@@ -66,7 +126,7 @@
              $res = $db->query($sql);
              echo "<p style='color:green'>Registration Successful</p>";
   
-             header("location:login.php");
+             //header("location:login.php");
           }
           else 
           {
@@ -80,14 +140,17 @@
       }
     ?>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Name" name="name" required>
+    <i><div id="usermessage"></div><i>
+    <br>
+
+    <label for="name"><b>User Name</b></label>
+    <input type="text" placeholder="Name" name="name" id="name" onkeyup="userCheck()" required>
 
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Email" name="email" required>
 
     <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="check()" required>
+    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="CheckPassword()" required>
 
     <label for="cnfm-pwd"><b>Confirm Password</b></label>
     <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check()" required>
@@ -99,7 +162,7 @@
     <input type="file" placeholder="profile" name="profile" accept="image/*" required>
     <br><br>
     <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup" name="submit">Sign Up</button>
+      <button type="submit" class="signup" name="submit" disabled="disabled" onclick="disfunc()" id="submit">Sign Up</button>
     </div>
   </div>
 </form>
