@@ -24,7 +24,7 @@
 <?php include("includes/main_header.php");?>
 
 
-<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST" style="border:1px solid #ccc">
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
     <h1>Admin Login</h1>
     <hr>

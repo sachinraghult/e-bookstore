@@ -103,7 +103,7 @@
     <?php
     if ($res1->num_rows > 0) {
         if($res2->num_rows>0){
-            echo "<form action='{$_SERVER['REQUEST_URI']}' method='post' style='border:1px solid #ccc'>
+            echo "<form action='{$_SERVER['REQUEST_URI']}' method='post'>
             <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
                 <h1>Add Comment</h1>
                 <hr>";

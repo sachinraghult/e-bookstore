@@ -46,7 +46,7 @@
     }
 ?>
 
-<form method="POST" action="pgRedirect.php?" style="border:1px solid #ccc;">
+<form method="POST" action="pgRedirect.php?">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 70px; background-color:ivory">
     <h1>Payment Details</h1>
     <hr>
