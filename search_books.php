@@ -193,7 +193,7 @@
                                 {$rows['cat_name']}
                                 </p>
                                 </p>
-                                <p style='float:right; margin-bottom:50px; color:red'>
+                                <p style='float:right; color:red'>
                                 &#8377;{$rows['price']}
                                 </p>
                             </div>

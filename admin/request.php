@@ -4,7 +4,7 @@
     if(!isset($_SESSION["AID"])){
         header("location:../admin_login.php");
     }
-
+    include("header.php");
     if(isset($_GET['id']))
     {
         $sql="DELETE FROM request where rid={$_GET['id']};";
@@ -21,9 +21,7 @@
     <link rel="stylesheet" type="text/css" href="../css/register.css">
 </head>
 <body>
-<?php 
-    include("header.php");
-?>
+
 <h3 style='text-align: center;'>CUSTOMER REQUESTS</h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -64,7 +62,8 @@
     {
         echo "
         <div>
-        <table>
+        <table class='container'>
+            <thead>
             <tr>
                 <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
@@ -72,6 +71,8 @@
                 <th>TIME LOG</th>
                 <th>DELETE</th>
             </tr>
+            </thead>
+        <tbody>
         ";
         while($rows=$res->fetch_assoc())
         {
@@ -81,12 +82,13 @@
                     <td>{$rows["bname"]}</td>
                     <td>{$rows["request"]}</td>
                     <td>{$rows["logs"]}</td>
-                    <td><a style='color: red' href='request.php?id={$rows['rid']}'>Delete</a></td>
+                    <td><a style='color: red;' href='request.php?id={$rows['rid']}'>Delete</a></td>
                 </tr>
             ";
         }
 
         echo"
+        </tbody>
         </table>
         </div>
         ";

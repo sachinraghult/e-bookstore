@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("../db.php");
+    include("header.php");
     if(!isset($_SESSION["AID"])){
         header("location:../admin_login.php");
     }
@@ -15,9 +16,7 @@
     
 </head>
 <body>
-<?php 
-    include("header.php");
-?>
+
 <h3 style='text-align: center;'>CUSTOMERS BILLING HISTORY</h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -46,6 +45,7 @@
     </div>
   </div>
 </form>
+<br>
 <?php
     if (!isset($_POST['search'])) {
         $sql="SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
@@ -85,7 +85,8 @@
     {
         echo "
         <div>
-        <table>
+        <table class='container'>
+            <thead>
             <tr>
                 <th>TRANSACTION ID</th>
                 <th>CUSTOMER NAME</th>
@@ -93,6 +94,8 @@
                 <th>PRICE</th>
                 <th>LOGS</th>
             </tr>
+            </thead>
+            <tbody>
         ";
         while($rows=$res->fetch_assoc())
         {
@@ -101,13 +104,14 @@
                     <td>{$rows["txn_id"]}</td>
                     <td>{$rows["cus_name"]}</td>
                     <td>{$rows["bname"]}</td>
-                    <th>{$rows["price"]}</th>
-                    <th>{$rows["logs"]}</th>
+                    <td>{$rows["price"]}</td>
+                    <td>{$rows["logs"]}</td>
                 </tr>
             ";
         }
 
         echo"
+        </thread>
         </table>
         </div>
         ";

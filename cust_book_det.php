@@ -1,5 +1,14 @@
 <?php
   session_start();
+  if(!isset($_SESSION['CUS_ID']))
+  {
+      include("includes/main_header.php");
+  }
+  else
+  {
+      include("includes/header.php");
+  }
+
   if(!isset($_SESSION["CUS_ID"])){
     header("location:login.php");
   }
@@ -12,23 +21,17 @@
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="css/register.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
+
     <style>
-        table td, table th{
-            padding: 10px;
-        }
+    body{
+        background: #eedfcc;
+    }
     </style>
 </head>
 <body>
 
 <?php
-    if(!isset($_SESSION['CUS_ID']))
-    {
-        include("includes/main_header.php");
-    }
-    else
-    {
-        include("includes/header.php");
-    }
 
     $sql = "SELECT book.*, category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
     $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
@@ -101,22 +104,26 @@
     
     if ($res1->num_rows > 0) {
         echo "<div style='margin-top:5%; margin-left:50%;'>
-        <table style='text-align:center;width:70%; background-color:white; font-size:large'>
+        <table class='container'>
+        <thead>
         <tr>
             <th>CUSTOMER NAME</th>
             <th>COMMENT</th>
             <th>TIME LOG</th>
         </tr>
+        </thead>
+        <tbody>
         ";
         while($rows1 = $res1->fetch_assoc()){
             echo"
                 <tr>
-                    <td style='color:brown'><b>{$rows1['cus_name']}</b></td>
-                    <td style='color:orange;'>{$rows1['comment']}</td>
+                    <td><b>{$rows1['cus_name']}</b></td>
+                    <td>{$rows1['comment']}</td>
                     <td><i>{$rows1['logs']}</i></td>
                 </tr>";
         }
         echo "  
+        </tbody>
             </table>
             </div>
             ";

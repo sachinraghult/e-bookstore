@@ -4,6 +4,7 @@
     if(!isset($_SESSION["AID"])){
         header("location:../admin_login.php");
     }
+    include("header.php");
 
     if(isset($_GET['id']))
     {
@@ -22,9 +23,6 @@
 </head>
 <body>
     
-<?php 
-    include("header.php");
-?>
 <h3 style='text-align: center;'>CUSTOMER COMMENTS</h3>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
@@ -48,6 +46,7 @@
     </div>
   </div>
 </form>
+<br>
 <?php
     if (!isset($_POST['search'])) {
         $sql="SELECT customer.cus_name, book.bname, comment.*
@@ -67,7 +66,8 @@
     {
         echo "
         <div>
-        <table>
+        <table class='container'>
+            <thead>
             <tr>
                 <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
@@ -75,6 +75,8 @@
                 <th>TIME LOG</th>
                 <th>DELETE</th>
             </tr>
+            </thead>
+            <tbody>
         ";
         while($rows=$res->fetch_assoc())
         {
@@ -90,6 +92,7 @@
         }
 
         echo"
+        </tbody>
         </table>
         </div>
         ";

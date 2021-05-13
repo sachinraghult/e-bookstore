@@ -4,6 +4,7 @@
     if(!isset($_SESSION["AID"])){
         header("location:../admin_login.php");
     }
+    include("header.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
-<?php 
-    include("header.php");
-?>
+
 <?php
     $sql="SELECT book.bname, book.price, payments.txn_id, payments.logs
     from payments inner join book 
@@ -32,13 +31,16 @@
     {
         echo "
         <div>
-        <table>
+        <table class='container'>
+        <thead>
             <tr>
                 <th>TRANSACTION ID</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
                 <th>LOGS</th>
             </tr>
+            </thead>
+        <tbody>
         ";
         while($rows=$res->fetch_assoc())
         {
@@ -46,13 +48,14 @@
                 <tr>
                     <td>{$rows["txn_id"]}</td>
                     <td>{$rows["bname"]}</td>
-                    <th>{$rows["price"]}</th>
-                    <th>{$rows["logs"]}</th>
+                    <td>{$rows["price"]}</td>
+                    <td>{$rows["logs"]}</td>
                 </tr>
             ";
         }
 
         echo"
+        </tbody>
         </table>
         </div>
         ";

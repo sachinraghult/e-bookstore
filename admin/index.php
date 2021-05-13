@@ -1,6 +1,8 @@
 <?php
     session_start();
     include("../db.php");
+    include("header.php");
+
     if(!isset($_SESSION["AID"])){
         header("location:../admin_login.php");
     }
@@ -17,17 +19,18 @@
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
-<?php 
-    include("header.php");
-?>
+
 
     <h3 style="text-align: center;">Welcome Admin</h3>
     <div>
-        <table>
+    <table class='container'>
+        <thead>
             <tr>
                 <th>TOTAL RECORDS</th>
                 <th>COUNT</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td>Customer</td>
                 <td><?php echo count_details("SELECT * FROM customer", $db);?></td>
@@ -62,6 +65,7 @@
                     ?>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 </div>

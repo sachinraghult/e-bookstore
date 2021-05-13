@@ -4,6 +4,7 @@
     header("location:login.php");
   }
   include("db.php");
+  include("includes/header.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +12,8 @@
 <head>
     <title>Admin Home</title>
     <link rel="stylesheet" type="text/css" href="css/tables.css">
-    
 </head>
 <body>
-
-<?php include("includes/header.php");?>
 
 <h3 style='text-align: center;'>YOUR BILLING HISTORY</h3>
 
@@ -31,13 +29,16 @@
     {
         echo "
         <div>
-        <table>
+        <table class='container'>
+        <thead>
             <tr>
                 <th>TRANSACTION ID</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
                 <th>LOGS</th>
             </tr>
+        </thead>
+        <tbody>
         ";
         while($rows=$res->fetch_assoc())
         {
@@ -45,13 +46,14 @@
                 <tr>
                     <td>{$rows["txn_id"]}</td>
                     <td>{$rows["bname"]}</td>
-                    <th>{$rows["price"]}</th>
-                    <th>{$rows["logs"]}</th>
+                    <td>{$rows["price"]}</td>
+                    <td>{$rows["logs"]}</td>
                 </tr>
             ";
         }
 
         echo"
+        </tbody>
         </table>
         </div>
         ";

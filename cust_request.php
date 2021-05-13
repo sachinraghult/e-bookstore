@@ -4,6 +4,14 @@
     header("location:login.php");
   }
   include("db.php");
+  if(!isset($_SESSION['CUS_ID']))
+  {
+      include("includes/main_header.php");
+  }
+  else
+  {
+      include("includes/header.php");
+  }
 
   if(isset($_GET['id']))
     {
@@ -18,25 +26,17 @@
 <head>
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
 </head>
 <body>
 
-<?php
-    if(!isset($_SESSION['CUS_ID']))
-    {
-        include("includes/main_header.php");
-    }
-    else
-    {
-        include("includes/header.php");
-    }
-
-?>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>"  method = "post">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+    <br>
     <h1>Add Request</h1>
+    <br>
     <hr>
 
     <?php
@@ -69,7 +69,7 @@
     </div>
   </div>
 </form>
-
+<br>
     <?php
         $sql="SELECT * FROM request where request.cus_id = {$_SESSION["CUS_ID"]};";
         $res=$db->query($sql);
@@ -78,13 +78,16 @@
         {
             echo "
             <div>
-            <table>
+            <table class='container'>
+            <thead>
                 <tr>
                     <th>BOOK NAME</th>
                     <th>REQUEST</th>
                     <th>TIME LOG</th>
                     <th>UNSEND</th>
                 </tr>
+                </thead>
+            <tbody>
             ";
             while($rows=$res->fetch_assoc())
             {
@@ -99,6 +102,7 @@
             }
     
             echo"
+            </tbody>
             </table>
             </div>
             ";
