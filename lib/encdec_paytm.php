@@ -20,7 +20,7 @@ function pkcs5_pad_e($text, $blocksize) {
 }
 
 function pkcs5_unpad_e($text) {
-	$pad = ord($text{strlen($text) - 1});
+	$pad = ord('$text{strlen($text) - 1}');
 	if ($pad > strlen($text))
 		return false;
 	return substr($text, 0, -1 * $pad);
