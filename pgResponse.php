@@ -61,9 +61,9 @@ if($isValidChecksum == "TRUE") {
         }
         echo "</table>";
         echo "
-        <div style='display: inline;' align='center'>
-        <div><button onclick='window.print()' style='color: white; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;''>Print</button></div>
-        <div><a href='book_purchased.php'><button style='color: white; background-color: #4caf50; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;'>Back</button></a></div>
+        <div style='display: inline;' align='center'><br><br>
+        <div style='float:left;margin-left:630px;'><button onclick='window.print()' style='color: white; background-color: #4caf50; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;''>Print</button></div>
+        <div style='float:right;margin-right:690px;'><a href='book_purchased.php'><button style='color: white; background-color: #4caf50; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; display: inline-block; font-size: 100%;'>Back</button></a></div>
         </div>
         ";
     }
