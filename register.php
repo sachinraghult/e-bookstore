@@ -7,7 +7,7 @@
   }
   include("db.php");
 ?>
-
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@
         background-size: cover;
     }
     </style>
-
+ 
     <script type="text/javascript">
     function CheckPassword() 
     { 
@@ -28,39 +28,12 @@
       { 
         document.getElementById('usermessage').style.color = 'green';
         document.getElementById('usermessage').innerHTML = 'Valid Password';
-        //return true;
-        //document.getElementById("submit").removeAttribute("disabled");
+        return true;
       }
       else
       { 
         document.getElementById('usermessage').style.color = 'red';
         document.getElementById('usermessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
-        //return false;
-        //document.getElementById("submit").setAttribute("disabled", "disabled");
-      }
-      if (document.getElementById('pwd').value ==
-      document.getElementById('cnfmpwd').value) 
-      {
-        document.getElementById('message').style.color = 'green';
-        document.getElementById('message').innerHTML = 'matching';
-        //return true;
-        //document.getElementById("submit").removeAttribute("disabled");
-  
-      } 
-      else 
-      {
-        document.getElementById('message').style.color = 'red';
-        document.getElementById('message').innerHTML = 'not matching';
-        //return false;
-        //document.getElementById("submit").setAttribute("disabled", "disabled");
-      }
-      if(document.getElementById('pwd').value.match(decimal) && document.getElementById('pwd').value ==
-      document.getElementById('cnfmpwd').value)
-      {
-        return true;
-      }
-      else
-      {
         return false;
       }
     }
@@ -72,14 +45,12 @@
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerHTML = 'matching';
         return true;
-        //document.getElementById("submit").removeAttribute("disabled");
       } 
       else 
       {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'not matching';
         return false;
-        //document.getElementById("submit").setAttribute("disabled", "disabled");
       }
     }
     function userCheck()
@@ -90,19 +61,20 @@
         document.getElementById('usermessage').style.color = 'green';
         document.getElementById('usermessage').innerHTML = 'Valid Username';
         return true;
-        //document.getElementById("submit").removeAttribute("disabled");
       } 
       else 
       {
         document.getElementById('usermessage').style.color = 'red';
         document.getElementById('usermessage').innerHTML = 'Only special characters   _ @ . | -  are allowed';
         return false;
-        //document.getElementById("submit").setAttribute("disabled", "disabled");
       }
     }
     function disfunc()
     {
-      if(CheckPassword() && check() && userCheck()){
+      console.log(11);
+      if(document.getElementById('usermessage').style.color == 'green' &&
+      document.getElementById('message').style.color == 'green'
+      ){
         document.getElementById("submit").removeAttribute("disabled");
       }
       else{
@@ -110,25 +82,25 @@
       }
     }
   </script>
-
+ 
 </head>
 <body>
-
+ 
 <?php include("includes/main_header.php");?>
-
+ 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post" style="border:1px solid #ccc">
   <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-
+ 
     <?php
       if(isset($_POST['submit']))
       {
-
+ 
         $sql1="SELECT * from customer where customer.cus_mail='{$_POST['email']}';";
         $res1=$db->query($sql1);
-
+ 
         if($res1->num_rows==0)
         {
           $target_img = "admin/media/profile_img/";
@@ -144,7 +116,11 @@
           }
           else 
           {
-            echo "<p style='color:red'>Registration failed</p>";
+            $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', 'admin/media/profile_img/def99864.jpg', '{$_POST['email']}', '{$_POST['pwd']}');";
+             $res = $db->query($sql);
+             echo "<p style='color:green'>Registration Successful</p>";
+  
+             //header("location:login.php");
           }
         }
         else
@@ -153,35 +129,35 @@
         }
       }
     ?>
-
+ 
     <i><div id="usermessage"></div><i>
     <br>
-
+ 
     <label for="name"><b>User Name</b></label>
-    <input type="text" placeholder="Name" name="name" id="name" onkeyup="userCheck()" required>
-
+    <input type="text" placeholder="Name" name="name" id="name" onkeyup="userCheck(); disfunc()" required>
+ 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
-
+    <input type="email" placeholder="Email" name="email" required>
+ 
     <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="CheckPassword()" required>
-
+    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="CheckPassword(); check(); disfunc()" required>
+ 
     <label for="cnfm-pwd"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check()" required>
+    <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check(); disfunc()" required>
     
     <i><div id="message"></div><i>
     <br><br>
-
+ 
     <label for="profile"><b>Profile pic</b></label>
-    <input type="file" placeholder="profile" name="profile" accept="image/*" required>
+    <input type="file" placeholder="profile" name="profile" accept="image/*">
     <br><br>
     <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup" name="submit" disabled="disabled" onclick="disfunc()" id="submit">Sign Up</button>
+      <button type="submit" class="signup" name="submit" onclick="" id="submit">Sign Up</button>
     </div>
   </div>
 </form>
-
+ 
 <?php include("includes/footer.php"); ?>
-
+ 
 </body>
 </html>
