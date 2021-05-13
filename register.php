@@ -89,6 +89,7 @@
       {
         document.getElementById('usermessage').style.color = 'green';
         document.getElementById('usermessage').innerHTML = 'Valid Username';
+        return true;
         //document.getElementById("submit").removeAttribute("disabled");
       } 
       else 
