@@ -53,6 +53,10 @@
                     <div class='card_info'>
                         <p class='title'>{$rows['bname']}</p>
                         <p>{$rows['author']}</p>
+                        </p>
+                            <p style='float:right; display:inline-block; color:red'>
+                            &#8377;{$rows['price']}
+                        </p>
                     </div>
                     <div class='card_creator'>
                         <a href='login.php'><button>Pay</button></a>
@@ -148,6 +152,10 @@
                     <div class='card_info'>
                         <p class='title'>{$rows3['bname']}</p>
                         <p>{$rows3['author']}</p>
+                        </p>
+                            <p style='float:right; display:inline-block; color:red'>
+                            &#8377;{$rows3['price']}
+                        </p>
                     </div>
                     <div class='card_creator'>
                         <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Book</button></a>

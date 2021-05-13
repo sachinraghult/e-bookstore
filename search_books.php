@@ -139,6 +139,10 @@
                         <p class='title'>{$rows3['bname']}</p>
                         <p>{$rows3['author']}</p>
                         <p>{$rows3['cat_name']}</p>
+                        </p>
+                            <p style='float:right; display:inline-block; color:red'>
+                            &#8377;{$rows3['price']}
+                        </p>
                     </div>
                     <div class='card_creator'>
                         <a href='cust_book_det.php?id={$rows3['bid']}'><button>Pay</button></a>
@@ -187,6 +191,10 @@
                                 </p>
                                 <p>
                                 {$rows['cat_name']}
+                                </p>
+                                </p>
+                                <p style='float:right; margin-bottom:50px; color:red'>
+                                &#8377;{$rows['price']}
                                 </p>
                             </div>
                             <div class='card_creator'>

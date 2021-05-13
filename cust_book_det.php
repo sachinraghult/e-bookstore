@@ -124,7 +124,7 @@
     else {
         echo "
         <div style='margin-top:5%; margin-left:50%;'>
-            <p style='color: red; text-align:center; background-color:white; font-size:30px'>No Comments</p>
+        <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
         </div>";
     }
 ?>

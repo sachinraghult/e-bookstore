@@ -71,6 +71,9 @@
                             <p>
                             {$rows['cat_name']}
                             </p>
+                            <p style='float:right; display:inline-block; color:red'>
+                            &#8377;{$rows['price']}
+                            </p>
                         </div>
                         <div class='card_creator'>
                         <a href='book_det.php?id={$rows["bid"]}'><button>View Book</button></a>

@@ -56,6 +56,7 @@ img {
   padding: 15px;
   margin: 10px 0;
   border: 1px dashed #0071bc;
+  text-align: center;
 }
 
 .cards_wrap .card_bottom .card_info .title {
