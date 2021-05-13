@@ -21,21 +21,21 @@
     </style>
 
     <script type="text/javascript">
-    function CheckPassword(inputtxt) 
+    function CheckPassword() 
     { 
       var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if(document.getElementById('pwd').value.match(decimal)) 
       { 
         document.getElementById('usermessage').style.color = 'green';
         document.getElementById('usermessage').innerHTML = 'Valid Password';
-        return true;
+        //return true;
         //document.getElementById("submit").removeAttribute("disabled");
       }
       else
       { 
         document.getElementById('usermessage').style.color = 'red';
         document.getElementById('usermessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
-        return false;
+        //return false;
         //document.getElementById("submit").setAttribute("disabled", "disabled");
       }
       if (document.getElementById('pwd').value ==
@@ -43,7 +43,7 @@
       {
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerHTML = 'matching';
-        return true;
+        //return true;
         //document.getElementById("submit").removeAttribute("disabled");
   
       } 
@@ -51,8 +51,17 @@
       {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'not matching';
-        return false;
+        //return false;
         //document.getElementById("submit").setAttribute("disabled", "disabled");
+      }
+      if(document.getElementById('pwd').value.match(decimal) && document.getElementById('pwd').value ==
+      document.getElementById('cnfmpwd').value)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
       }
     }
     function check() 
@@ -92,8 +101,12 @@
     }
     function disfunc()
     {
-      if()
+      if(CheckPassword() && check() && userCheck()){
         document.getElementById("submit").removeAttribute("disabled");
+      }
+      else{
+        document.getElementById("submit").setAttribute("disabled", "disabled");
+      }
     }
   </script>
 
