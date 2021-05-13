@@ -31,8 +31,8 @@
     </select>
     <br><br>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter name of book or author" name="name">
+    <label for="name"><b>Search</b></label>
+    <input type="text" placeholder="Enter name of book or customer" name="name">
     <br><hr style="width:46%; float: left"><span style="text-align:center">&ensp;or&nbsp;</span><hr style="width:46%; float: right"><br><br>
 
     <label for="pricebelow"><b>Price Range</b></label><br>

@@ -116,8 +116,8 @@
                 }
             }
                 echo"
-                <label for='name'><b>Name</b></label>
-                <input type='text' placeholder='Name' name='comment' required>
+                <label for='name'><b>Comment</b></label>
+                <input type='text' placeholder='Search comments' name='comment' required>
                 <br>
                 <div class='clearfix' style='padding-left: 3px'>
                 <button type='submit' class='signup' name='submit'>Submit</button>

@@ -39,8 +39,8 @@
     </select>
     <br><br>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter name of book or author" name="name">
+    <label for="name"><b>Search</b></label>
+    <input type="text" placeholder="Enter to Search" name="name">
     <br>
     <div class="clearfix" style="padding-left: 3px"> 
       <button type="submit" class="signup" name="search" style="width: 48%;">Search</button>
