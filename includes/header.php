@@ -12,6 +12,10 @@
       color: #555555;
       font-size: 16px;
     }*/
+    #sidebar{
+        background-image: url(images/8.gif);
+        background-size: cover;
+    }
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

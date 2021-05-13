@@ -11,8 +11,8 @@
     <title>E-Book Store</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
     <style>
-        body{
-        background-image: url(images/library.gif);
+        wrapper{
+        background-image: url(images/9.gif);
         background-repeat: no-repeat;
         background-size: cover;
         }

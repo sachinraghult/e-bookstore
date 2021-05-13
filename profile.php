@@ -16,12 +16,12 @@
 
     <style>
         body{
-        background-image: url(images/library.jpg);
-        background-repeat: no-repeat;
+        background-image: url(images/11.gif);
         background-size: cover;
     }
     </style>
 </head>
+<marquee direction="right">
 <body>
 
 <?php include("includes/header.php");?>
@@ -42,4 +42,6 @@
 ?>
 
 </body>
+
+</marquee>
 </html>
