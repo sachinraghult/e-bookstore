@@ -20,7 +20,7 @@
 <h3 style='text-align: center;'>YOUR BILLING HISTORY</h3>
 
 <?php
-    $sql = "SELECT book.bname, book.price, payments.txn_id
+    $sql = "SELECT book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             where payments.cus_id = {$_SESSION["CUS_ID"]}
             order by payments.bill_id DESC;";
@@ -36,6 +36,7 @@
                 <th>TRANSACTION ID</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
+                <th>LOGS</th>
             </tr>
         ";
         while($rows=$res->fetch_assoc())
@@ -45,6 +46,7 @@
                     <td>{$rows["txn_id"]}</td>
                     <td>{$rows["bname"]}</td>
                     <th>{$rows["price"]}</th>
+                    <th>{$rows["logs"]}</th>
                 </tr>
             ";
         }

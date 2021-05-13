@@ -21,7 +21,6 @@
     }
     </style>
 </head>
-<marquee direction="right">
 <body>
 
 <?php include("includes/header.php");?>
@@ -43,5 +42,5 @@
 
 </body>
 
-</marquee>
+
 </html>

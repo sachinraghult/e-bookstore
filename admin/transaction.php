@@ -48,35 +48,35 @@
 </form>
 <?php
     if (!isset($_POST['search'])) {
-        $sql="SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+        $sql="SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
         from payments inner join book on book.bid=payments.bid
-        inner join customer on customer.cus_id=payments.cus_id
-        order by payments.bill_id DESC;";
+        inner join customer on customer.cus_id=payments.cus_id 
+        order by payments.logs DESC;";
     }
     else {
         if ($_POST['pricebelow']) {
-            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
-            inner join customer on customer.cus_id=payments.cus_id where book.price > {$_POST['pricebelow']}
-            order by payments.bill_id DESC;";
+            inner join customer on customer.cus_id=payments.cus_id where book.price > {$_POST['pricebelow']} 
+            order by payments.logs DESC;";
         }
         elseif ($_POST['priceabove']) {
-            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             inner join customer on customer.cus_id=payments.cus_id where book.price < {$_POST['priceabove']}
-            order by payments.bill_id DESC;";
+            order by payments.logs DESC;";
         }
         elseif ($_POST['pricebelow'] && $_POST['pricebelow']) {
-            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             inner join customer on customer.cus_id=payments.cus_id where book.price BETWEEN {$_POST['pricebelow']} and {$_POST['priceabove']}
-            order by payments.bill_id DESC;";
+            order by payments.logs DESC;";
         }
         else {
-            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id
+            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             inner join customer on customer.cus_id=payments.cus_id where {$_POST['searchby']} LIKE '%{$_POST['name']}%'
-            order by payments.bill_id DESC;";
+            order by payments.logs DESC;";
         }
      }
     $res=$db->query($sql);
@@ -91,6 +91,7 @@
                 <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
+                <th>LOGS</th>
             </tr>
         ";
         while($rows=$res->fetch_assoc())
@@ -101,6 +102,7 @@
                     <td>{$rows["cus_name"]}</td>
                     <td>{$rows["bname"]}</td>
                     <th>{$rows["price"]}</th>
+                    <th>{$rows["logs"]}</th>
                 </tr>
             ";
         }

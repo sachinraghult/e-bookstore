@@ -17,7 +17,7 @@
     include("header.php");
 ?>
 <?php
-    $sql="SELECT book.bname, book.price, payments.txn_id
+    $sql="SELECT book.bname, book.price, payments.txn_id, payments.logs
     from payments inner join book 
     where book.bid=payments.bid AND payments.cus_id={$_GET["id"]}
     order by payments.bill_id DESC;";
@@ -37,6 +37,7 @@
                 <th>TRANSACTION ID</th>
                 <th>BOOK NAME</th>
                 <th>PRICE</th>
+                <th>LOGS</th>
             </tr>
         ";
         while($rows=$res->fetch_assoc())
@@ -46,6 +47,7 @@
                     <td>{$rows["txn_id"]}</td>
                     <td>{$rows["bname"]}</td>
                     <th>{$rows["price"]}</th>
+                    <th>{$rows["logs"]}</th>
                 </tr>
             ";
         }
