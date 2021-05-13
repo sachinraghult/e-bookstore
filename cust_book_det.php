@@ -10,8 +10,13 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="css/cards.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <style>
+        table td, table th{
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,80 +39,10 @@
     $res2 = $db->query($sql2);
     $rows = $res->fetch_assoc();
 
-    if($res->num_rows>0)
-    {
-        if($res2->num_rows>0){
-            echo"<div class='wrapper'>
-                    <div class='cards_wrap'>
-                    <div class='card_item'>
-                    <div class='card_inner'>
-                            <div class='card_top'>
-                                <img src='admin/{$rows["bimage"]}' alt='profile' />
-                            </div>
-                            <div class='card_bottom'>
-                            <div class='card_info'>
-                                <p class='title'>{$rows["bname"]}</p>
-                                <p>
-                                {$rows['author']}
-                                </p>
-                                <p>
-                                {$rows['cat_name']}
-                                </p>
-                            </div>
-                            <div class='card_creator'>
-                            <a href='admin/{$rows["bfile"]}' target = '_blank'><button>View Book</button></a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                </div>
-                ";
-        }
-        else{
-            echo"<div>
-            <div style='width:80%; float:left; align:center'>
-            <div class='wrapper'>
-                    <div class='cards_wrap'>
-                    <div class='card_item'>
-                    <div class='card_inner'>
-                            <div class='card_top'>
-                                <img src='admin/{$rows["bimage"]}' alt='profile' />
-                            </div>
-                            <div class='card_bottom'>
-                            <div class='card_info'>
-                                <p class='title'>{$rows["bname"]}</p>
-                                <p>
-                                {$rows['author']}
-                                </p>
-                                <p>
-                                {$rows['cat_name']}
-                                </p>
-                            </div>
-                            <div class='card_creator'>
-                            <a href='payment.php?id={$rows['bid']}'><button>&#8377; {$rows['price']}</button></a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                </div>
-                </div>
-                ";
-        }
-    }
-
-    else {
-        echo "<p style='color: red'>No Records found</p>";
-    }
-    ?>
-
-
-    <?php
-
     if($res2->num_rows>0){
-        echo "<form action='{$_SERVER['REQUEST_URI']}' method='post'>
-        <div class='container content' style='width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory'>
+        echo "
+        <div class='container content' style='float:left;width: 500px; height: 310px; margin:5% 13%; background-color:ivory'>
+        <form action='{$_SERVER['REQUEST_URI']}' method='post' >
             <h1>Add Comment</h1>
             <hr>";
         if(isset($_POST["submit"])){
@@ -125,13 +60,48 @@
             <div class='clearfix' style='padding-left: 3px'>
             <button type='submit' class='signup' name='submit'>Submit</button>
             </div>
-        </div>
-        </form>";
+        </form>
+        </div>";
     }
     
+    if($res->num_rows>0)
+    {
+        if($res2->num_rows>0){
+            echo"
+            <div class='card' style='float:left;margin:0% 18%; width: 500px;'>
+                <img src='admin/{$rows["bimage"]}' alt='book image' style='width:100%'>
+                <h1>{$rows["bname"]}</h1>
+                <p>{$rows['author']}</p>
+                <p>{$rows['cat_name']}</p>
+                <p><a href='admin/{$rows["bfile"]}' target = '_blank'><button style='margin-bottom: 0%;'>View Book</button></a></p>
+            </div>
+            ";
+        }
+        else{
+            echo"
+            <div class='card' style='float:left; margin:5% 17%; width: 500px;'>
+                <img src='admin/{$rows["bimage"]}' alt='book image' style='width:100%'>
+                <h1>{$rows["bname"]}</h1>
+                <p>{$rows['author']}</p>
+                <p>{$rows['cat_name']}</p>
+                <p><a href='payment.php?id={$rows["bid"]}'><button style='margin-bottom: 0%;'>&#8377; {$rows['price']}</button></a></p>
+            </div>
+          ";
+        }
+    }
+
+    else {
+        echo "<p style='color: red'>No Records found</p>";
+    }
+    ?>
+
+
+    <?php
+
+    
     if ($res1->num_rows > 0) {
-        echo "
-        <table>
+        echo "<div style='margin-top:5%; margin-left:50%;'>
+        <table style='text-align:center;width:70%; background-color:white; font-size:large'>
         <tr>
             <th>CUSTOMER NAME</th>
             <th>COMMENT</th>
@@ -139,21 +109,23 @@
         </tr>
         ";
         while($rows1 = $res1->fetch_assoc()){
-            echo"<div style='width:50%; float:right; align:center'>
+            echo"
                 <tr>
-                    <td>{$rows1['cus_name']}</td>
-                    <td>{$rows1['comment']}</td>
-                    <td>{$rows1['logs']}</td>
+                    <td style='color:brown'><b>{$rows1['cus_name']}</b></td>
+                    <td style='color:orange;'>{$rows1['comment']}</td>
+                    <td><i>{$rows1['logs']}</i></td>
                 </tr>";
         }
         echo "  
             </table>
             </div>
-            </div>
             ";
     }
     else {
-        echo "<p style='color: red'>No Comments</p>";
+        echo "
+        <div style='margin-top:5%; margin-left:50%;'>
+            <p style='color: red; text-align:center; background-color:white; font-size:30px'>No Comments</p>
+        </div>";
     }
 ?>
 
