@@ -26,14 +26,14 @@
       var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if(document.getElementById('pwd').value.match(decimal)) 
       { 
-        document.getElementById('usermessage').style.color = 'green';
-        document.getElementById('usermessage').innerHTML = 'Valid Password';
+        document.getElementById('pwdmessage').style.color = 'green';
+        document.getElementById('pwdmessage').innerHTML = 'Valid Password';
         return true;
       }
       else
       { 
-        document.getElementById('usermessage').style.color = 'red';
-        document.getElementById('usermessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
+        document.getElementById('pwdmessage').style.color = 'red';
+        document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
         return false;
       }
     }
@@ -73,8 +73,9 @@
     {
       console.log(11);
       if(document.getElementById('usermessage').style.color == 'green' &&
-      document.getElementById('message').style.color == 'green'
-      ){
+        document.getElementById('message').style.color == 'green' &&
+        document.getElementById('pwdmessage').style.color == 'green')
+        {
         document.getElementById("submit").removeAttribute("disabled");
       }
       else{
@@ -112,7 +113,7 @@
              $res = $db->query($sql);
              echo "<p style='color:green'>Registration Successful</p>";
   
-             //header("location:login.php");
+             header("location:login.php");
           }
           else 
           {
@@ -120,7 +121,7 @@
              $res = $db->query($sql);
              echo "<p style='color:green'>Registration Successful</p>";
   
-             //header("location:login.php");
+             header("location:login.php");
           }
         }
         else
@@ -142,12 +143,13 @@
     <label for="pwd"><b>Password</b></label>
     <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="CheckPassword(); check(); disfunc()" required>
  
-    <label for="cnfm-pwd"><b>Confirm Password</b></label>
+    <label for="cnfm-pwd" style="float: left;"><b>Confirm Password</b></label>
+    <i><div id="message" style="float: right;"></div><i>
     <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check(); disfunc()" required>
-    
-    <i><div id="message"></div><i>
+
+    <i><div id="pwdmessage"></div><i>
     <br><br>
- 
+  
     <label for="profile"><b>Profile pic</b></label>
     <input type="file" placeholder="profile" name="profile" accept="image/*">
     <br><br>
