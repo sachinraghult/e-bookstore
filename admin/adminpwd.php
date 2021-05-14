@@ -4,12 +4,13 @@
     header("location:admin/");
   }
   include("../db.php");
+  include("header.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
     <title>Change password</title>
 
     <script type="text/javascript">
@@ -33,11 +34,9 @@
 </head>
 <body>
 
-<?php include("header.php");?>
-
+<div class="login-box" style="margin: auto">
+<h2>Change Password</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
-    <h1>Change Password</h1>
     <hr>
     <?php
       if (isset($_POST["reset"])) 
@@ -71,23 +70,29 @@
         }
       }
     ?>
+     <div class="user-box">
+      <input type="password" name="oldpwd" required>
+      <label>Old Password</label>
+    </div>
 
-    <label for="oldpwd"><b>Old Password</b></label>
-    <input type="password" placeholder="Password" name="oldpwd" required>
+    <div class="user-box">
+      <input type="password" name="newpwd" id="newpwd" onkeyup="check();" required>
+      <label>New Password</label>
+    </div>
 
-    <label for="newpwd"><b>New Password</b></label>
-    <input type="password" placeholder="Password" name="newpwd" id="newpwd" onkeyup="check();" required>
-
-    <label for="cnfmpwd"><b>Confirm New Password</b></label>
-    <input type="password" placeholder="Confirm New Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check();" required>
+    <div class="user-box">
+      <input type="password" name="cnfmpwd" id="cnfmpwd" onkeyup="check();" required>
+      <label>Confirm Password</label>
+    </div>
 
     <i><span id="message"></span></i><br><br>
 
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="resetpwd" name="reset">Reset Password</button>
-    </div>
-  </div>
-</form>
-
-</body>
-</html>
+    <a>
+    <button type="submit" class="resetpwd" name="reset" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; cursor: pointer;">
+      <span></span>
+      <span></span>
+      Reset Password
+    </button>
+    </a>
+  </form>
+</div> 
