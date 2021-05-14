@@ -103,7 +103,7 @@
 
     
     if ($res1->num_rows > 0) {
-        echo "<div style='margin-top:5%; margin-left:50%;'>
+        echo "<div style='margin-top:5%; margin-left:55%;'>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
