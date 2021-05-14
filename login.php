@@ -15,7 +15,6 @@
 <body>
 
 
-
 <div class="login-box" style="margin: auto">
 <h2>Login</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
@@ -54,7 +53,7 @@
       <span></span>
       <span></span>
       <span></span>
-      Submit
+      Login
     </button>
     </a>
   </form>

@@ -4,6 +4,7 @@
     header("location:admin/");
   }
   include("db.php");
+  include("includes/main_header.php");
 ?>
 
 
@@ -11,23 +12,14 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <style>
-    body{
-        /*background-image: url(images/library.jpg);*/
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
 </head>
 <body>
 
-<?php include("includes/main_header.php");?>
-
+<div class="login-box" style="margin: auto">
+<h2>Admin Login</h2>
+<form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
-    <h1>Admin Login</h1>
-    <hr>
 
     <?php
       if(isset($_POST["submit"])){
@@ -46,20 +38,25 @@
       }
     ?>
 
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Username" name="aname" required>
-
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="apass" required>
-
-    <br><br>
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="login" name="submit">Login</button>
+    <div class="user-box">
+          <input type="text" name="aname" required="">
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="apass" required="">
+          <label>Password</label>
+        </div>
+        <a>
+        <button type="submit" name="submit" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; cursor: pointer;">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Login
+        </button>
+        </a>
+      </form>
     </div>
-    <div><br>
-    </div>
-  </div>
-</form>
 
 <?php include("includes/footer.php"); ?>
 

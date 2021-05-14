@@ -17,7 +17,7 @@
     <script type="text/javascript">
     function CheckPassword() 
     { 
-      var decimal=  /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[^a-zA-Z0-9])(?!.*\s).{6,}$/;
+      var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if(document.getElementById('pwd').value.match(decimal)) 
       { 
         document.getElementById('pwdmessage').style.color = 'green';
@@ -49,7 +49,7 @@
     }
     function userCheck()
     {
-      var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
+      var regex=  /^[A-Za-z0-9_@.|-]*$/;
       if (document.getElementById('name').value.match(regex)) 
       {
         document.getElementById('usermessage').style.color = 'green';
@@ -161,7 +161,7 @@
     <a>
     <button type="submit" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; 
     cursor: pointer;" class="signup" name="submit" onclick="" id="submit">
-      Submit
+      Register
     </button>
     </a>
 
