@@ -44,7 +44,7 @@
 
     if($res2->num_rows>0){
         echo "
-        <div class='container content' style='float:left;width: 500px; height: 310px; margin:5% 13%; background-color:ivory'>
+        <div class='container content' style='float:left;width: 450px; height: 270px; margin:3% 13%; background-color:ivory'>
         <form action='{$_SERVER['REQUEST_URI']}' method='post' >
             <h1>Add Comment</h1>
             <hr>";
