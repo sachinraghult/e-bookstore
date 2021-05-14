@@ -47,10 +47,7 @@ button:hover {
   width: 50%;
 }
 
-.container {
-  padding: 16px;
-  position: center;
-}
+
 
 .clearfix::after {
   content: "";

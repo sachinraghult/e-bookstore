@@ -47,7 +47,7 @@
 
     if ($res1->num_rows > 0) {
         echo "<div style='margin-top:5%; margin-left:50%;'>
-        <table class='container'>
+        <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
             <th>CUSTOMER NAME</th>

@@ -10,11 +10,9 @@
       background: #eedfcc;
       color: #555555;
       font-size: 16px;
+      line-height: 1.42em;
     }
-    #sidebar{
-        background-image: url(images/8.gif);
-        background-size: cover;
-    }
+
   </style>
 
   <meta charset="utf-8">

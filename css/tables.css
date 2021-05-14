@@ -7,7 +7,6 @@ body {
   line-height: 1.42em;
   color:#A7A1AE;
   background-color:#1F2739;
-
 }
 
 
@@ -35,7 +34,6 @@ body {
 	  width: 80%;
 	  margin: 0 auto;
   display: table;
-  padding: 0 0 8em 0;
 }
 
 .container td, .container th {
@@ -76,7 +74,7 @@ body {
   transform: translate3d(6px, -6px, 0);
   
   transition-delay: 0s;
-	  transition-duration: 0.4s;
+	  transition-duration: 0.1s;
 	  transition-property: all;
   transition-timing-function: line;
 }

@@ -82,7 +82,7 @@
         }
         else{
             echo"
-            <div class='card' style='float:left; margin:5% 17%; width: 500px;'>
+            <div class='card' style='float:left; margin:5% 18%; width: 500px;'>
                 <img src='admin/{$rows["bimage"]}' alt='book image' style='width:100%'>
                 <h1>{$rows["bname"]}</h1>
                 <p>{$rows['author']}</p>
@@ -104,7 +104,7 @@
     
     if ($res1->num_rows > 0) {
         echo "<div style='margin-top:5%; margin-left:50%;'>
-        <table class='container'>
+        <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
             <th>CUSTOMER NAME</th>
