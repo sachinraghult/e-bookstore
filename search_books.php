@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <link rel="stylesheet" type="text/css" href="css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
 </head>
@@ -34,8 +34,8 @@
  </svg>
 </div>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 20px; background-color:ivory"><br>
-    <h1>Search books</h1><br>
+  <div style="padding:20px;width: 500px; height: 50%; margin:auto; margin-top: 20px; background-color:ivory">
+    <h1>Search books</h1>
     <hr>
 
     <label for="searchby">Search by&ensp;&ensp;</label>
@@ -76,33 +76,30 @@
         if($res2->num_rows>0)
         {
             echo "
-            <div class='wrapper'>
-            <div class='cards_wrap'>
+            <div class='container'>
             ";
             while($rows2=$res2->fetch_assoc())
             {
                 echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class='card_top'>
-                    <img src='admin/{$rows2['bimage']}' alt='image' />
+                <div class='card'>
+                    <div class='Box'>
+                    <img src='admin/{$rows2['bimage']}'>
                     </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows2['bname']}</p>
-                        <p>{$rows2['author']}</p>
-                        <p>{$rows2['cat_name']}</p>
-                    </div>
+                    <div class='details'>
+                    <h2>{$rows2['bname']}</h2>
+                    <p>{$rows2['author']}</p>
+                    <p>{$rows2['cat_name']}</p>
                     <div class='card_creator'>
                         <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
+                    
+                    
                 </div>
-                </div>            
+                         
                 ";
             }
             echo '
-            </div>
             </div>
             ';
         }
