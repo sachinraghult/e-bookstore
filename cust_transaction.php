@@ -12,10 +12,18 @@
 <head>
     <title>Admin Home</title>
     <link rel="stylesheet" type="text/css" href="css/tables.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
 </head>
 <body>
 
-<h3 style='text-align: center;'>YOUR BILLING HISTORY</h3>
+<div class="patterns">
+  <svg width="100%" height="50%">         
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
+ <text x="50%" y="60%"  text-anchor="middle"  >
+   Your Billing Details
+ </text>
+ </svg>
+</div>
 
 <?php
     $sql = "SELECT book.bname, book.price, payments.txn_id, payments.logs

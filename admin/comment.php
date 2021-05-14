@@ -20,12 +20,22 @@
     <title>Admin Home</title>
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.scss">
+    
 </head>
 <body>
     
-<h3 style='text-align: center;'>CUSTOMER COMMENTS</h3>
+<div class="patterns">
+  <svg width="100%" height="50%">         
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
+ <text x="50%" y="60%"  text-anchor="middle"  >
+   Customer Comments
+ </text>
+ </svg>
+</div>
+
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 20px; background-color:ivory">
     <h1>Search comments</h1>
     <hr>
 

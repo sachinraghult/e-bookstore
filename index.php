@@ -10,6 +10,7 @@
 <head>
     <title>E-Book Store</title>
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
     <style>
         wrapper{
         background-image: url(images/9.gif);
@@ -31,10 +32,24 @@
     }
 
     if(!isset($_SESSION["CUS_ID"])){
-        echo'<br><h1>&ensp;Welcome</h1>';
+        echo'<div class="patterns">
+        <svg width="100%" height="50%">         
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
+       <text x="50%" y="60%"  text-anchor="middle"  >
+         Welcome
+       </text>
+       </svg>
+      </div>';
     }
     else{
-      echo"<br><h1 style='text-align: center'>&ensp;Welcome {$_SESSION['CUS_NAME']}</h1>";
+      echo "<div class='patterns'>
+      <svg width='100%' height='50%'>         
+        <rect x='0' y='0' width='100%' height='100%' fill='url(#polka-dots)'> </rect>
+     <text x='50%' y='60%'  text-anchor='middle'>
+       Welcome '{$_SESSION["CUS_NAME"]}'
+     </text>
+     </svg>
+    </div>";
     }
 
     $sql="SELECT * FROM CATEGORY;";

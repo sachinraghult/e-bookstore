@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/profile.scss">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
 
     <style>
         body{
@@ -25,7 +26,14 @@
 
 <?php include("includes/header.php");?>
 
-<h2 style="text-align:center; margin-top:10%">User Profile Card</h2>
+<div class="patterns">
+  <svg width="100%" height="50%">         
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
+ <text x="50%" y="60%"  text-anchor="middle"  >
+   User Profile Card
+ </text>
+ </svg>
+</div>
 
 <script>
 document.querySelectorAll('.button').forEach(button => button.innerHTML = '<div><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>');

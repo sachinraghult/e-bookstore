@@ -19,12 +19,21 @@
     <title>Admin Home</title>
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
 <body>
 
-<h3 style='text-align: center;'>CUSTOMER REQUESTS</h3>
+<div class="patterns">
+  <svg width="100%" height="50%">         
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
+ <text x="50%" y="60%"  text-anchor="middle"  >
+   Customer Requests
+ </text>
+ </svg>
+</div>
+
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 20px; background-color:ivory">
     <h1>Search requests</h1>
     <hr>
 
@@ -43,7 +52,7 @@
       <button type="submit" class="signup" name="search" style="width: 48%;">Search</button>
       <a href="<?php echo $_SERVER["PHP_SELF"];?>"><button class="signup" style="background-color: red;width:48%;float:right;">Clear</button></a>
     </div>
-  </div>
+  </div><br>
 </form>
 <?php
     if (!isset($_POST['search'])) {
