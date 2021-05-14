@@ -6,24 +6,18 @@
     header("location:index.php");
   }
   include("db.php");
+  include("includes/main_header.php");
 ?>
  
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/register.css">
-    <style>
-    body{
-        background-image: url(images/library.gif);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
  
     <script type="text/javascript">
     function CheckPassword() 
     { 
-      var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
+      var decimal=  /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if(document.getElementById('pwd').value.match(decimal)) 
       { 
         document.getElementById('pwdmessage').style.color = 'green';
@@ -55,7 +49,7 @@
     }
     function userCheck()
     {
-      var regex = /^[A-Za-z0-9_@.|-]*$/;
+      var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if (document.getElementById('name').value.match(regex)) 
       {
         document.getElementById('usermessage').style.color = 'green';
@@ -87,11 +81,11 @@
 </head>
 <body>
  
-<?php include("includes/main_header.php");?>
- 
+<?php ?>
+
+<div class="login-box" style="margin: 5%">
+<h2>Create Account</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
-    <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
  
@@ -133,30 +127,44 @@
  
     <i><div id="usermessage"></div><i>
     <br>
- 
-    <label for="name"><b>User Name</b></label>
-    <input type="text" placeholder="Name" name="name" id="name" onkeyup="userCheck(); disfunc()" required>
- 
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Email" name="email" required>
- 
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="pwd" id="pwd" onkeyup="CheckPassword(); check(); disfunc()" required>
- 
-    <label for="cnfm-pwd" style="float: left;"><b>Confirm Password</b></label>
-    <i><div id="message" style="float: right;"></div><i>
-    <input type="password" placeholder="Confirm Password" name="cnfmpwd" id="cnfmpwd" onkeyup="check(); disfunc()" required>
+
+    <div class="user-box">
+      <input type="text" id="name" onkeyup="userCheck(); disfunc()" required>
+      <label>Username</label>
+    </div>
+
+    <div class="user-box">
+      <input type="email" name="email" required>
+      <label>Email</label>
+    </div>
+
+    <div class="user-box">
+      <input type="password" name="pwd" id="pwd" onkeyup="CheckPassword(); check(); disfunc()" required>
+      <label>Password</label>
+      <i><div id="message" style="float: right;"></div><i>
+    </div>
+
+    <div class="user-box">
+      <input type="password" name="cnfmpwd" id="cnfmpwd" onkeyup="check(); disfunc()" required>
+      <label style="float: left;">Confirm Password</label>
+    </div>
+    
 
     <i><div id="pwdmessage"></div><i>
-    <br><br>
+    <br>
   
-    <label for="profile"><b>Profile pic</b></label>
-    <input type="file" placeholder="profile" name="profile" accept="image/*">
-    <br><br>
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="signup" name="submit" onclick="" id="submit">Sign Up</button>
+    <div class="user-box">
+      <input type="file" name="profile" accept="image/*">
+      <label>Profiel Pic</label>
     </div>
-  </div>
+
+    <a>
+    <button type="submit" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; 
+    cursor: pointer;" class="signup" name="submit" onclick="" id="submit">
+      Submit
+    </button>
+    </a>
+
 </form>
  
 <?php include("includes/footer.php"); ?>

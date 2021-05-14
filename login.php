@@ -4,28 +4,22 @@
     header("location:index.php");
   }
   include("db.php");
+  include("includes/main_header.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <style>
-    body{
-        background-image: url(images/library.gif);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    </style>
 </head>
 <body>
 
-<?php include("includes/main_header.php");?>
 
+
+<div class="login-box" style="margin: auto">
+<h2>Login</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 170px; background-color:ivory">
-    <h1>Login</h1>
-    <hr>
+  
 
     <?php
       if(isset($_POST["submit"])){
@@ -45,18 +39,27 @@
       }
     ?>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
 
-    <label for="pwd"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="pwd" required>
-
-    <br><br>
-    <div class="clearfix" style="padding-left: 3px">
-      <button type="submit" class="login"  name="submit">Login</button>
+    <div class="user-box">
+      <input type="text" name="email" required="">
+      <label>Email</label>
     </div>
-  </div>
-</form>
+    <div class="user-box">
+      <input type="password" name="pwd" required="">
+      <label>Password</label>
+    </div>
+    <a>
+    <button type="submit" name="submit" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; cursor: pointer;">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </button>
+    </a>
+  </form>
+</div>
+
 
 <?php include("includes/footer.php"); ?>
 
