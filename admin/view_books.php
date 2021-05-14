@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="../css/cards.css">
+    <link rel="stylesheet" type="text/css" href="../css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
@@ -62,41 +62,33 @@
     $res = $db->query($sql);
     if($res->num_rows>0)
     {
-        echo'<div class="wrapper">
-             <div class="cards_wrap">';
-            while($rows=$res->fetch_assoc())
-            {
-                echo "
-                    <div class='card_item'>
-                    <div class='card_inner'>
-                        <div class='card_top'>
-                            <img src={$rows["bimage"]} alt='profile' />
-                        </div>
-                        <div class='card_bottom'>
-                        <div class='card_info'>
-                            <p class='title'>{$rows["bname"]}</p>
-                            <p>
-                            {$rows['author']}
-                            </p>
-                            <p>
-                            {$rows['cat_name']}
-                            </p>
-                            <p style='float:right; display:inline-block; color:red'>
-                            &#8377;{$rows['price']}
-                            </p>
-                        </div>
-                        <div class='card_creator'>
-                        <a href='book_det.php?id={$rows["bid"]}'><button>View Book</button></a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    ";
-            }
-        echo "
-        </div>
-        </div>
-        ";
+      echo "
+      <div class='container'>
+      ";
+          while($rows=$res->fetch_assoc())
+          {
+              echo "
+              <div class='card'>
+                  <div class='Box'>
+                  <img src='admin/{$rows['bimage']}'>
+                  </div>
+                  <div class='details'>
+                  <h2>{$rows['bname']}</h2>
+                  <p>{$rows['author']}</p>
+                  <p>{$rows['cat_name']}</p>
+                  <p style='float:right; display:inline-block; color:red'>
+                      &#8377;{$rows['price']}
+                  </p>
+                  <div class='card_creator'>
+                      <a href='book_det.php?id={$rows["bid"]}'><button>View Book</button></a>
+                  </div>
+                  </div>
+              </div>            
+              ";
+          }
+      echo "
+      </div>
+      ";
     }
     else
     {

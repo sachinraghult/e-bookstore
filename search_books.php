@@ -28,7 +28,7 @@
 <div class="patterns">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
- <text x="50%" y="60%"  text-anchor="middle"  >
+ <text x="50%" y="60%"  text-anchor="middle">
    All Books
  </text>
  </svg>
@@ -93,8 +93,6 @@
                         <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
-                    
-                    
                 </div>
                          
                 ";
@@ -128,37 +126,30 @@
         if($res3->num_rows>0)
         {
             echo "
-            <div class='wrapper'>
-            <div class='cards_wrap'>
+            <div class='container'>
             ";
             while($rows3=$res3->fetch_assoc())
             {
                 echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class'card_top'>
-                    <img src='admin/{$rows3['bimage']}' alt='image' />
+                <div class='card'>
+                    <div class='Box'>
+                    <img src='admin/{$rows3['bimage']}'>
                     </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows3['bname']}</p>
-                        <p>{$rows3['author']}</p>
-                        <p>{$rows3['cat_name']}</p>
-                        </p>
-                            <p style='float:right; display:inline-block; color:red'>
+                    <div class='details'>
+                    <h2>{$rows3['bname']}</h2>
+                    <p>{$rows3['author']}</p>
+                    <p>{$rows3['cat_name']}</p>
+                    <p style='float:right; display:inline-block; color:red'>
                             &#8377;{$rows3['price']}
-                        </p>
-                    </div>
+                    </p>
                     <div class='card_creator'>
-                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>Pay</button></a>
-                    </div>
+                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Details</button></a>
                     </div>
                 </div>
                 </div>            
                 ";
             }
             echo '
-            </div>
             </div>
             ';
         }
@@ -178,40 +169,31 @@
         $res = $db->query($sql);
         if($res->num_rows>0)
         {
-            echo'<div class="wrapper">
-                <div class="cards_wrap">';
+            echo "
+            <div class='container'>
+            ";
                 while($rows=$res->fetch_assoc())
                 {
                     echo "
-                        <div class='card_item'>
-                        <div class='card_inner'>
-                            <div class='card_top'>
-                                <img src='admin/{$rows["bimage"]}' alt='profile' />
-                            </div>
-                            <div class='card_bottom'>
-                            <div class='card_info'>
-                                <p class='title'>{$rows["bname"]}</p>
-                                <p>
-                                {$rows['author']}
-                                </p>
-                                <p>
-                                {$rows['cat_name']}
-                                </p>
-                                </p>
-                                <p style='float:right; color:red'>
-                                &#8377;{$rows['price']}
-                                </p>
-                            </div>
-                            <div class='card_creator'>
+                    <div class='card'>
+                        <div class='Box'>
+                        <img src='admin/{$rows['bimage']}'>
+                        </div>
+                        <div class='details'>
+                        <h2>{$rows['bname']}</h2>
+                        <p>{$rows['author']}</p>
+                        <p>{$rows['cat_name']}</p>
+                        <p style='float:right; display:inline-block; color:red'>
+                            &#8377;{$rows['price']}
+                        </p>
+                        <div class='card_creator'>
                             <a href='login.php'><button>Pay</button></a>
-                            </div>
-                            </div>
                         </div>
                         </div>
-                        ";
+                    </div>            
+                    ";
                 }
             echo "
-            </div>
             </div>
             ";
         }

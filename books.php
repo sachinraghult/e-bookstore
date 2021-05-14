@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>Login Form</title>
-    <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <link rel="stylesheet" type="text/css" href="css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
     <style>
         body{
@@ -37,39 +37,32 @@
         
         if($res->num_rows>0)
         {
-            echo '
-            <div class="wrapper">
-            <div class="cards_wrap">
-            ';
-            while($rows=$res->fetch_assoc())
-            {
-                echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class'card_top'>
-                    <img src='admin/{$rows['bimage']}' alt='image' />
-                    </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows['bname']}</p>
+            echo "
+            <div class='container'>
+            ";
+                while($rows=$res->fetch_assoc())
+                {
+                    echo "
+                    <div class='card'>
+                        <div class='Box'>
+                        <img src='admin/{$rows['bimage']}'>
+                        </div>
+                        <div class='details'>
+                        <h2>{$rows['bname']}</h2>
                         <p>{$rows['author']}</p>
-                        </p>
-                            <p style='float:right; display:inline-block; color:red'>
+                        <p style='float:right; display:inline-block; color:red'>
                             &#8377;{$rows['price']}
                         </p>
-                    </div>
-                    <div class='card_creator'>
-                        <a href='login.php'><button>Pay</button></a>
-                    </div>
-                    </div>
-                </div>
-                </div>            
-                ";
-            }
-            echo '
+                        <div class='card_creator'>
+                            <a href='login.php'><button>Pay</button></a>
+                        </div>
+                        </div>
+                    </div>            
+                    ";
+                }
+            echo "
             </div>
-            </div>
-            ';
+            ";
         }
         else
         {
@@ -92,33 +85,28 @@
         
         if($res2->num_rows>0)
         {
-            echo '
-            <div class="wrapper">
-            <div class="cards_wrap">
-            ';
+            echo "
+            <div class='container'>
+            ";
             while($rows2=$res2->fetch_assoc())
             {
                 echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class='card_top'>
-                    <img src='admin/{$rows2['bimage']}' alt='image' />
+                <div class='card'>
+                    <div class='Box'>
+                    <img src='admin/{$rows2['bimage']}'>
                     </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows2['bname']}</p>
-                        <p>{$rows2['author']}</p>
-                    </div>
+                    <div class='details'>
+                    <h2>{$rows2['bname']}</h2>
+                    <p>{$rows2['author']}</p>
                     <div class='card_creator'>
                         <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
                     </div>
                     </div>
                 </div>
-                </div>            
+                         
                 ";
             }
             echo '
-            </div>
             </div>
             ';
         }
@@ -136,37 +124,30 @@
         
         if($res3->num_rows>0)
         {
-            echo '
-            <div class="wrapper">
-            <div class="cards_wrap">
-            ';
+            echo "
+            <div class='container'>
+            ";
             while($rows3=$res3->fetch_assoc())
             {
                 echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class'card_top'>
-                    <img src='admin/{$rows3['bimage']}' alt='image' />
+                <div class='card'>
+                    <div class='Box'>
+                    <img src='admin/{$rows3['bimage']}'>
                     </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows3['bname']}</p>
-                        <p>{$rows3['author']}</p>
-                        </p>
-                            <p style='float:right; display:inline-block; color:red'>
+                    <div class='details'>
+                    <h2>{$rows3['bname']}</h2>
+                    <p>{$rows3['author']}</p>
+                    <p style='float:right; display:inline-block; color:red'>
                             &#8377;{$rows3['price']}
-                        </p>
-                    </div>
+                    </p>
                     <div class='card_creator'>
-                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Book</button></a>
-                    </div>
+                        <a href='cust_book_det.php?id={$rows3['bid']}'><button>View Details</button></a>
                     </div>
                 </div>
                 </div>            
                 ";
             }
             echo '
-            </div>
             </div>
             ';
         }

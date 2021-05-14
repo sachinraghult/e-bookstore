@@ -12,7 +12,7 @@
   margin: 20px 0;
   width: 300px;
   height: 400px;
-  background: #fff;
+  background:gainsboro;
   transform-style: preserve-3d;
   transform: perspective(2000px);
   box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 0 20px 20px rgba(0,0,0,.5);
