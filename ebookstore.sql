@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2021 at 05:27 PM
+-- Generation Time: May 14, 2021 at 08:38 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.28
 
@@ -75,24 +75,26 @@ INSERT INTO `book` (`bid`, `bname`, `author`, `bimage`, `bfile`, `keywords`, `ca
 
 CREATE TABLE `category` (
   `cat_id` int(11) NOT NULL,
-  `cat_name` varchar(250) NOT NULL
+  `cat_name` varchar(250) NOT NULL,
+  `cat_image` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
-(1, 'MAGAZINES'),
-(2, 'COMICS'),
-(3, 'LITERATURE'),
-(4, 'SCIENCE'),
-(5, 'HORROR'),
-(6, 'THRILLER'),
-(7, 'STORY'),
-(8, 'SUMMA'),
-(9, 'SUMMA'),
-(10, 'CRINGE');
+INSERT INTO `category` (`cat_id`, `cat_name`, `cat_image`) VALUES
+(1, 'MAGAZINES', NULL),
+(2, 'COMICS', NULL),
+(3, 'LITERATURE', NULL),
+(4, 'SCIENCE', NULL),
+(5, 'HORROR', NULL),
+(6, 'THRILLER', NULL),
+(7, 'STORY', NULL),
+(8, 'SUMMA', NULL),
+(9, 'SUMMA', NULL),
+(10, 'CRINGE', NULL),
+(11, 'dmwk', 'media/cat_img/19.png');
 
 -- --------------------------------------------------------
 
@@ -117,7 +119,14 @@ INSERT INTO `comment` (`com_id`, `cus_id`, `bid`, `comment`, `logs`) VALUES
 (16, 3, 2, 'hello', '2021-05-11 21:31:42'),
 (18, 3, 2, 'hello', '2021-05-11 21:37:41'),
 (21, 3, 2, 'hdiwh', '2021-05-11 21:52:13'),
-(22, 4, 2, 'dwio', '2021-05-12 20:15:48');
+(22, 4, 2, 'dwio', '2021-05-12 20:15:48'),
+(23, 3, 3, 'dnwj', '2021-05-13 17:21:18'),
+(24, 3, 2, 'dwd', '2021-05-13 18:42:57'),
+(25, 3, 3, 'dbjksd', '2021-05-13 23:21:25'),
+(26, 3, 3, 'dnjkand', '2021-05-13 23:21:30'),
+(27, 3, 3, 'asas', '2021-05-13 23:21:42'),
+(28, 3, 3, 'sasas', '2021-05-13 23:21:46'),
+(29, 3, 3, 'fdwnsd', '2021-05-13 23:25:30');
 
 -- --------------------------------------------------------
 
@@ -141,7 +150,13 @@ INSERT INTO `customer` (`cus_id`, `cus_name`, `cus_image`, `cus_mail`, `cus_pass
 (1, 'Hello', 'image.cd', 'cueifwhdius', 'sdadads'),
 (2, 'dasdas', 'sdasd.f', 'dsadsaf', 'dsdagf'),
 (3, 'Sanjeev', 'admin/media/profile_img/Profile (2).jpg', 'er.sanjeev.au@gmail.com', '123'),
-(4, 'demo', 'admin/media/profile_img/Desktop.jpg', 'demo@gmail.com', '123');
+(4, 'demo', 'admin/media/profile_img/Desktop.jpg', 'demo@gmail.com', '123'),
+(6, 'hero', 'admin/media/profile_img/def99864.jpg', 'jail', 'Mail@123'),
+(7, 'hero', 'admin/media/profile_img/def99864.jpg', 'gmail', 'hello12@1H'),
+(8, 'ersan 2', 'admin/media/profile_img/def99864.jpg', 'ersan@gmail.com', '@jinakHk1'),
+(9, 'hw_2 3', 'admin/media/profile_img/def99864.jpg', 'ew.sanis@gms.com', '123@133Hed'),
+(10, 'csnxcs', 'admin/media/profile_img/def99864.jpg', 'cscn@fhi.om', 'Hello@1'),
+(11, 'cds', 'admin/media/profile_img/def99864.jpg', 'ds@xsi.cim', 'Hero@123');
 
 -- --------------------------------------------------------
 
@@ -169,7 +184,8 @@ INSERT INTO `payments` (`bill_id`, `txn_id`, `cus_id`, `bid`, `logs`) VALUES
 (5, 'djiow', 3, 2, NULL),
 (7, 'OD3175311', 3, 3, '2021-05-12 19:55:28'),
 (8, 'OD6858816', 4, 2, '2021-05-12 20:14:20'),
-(9, 'OD4798135', 4, 1, '2021-05-12 20:18:22');
+(9, 'OD4798135', 4, 1, '2021-05-12 20:18:22'),
+(10, 'OD8791281', 4, 4, '2021-05-12 21:07:59');
 
 -- --------------------------------------------------------
 
@@ -190,7 +206,9 @@ CREATE TABLE `request` (
 --
 
 INSERT INTO `request` (`rid`, `cus_id`, `bname`, `request`, `logs`) VALUES
-(3, 1, 'comp sci', 'I need urgently', '2021-05-18 07:23:33');
+(3, 1, 'comp sci', 'I need urgently', '2021-05-18 07:23:33'),
+(6, 3, 'nidnwl', 'dnksnd\r\n', '2021-05-13 22:48:54'),
+(7, 3, 'dnw', 'dnsk', '2021-05-13 22:49:00');
 
 -- --------------------------------------------------------
 
@@ -230,7 +248,8 @@ INSERT INTO `temp_payments` (`bill_id`, `txn_id`, `cus_id`, `bid`) VALUES
 (6, 'OD7305684', 3, 3),
 (9, 'OD648327', 4, 3),
 (11, 'OD3692858', 4, 1),
-(13, 'OD1178565', 4, 3);
+(13, 'OD1178565', 4, 3),
+(15, 'OD8548535', 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -320,31 +339,31 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `subs`
@@ -356,7 +375,7 @@ ALTER TABLE `subs`
 -- AUTO_INCREMENT for table `temp_payments`
 --
 ALTER TABLE `temp_payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
