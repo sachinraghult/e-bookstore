@@ -15,7 +15,6 @@
         background-image: url(images/8.gif);
         background-size: cover;
     }
-
   </style>
 
   <meta charset="utf-8">
@@ -25,7 +24,7 @@
 </head>
 <body style="size: 18px">
 
-<div style="position: sticky; top:0; display:block; padding:16px; background-color: #ff6600; color:white;text-align:center;"><b style="margin-left: 11%; font-size: 25px; line-height: 25px;">E-BOOKSTORE</b></div>
+<div style="position: sticky; top: 0; overflow: hidden; z-index: 999; padding:16px; background-color: #ff6600; color: white;text-align: center;"><b style="margin-left: 11%; font-size: 25px; line-height: 25px;">E-BOOKSTORE</b></div>
 <b>
 <div class="sidebar" style="font-size: large;">
 
