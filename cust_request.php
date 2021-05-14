@@ -60,7 +60,7 @@
     <label for="request"><b>Request</b></label>
     <br>
     <div style="padding-top:7px">
-    <textarea name="request" placeholder="Enter your request" rows="3" cols="40" style="background-color : rgb(243, 243, 243);"></textarea>
+    <textarea name="request" placeholder="Enter your request" rows="3" cols="40" style="background-color : rgb(243, 243, 243);" required></textarea>
     </div>
     
     <br>
