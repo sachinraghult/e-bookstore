@@ -24,10 +24,10 @@
 
 ?>
 
-<h1 style="color: blue; text-align:center">All Books</h1>
+<h1 style="color: blue; text-align:center"><br>All Books</h1>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
-  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory">
-    <h1>Search books</h1>
+  <div class="container content" style="width: 500px; height: 50%; margin:auto; margin-top: 40px; background-color:ivory"><br>
+    <h1>Search books</h1><br>
     <hr>
 
     <label for="searchby">Search by&ensp;&ensp;</label>
