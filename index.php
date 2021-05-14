@@ -53,20 +53,22 @@
         ";
       }
 
-      $img = "https://s25.postimg.cc/frbd9towf/cta-2.png";
+      $img1 = "admin/{$rows['cat_image']}";
+      $img2 = "admin/{$rows['cat_image1']}";
+
       echo"
       <div class='box-item' style='float: left'>
       <div class='flip-box'>
-        <div class='flip-box-front text-center' style='background-image: url({$img});'>
+        <div class='flip-box-front text-center' style='background-image: url({$img1});'>
           <div class='inner color-white'>
             <h3 class='flip-box-header'>{$rows['cat_name']}</h3>
             <img src='https://s25.postimg.cc/65hsttv9b/cta-arrow.png' alt='' class='flip-box-img'>
           </div>
         </div>
-        <div class='flip-box-back text-center' style='background-image: url({$img});'>
+        <div class='flip-box-back text-center' style='background-image: linear-gradient(rgba(0, 0, 0, 0.200),rgba(0, 0, 0, 0.5)) , url({$img2});'>
           <div class='inner color-white'>
             <h3 class='flip-box-header'>{$rows['cat_name']}</h3>
-            <p>A short sentence describing this callout is.</p>
+            <p>{$rows['cat_desc']}</p>
             <a style='text-decoration: none' href='books.php?id={$rows['cat_id']}'><button class='flip-box-button'>View Books</button></a>
           </div>
         </div>
