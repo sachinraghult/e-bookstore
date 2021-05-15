@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 08:38 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: May 15, 2021 at 12:43 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -62,10 +63,19 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`bid`, `bname`, `author`, `bimage`, `bfile`, `keywords`, `cat_id`, `price`) VALUES
-(1, 'hello world', 'sanjeev', 'image.png', 'book1.pdf', 'hello', 2, 200),
-(2, 'xampp', 'apache', 'bit.image', 'bit.pdf', 'bit', 4, 150),
-(3, 'gisd', 'bdabsd', 'media/book_img/Desktop.jpg', 'media/book_file/Desktop.jpg', 'dbusba', 1, 100),
-(4, 'os', 'sanjeev', 'media/book_img/13.png', 'media/book_file/DBMS - tutorials point.pdf', 'lab works', 7, 999);
+(1, 'Alice in Wonderland', 'Lewis Carroll', 'media/book_img/Alice in Wonderland.jpg', 'media/book_file/Alice in Wonderland.pdf', 'A young girl named Alice, who falls into a subterranean fantasy world populated by peculiar, anthropomorphic creatures.', 2, 400),
+(2, 'Artificial Intelligence - A Modern Approach', 'Pearson', 'media/book_img/Artificial Intelligence - A Modern Approach.jpg', 'media/book_file/Artificial Intelligence - A Modern Approach.pdf', 'A Modern Approach explores the full breadth and depth of the field of artificial intelligence (AI).', 5, 550),
+(3, 'Life of Captain Marvel', 'Stan Lee', 'media/book_img/Life of Captain Marvel.jpg', 'media/book_file/Life of Captain Marvel.pdf', 'Carol Danvers is one of the mightiest heroes not just on Earth but in the entire galaxy! Now learn exactly how she became the woman she is - The Avenger', 3, 700),
+(4, 'National Geographic - The Fight For Clean Air', 'NatGeo. April', 'media/book_img/National Geographic - The Fight For Clean Air.jpg', 'media/book_file/National Geographic - The Fight For Clean Air.pdf', 'Air pollution kills millions every year, like a ‘pandemic in slow motion’.', 6, 150),
+(5, 'Phoenix Project', 'Gene Kim', 'media/book_img/Phoenix Project.jpg', 'media/book_file/Phoenix Project.pdf', 'The business novel tells the story of an IT manager who has ninety days to rescue an over-budget and late IT initiative, code-named The Phoenix.', 5, 350),
+(6, 'Principle of Relativity', 'Albert Einstein', 'media/book_img/Principle of Relativity.jpg', 'media/book_file/Principle of Relativity.pdf', 'In physics, the principle of relativity is the requirement that the equations describing the laws of physics have the same form in all admissible frames of reference.', 1, 650),
+(7, 'Quantum Physics', 'Douglas Ross FRS', 'media/book_img/Quantum Physics.jpg', 'media/book_file/Quantum Physics.pdf', 'The physics that explains how everything works: the best description we have of the nature of the particles that make up matter and the forces with which they interact.', 1, 800),
+(8, 'Romeo and Juliet', 'William Shakespeare', 'media/book_img/Romeo and Juliet.jpg', 'media/book_file/Romeo and Juliet.pdf', 'A tragedy written by William Shakespeare early in his career about two young Italian star-crossed lovers whose deaths ultimately reconcile their feuding families.', 2, 999),
+(9, 'Spider-Verse', 'Stan Lee', 'media/book_img/Spider-Verse.jpg', 'media/book_file/Spider-Verse.pdf', 'After gaining superpowers from a spider bite, Miles Morales protects the city as Spider-Man. Soon, he meets alternate versions of himself and gets embroiled in an epic battle to save the multiverse.', 3, 750),
+(10, 'The Invisible Man', 'H.G Wells', 'media/book_img/The Invisible Man.jpg', 'media/book_file/The Invisible Man.pdf', 'A brilliant scientist uncovers the secret to invisibility, but his grandiose dreams and the power he unleashes cause him to spiral into intrigue, madness, and murder.', 4, 249),
+(11, 'Time Magazine - Women and the Pandemic', 'Time, March', 'media/book_img/Time Magazine - Women and the Pandemic.jpg', 'media/book_file/Time Magazine - Women and the Pandemic.pdf', 'COVID-19 has made it impossible to deny the ways broken systems hurt women.', 6, 199),
+(12, 'The Black Cat', 'Edgar Allan Poe', 'media/book_img/The Black Cat.jpg', 'media/book_file/The Black Cat.pdf', 'In the story, an unnamed narrator has a strong affection for pets until he perversely turns to abusing them.', 4, 99),
+(13, 'Sachin The Billion Dreams', 'Sachin Tendulkar', 'media/book_img/Sachin The Billion Dreams.jpg', 'media/book_file/Sachin The Billion Dreams.pdf', 'Sachin Tendulkar recounts his journey of becoming one of the most famous names in cricket.', 7, 1200);
 
 -- --------------------------------------------------------
 
@@ -76,25 +86,23 @@ INSERT INTO `book` (`bid`, `bname`, `author`, `bimage`, `bfile`, `keywords`, `ca
 CREATE TABLE `category` (
   `cat_id` int(11) NOT NULL,
   `cat_name` varchar(250) NOT NULL,
-  `cat_image` varchar(250) DEFAULT NULL
+  `cat_image` varchar(250) DEFAULT NULL,
+  `cat_image1` varchar(250) DEFAULT NULL,
+  `cat_desc` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`cat_id`, `cat_name`, `cat_image`) VALUES
-(1, 'MAGAZINES', NULL),
-(2, 'COMICS', NULL),
-(3, 'LITERATURE', NULL),
-(4, 'SCIENCE', NULL),
-(5, 'HORROR', NULL),
-(6, 'THRILLER', NULL),
-(7, 'STORY', NULL),
-(8, 'SUMMA', NULL),
-(9, 'SUMMA', NULL),
-(10, 'CRINGE', NULL),
-(11, 'dmwk', 'media/cat_img/19.png');
+INSERT INTO `category` (`cat_id`, `cat_name`, `cat_image`, `cat_image1`, `cat_desc`) VALUES
+(1, 'SCIENCE', 'media/cat_img/science1.jpg', 'media/cat_img/science2.jpg', 'Everything You Need to Know About the World and How It Works.'),
+(2, 'FICTION', 'media/cat_img/fiction1.jpg', 'media/cat_img/fiction2.jpg', 'Literature created from the imagination, not presented as fact, though it may be based on a true story or situation'),
+(3, 'COMICS', 'media/cat_img/comics1.jpg', 'media/cat_img/comics2.jpg', 'Graphic novels, comics, and manga'),
+(4, 'HORROR', 'media/cat_img/horror1.jpg', 'media/cat_img/horror2.jpg', 'Horror often overlaps science fiction or fantasy, all three of which categories'),
+(5, 'TECHNOLOGY', 'media/cat_img/technology1.jpg', 'media/cat_img/technology2.jpg', 'Tools for Preparing Your Team for the Future.'),
+(6, 'MAGAZINES', 'media/cat_img/magazines1.jpg', 'media/cat_img/magazines2.jpg', 'Popular magazines and top newspapers from Newsstand section'),
+(7, 'SPORTS', 'media/cat_img/sports1.jpg', 'media/cat_img/sports2.jpg', 'Explore the Best Sports Biographies and Books');
 
 -- --------------------------------------------------------
 
@@ -115,18 +123,10 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`com_id`, `cus_id`, `bid`, `comment`, `logs`) VALUES
-(3, 2, 1, 'Very nice', '2021-05-27 03:26:20'),
-(16, 3, 2, 'hello', '2021-05-11 21:31:42'),
-(18, 3, 2, 'hello', '2021-05-11 21:37:41'),
-(21, 3, 2, 'hdiwh', '2021-05-11 21:52:13'),
-(22, 4, 2, 'dwio', '2021-05-12 20:15:48'),
-(23, 3, 3, 'dnwj', '2021-05-13 17:21:18'),
-(24, 3, 2, 'dwd', '2021-05-13 18:42:57'),
-(25, 3, 3, 'dbjksd', '2021-05-13 23:21:25'),
-(26, 3, 3, 'dnjkand', '2021-05-13 23:21:30'),
-(27, 3, 3, 'asas', '2021-05-13 23:21:42'),
-(28, 3, 3, 'sasas', '2021-05-13 23:21:46'),
-(29, 3, 3, 'fdwnsd', '2021-05-13 23:25:30');
+(1, 2, 2, 'Fantastic!', '2021-05-15 15:24:50'),
+(2, 3, 5, 'Amazing stuff', '2021-05-15 15:33:14'),
+(3, 3, 6, 'Woww, must read book.', '2021-05-15 15:37:08'),
+(4, 1, 10, 'Expected something more', '2021-05-15 15:38:34');
 
 -- --------------------------------------------------------
 
@@ -147,16 +147,13 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cus_id`, `cus_name`, `cus_image`, `cus_mail`, `cus_pass`) VALUES
-(1, 'Hello', 'image.cd', 'cueifwhdius', 'sdadads'),
-(2, 'dasdas', 'sdasd.f', 'dsadsaf', 'dsdagf'),
-(3, 'Sanjeev', 'admin/media/profile_img/Profile (2).jpg', 'er.sanjeev.au@gmail.com', '123'),
-(4, 'demo', 'admin/media/profile_img/Desktop.jpg', 'demo@gmail.com', '123'),
-(6, 'hero', 'admin/media/profile_img/def99864.jpg', 'jail', 'Mail@123'),
-(7, 'hero', 'admin/media/profile_img/def99864.jpg', 'gmail', 'hello12@1H'),
-(8, 'ersan 2', 'admin/media/profile_img/def99864.jpg', 'ersan@gmail.com', '@jinakHk1'),
-(9, 'hw_2 3', 'admin/media/profile_img/def99864.jpg', 'ew.sanis@gms.com', '123@133Hed'),
-(10, 'csnxcs', 'admin/media/profile_img/def99864.jpg', 'cscn@fhi.om', 'Hello@1'),
-(11, 'cds', 'admin/media/profile_img/def99864.jpg', 'ds@xsi.cim', 'Hero@123');
+(1, 'Sachin', 'admin/media/profile_img/Sachin.jpeg', 'sachinraghult2002@gmail.com', 'sachin@T20'),
+(2, 'Srivatsav', 'admin/media/profile_img/Srivatsav.jpg', 'srivatsavr02@gmail.com', 'Sri@123'),
+(3, 'Sanjeev', 'admin/media/profile_img/Sanjeev.jpg', 'er.sanjeev.au@gmail.com', 'Sanjeev@1'),
+(4, 'Rohit', 'admin/media/profile_img/Rohit.jpg', 'rohit45@gmail.com', 'Hitman@45'),
+(5, 'Demo', 'admin/media/profile_img/profile5.jpg', 'demo@gmail.com', 'Demo@123'),
+(6, 'New', 'admin/media/profile_img/profile6.jpg', 'new@gmail.com', 'New@123'),
+(7, 'trial', 'admin/media/profile_img/def99864.jpg', 'trial@gmail.com', 'Trial@123');
 
 -- --------------------------------------------------------
 
@@ -177,15 +174,21 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`bill_id`, `txn_id`, `cus_id`, `bid`, `logs`) VALUES
-(1, 'dsdad', 1, 1, NULL),
-(2, 'dsfgg', 2, 1, NULL),
-(3, 'fsssd', 2, 2, NULL),
-(4, 'sadasd', 1, 1, NULL),
-(5, 'djiow', 3, 2, NULL),
-(7, 'OD3175311', 3, 3, '2021-05-12 19:55:28'),
-(8, 'OD6858816', 4, 2, '2021-05-12 20:14:20'),
-(9, 'OD4798135', 4, 1, '2021-05-12 20:18:22'),
-(10, 'OD8791281', 4, 4, '2021-05-12 21:07:59');
+(1, 'OD3910026', 1, 7, '2021-05-15 15:12:29'),
+(2, 'OD7421216', 1, 9, '2021-05-15 15:13:39'),
+(3, 'OD1038340', 2, 8, '2021-05-15 15:16:03'),
+(4, 'OD9061260', 2, 2, '2021-05-15 15:16:44'),
+(5, 'OD479970', 3, 6, '2021-05-15 15:17:44'),
+(6, 'OD703829', 4, 4, '2021-05-15 15:19:00'),
+(7, 'OD5112137', 1, 10, '2021-05-15 15:20:16'),
+(8, 'OD3195304', 5, 3, '2021-05-15 15:21:16'),
+(9, 'OD6159718', 3, 9, '2021-05-15 15:21:59'),
+(10, 'OD5824685', 3, 5, '2021-05-15 15:22:29'),
+(11, 'OD5648856', 7, 1, '2021-05-15 15:23:15'),
+(12, 'OD1381200', 2, 9, '2021-05-15 15:25:21'),
+(13, 'OD2595454', 3, 12, '2021-05-15 15:32:40'),
+(14, 'OD999937', 1, 12, '2021-05-15 15:39:28'),
+(15, 'OD3584137', 1, 13, '2021-05-15 16:07:15');
 
 -- --------------------------------------------------------
 
@@ -206,21 +209,9 @@ CREATE TABLE `request` (
 --
 
 INSERT INTO `request` (`rid`, `cus_id`, `bname`, `request`, `logs`) VALUES
-(3, 1, 'comp sci', 'I need urgently', '2021-05-18 07:23:33'),
-(6, 3, 'nidnwl', 'dnksnd\r\n', '2021-05-13 22:48:54'),
-(7, 3, 'dnw', 'dnsk', '2021-05-13 22:49:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subs`
---
-
-CREATE TABLE `subs` (
-  `subs_id` int(11) NOT NULL,
-  `cus_id` int(11) NOT NULL,
-  `bid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(1, 2, 'Programming PHP', 'Need a book on Web Designing', '2021-05-15 15:27:04'),
+(2, 6, 'Behind Closed Doors by B A Paris', 'Wish to have Thriller Books :)', '2021-05-15 15:29:33'),
+(4, 3, 'Grandma Tales', 'Needed story books for Bedtime :/', '2021-05-15 15:34:39');
 
 -- --------------------------------------------------------
 
@@ -240,16 +231,11 @@ CREATE TABLE `temp_payments` (
 --
 
 INSERT INTO `temp_payments` (`bill_id`, `txn_id`, `cus_id`, `bid`) VALUES
-(1, 'OD431230', 3, 3),
-(2, 'OD4522417', 3, 3),
-(3, 'OD1616906', 3, 3),
-(4, 'OD406465', 3, 3),
-(5, 'OD6188748', 3, 3),
-(6, 'OD7305684', 3, 3),
-(9, 'OD648327', 4, 3),
-(11, 'OD3692858', 4, 1),
-(13, 'OD1178565', 4, 3),
-(15, 'OD8548535', 3, 1);
+(6, 'OD2861488', 3, 1),
+(8, 'OD44734', 1, 10),
+(14, 'OD1306308', 7, 11),
+(16, 'OD8537612', 6, 11),
+(17, 'OD270870', 1, 8);
 
 --
 -- Indexes for dumped tables
@@ -304,14 +290,6 @@ ALTER TABLE `request`
   ADD KEY `cus_id` (`cus_id`);
 
 --
--- Indexes for table `subs`
---
-ALTER TABLE `subs`
-  ADD PRIMARY KEY (`subs_id`),
-  ADD KEY `cus_id` (`cus_id`),
-  ADD KEY `bid` (`bid`);
-
---
 -- Indexes for table `temp_payments`
 --
 ALTER TABLE `temp_payments`
@@ -333,49 +311,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `subs`
---
-ALTER TABLE `subs`
-  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `temp_payments`
 --
 ALTER TABLE `temp_payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
@@ -406,13 +378,6 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `request`
   ADD CONSTRAINT `request_ibfk_1` FOREIGN KEY (`cus_id`) REFERENCES `customer` (`cus_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `subs`
---
-ALTER TABLE `subs`
-  ADD CONSTRAINT `subs_ibfk_1` FOREIGN KEY (`cus_id`) REFERENCES `customer` (`cus_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `subs_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `book` (`bid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `temp_payments`

@@ -12,6 +12,7 @@
     <title>Customer Details</title>
     <link rel="stylesheet" type="text/css" href="../css/cards.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile1.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
 <body>
@@ -42,6 +43,7 @@
     </div>
   </div>
 </form>
+<div style="display: inline-flexbox;">
 <?php
     if (!isset($_POST["search"])) {
         $sql = "SELECT * FROM CUSTOMER";
@@ -52,33 +54,25 @@
     $res = $db->query($sql);
     if($res->num_rows>0)
     {
-        echo' <div class="wrapper">
-             <div class="cards_wrap">';
+        echo "<div class='box'>";
+        $i = 0;
             while($rows=$res->fetch_assoc())
             {
+              if (($i++)%3 == 0){
+                echo "</div><div class='box'>";
+              }
                 echo "
-                    <div class='card_item'>
-                    <div class='card_inner'>
-                        <div class='card_top'>
-                            <img src='../{$rows["cus_image"]}' alt='profile' />
-                        </div>
-                        <div class='card_bottom'>
-                        <div class='card_info'>
-                            <p class='title'>{$rows["cus_name"]}</p>
-                            <p>
-                            {$rows['cus_mail']}
-                            </p>
-                        </div>
-                        <div class='card_creator'>
-                        <a href='cust_trans.php?id={$rows["cus_id"]}'><button>View Transaction Details</button></a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+                <div class='card' style='float:left;'>
+                <div class='imgBx'>
+                  <img src='../{$rows['cus_image']}' alt='profile' style='width:100%'></div>
+                  <div class='details'><b>
+                  <h2>{$rows['cus_name']}</h2>
+                  <h2><span>{$rows['cus_mail']}<br><br>
+                  <a href='cust_trans.php?id={$rows["cus_id"]}' class='rainbow rainbow-1' style='border-radius:30px;text-decoration:none'>View Transactions</a></span></h2>
+                </div></div>
                     ";
             }
         echo "
-        </div>
         </div>
         ";
     }
@@ -89,6 +83,6 @@
 
 ?>
 
-    </div>
+    </div></div>
     </body>
     </html>
