@@ -27,6 +27,10 @@
         $target_file = "media/book_file/";
 
         $target_img_dir = $target_img.basename($_FILES["bookimg"]["name"]);
+
+        $target_img_dir = str_replace(' ', '-', $target_img_dir);
+        $target_img_dir = preg_replace('/[^A-Za-z0-9\-]/', '', $target_img_dir);
+
         $target_file_dir = $target_file.basename($_FILES["bookfile"]["name"]);
         
         if (move_uploaded_file($_FILES["bookimg"]["tmp_name"],$target_img_dir) &&
