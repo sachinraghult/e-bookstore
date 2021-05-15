@@ -4,20 +4,17 @@
   if(!isset($_SESSION["CUS_ID"])){
     header("location:login.php");
   }
+  include("includes/header.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="css/cards.css">
-    <link rel="stylesheet" type="text/css" href="css/register.css">
+    
+   
 </head>
 <body>
-
-<?php 
-        include("includes/header.php");
-?>
 
 <?php
     if (isset($_SESSION["CUS_ID"])) 
@@ -30,37 +27,25 @@
         echo"<h3>Your Store : )</h3><br>";
         
         if($res2->num_rows>0)
-        {
-            echo "
-            <div class='wrapper'>
-            <div class='cards_wrap'>
-            ";
+        { 
             while($rows2=$res2->fetch_assoc())
             {
-                echo "
-                <div class='card_item'>
-                <div class='card_inner'>
-                    <div class='card_top'>
-                    <img src='admin/{$rows2['bimage']}' alt='image' />
-                    </div>
-                    <div class='card_bottom'>
-                    <div class='card_info'>
-                        <p class='title'>{$rows2['bname']}</p>
-                        <p>{$rows2['author']}</p>
-                        <p>{$rows2['cat_name']}</p>
-                    </div>
-                    <div class='card_creator'>
-                        <a href='cust_book_det.php?id={$rows2["bid"]}'><button>View Book</button></a>
-                    </div>
-                    </div>
+                $img = "admin/".$rows2['bimage'];
+                echo "<style>
+                figure figcaption{
+                    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+                }
+
+                </style>
+                <div onclick='' style='float:left; height: 200px; width: 400px'>
+                <figure style='background-img: '$img''>
+                    <figcaption style='background-img: '$img''>{$rows2['bname']}</figcaption>
+                </figure>
                 </div>
-                </div>            
+                
                 ";
             }
-            echo '
-            </div>
-            </div>
-            ';
+            
         }
         else
         {
@@ -68,6 +53,7 @@
         }
     }
 ?>
+    <link rel="stylesheet" type="text/css" href="css/book_det_card.css">
     </div>
     </body>
     </html>
