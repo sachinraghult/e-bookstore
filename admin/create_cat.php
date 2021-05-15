@@ -40,7 +40,7 @@
     <label for="name"><b>Category Name</b></label>
     <input type="text" placeholder="Name" name="cat_name" required>
 
-    <label for="desc" style="margin :auto;"><b>Keywords&emsp;&emsp;&emsp;</b></label>
+    <label for="desc" style="margin :auto;"><b>Description&emsp;&emsp;&emsp;</b></label>
     <br>
     <div style="padding-top:7px">
     <textarea name="desc" placeholder="Enter Category Description" rows="3" cols="35" style="background-color : rgb(243, 243, 243);" required></textarea>
