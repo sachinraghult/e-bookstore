@@ -14,6 +14,7 @@
     <title>View Books</title>
     
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
+    <link rel="stylesheet" type="text/css" href="../css/book_det_card.css">
    
 </head>
 <body>
@@ -27,7 +28,7 @@
     $rows = $res->fetch_assoc();
     if($res->num_rows>0)
     {
-         echo"
+    echo"
         <style>
         .scene:nth-child(1) .movie .poster {
             background-image: url('{$rows["bimage"]}');
@@ -37,6 +38,7 @@
             background-image: url('{$rows["bimage"]}');
         }
         </style>
+        
         <div class='container mt30'>
         <div class='wrapper'>
             <ul class='stage clearfix'>
@@ -100,8 +102,5 @@
     }
 ?>
 
-
-
-<link rel="stylesheet" type="text/css" href="../css/book_det_card.css">
 </body>
 </html>

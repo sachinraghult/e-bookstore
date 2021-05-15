@@ -11,8 +11,7 @@
 <html>
 <head>
     <title>View Books</title>
-    
-   
+    <link rel="stylesheet" type="text/css" href="css/book_pur_cards.css">
 </head>
 <body>
 
@@ -28,19 +27,32 @@
         
         if($res2->num_rows>0)
         { 
+            echo " 
+            <div class='container'>
+            ";
             while($rows2=$res2->fetch_assoc())
             {
-                $img = "admin/".$rows2['bimage'];
-                echo "
-                <div onclick='' style='float:left; height: 200px; width: 400px'>
-                <img src='$img'>
-                    <p><img src='$img' style='background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))'>{$rows2['bname']}</p>
-                </img>
+                $img = "admin/{$rows2['bimage']}";
+                echo"
+                <a href='cust_book_det.php?id={$rows2['bid']}'><div class='cardWrap'>
+                  <div class='card'>
+                    <div class='cardBg' style='background-image: url({$img});'></div>
+                    <div class='cardInfo'>
+                      <h3 class='cardTitle'>
+                        {$rows2['bname']}
+                      </h3>
+                      <p>
+                        {$rows2['author']}
+                        <br>
+                        {$rows2['cat_name']}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                
-                ";
+                </a>
+            ";
             }
-            
+            echo "</div>";
         }
         else
         {
@@ -48,7 +60,46 @@
         }
     }
 ?>
-    <link rel="stylesheet" type="text/css" href="css/book_det_card.css">
+
     </div>
+
+    <script>
+        const wrapper = document.querySelectorAll(".cardWrap");
+
+        wrapper.forEach(element => {
+        let state = {
+            mouseX: 0,
+            mouseY: 0,
+            height: element.clientHeight,
+            width: element.clientWidth
+        };
+
+        element.addEventListener("mousemove", ele => {
+            const card = element.querySelector(".card");
+            const cardBg = card.querySelector(".cardBg");
+            state.mouseX = ele.pageX - element.offsetLeft - state.width / 2;
+            state.mouseY = ele.pageY - element.offsetTop - state.height / 2;
+
+            // parallax angle in card
+            const angleX = (state.mouseX / state.width) * 30;
+            const angleY = (state.mouseY / state.height) * -30;
+            card.style.transform = `rotateY(${angleX}deg) rotateX(${angleY}deg) `;
+
+            // parallax position of background in card
+            const posX = (state.mouseX / state.width) * -40;
+            const posY = (state.mouseY / state.height) * -40;
+            cardBg.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
+        });
+
+        element.addEventListener("mouseout", () => {
+            const card = element.querySelector(".card");
+            const cardBg = card.querySelector(".cardBg");
+            card.style.transform = `rotateY(0deg) rotateX(0deg) `;
+            cardBg.style.transform = `translateX(0px) translateY(0px)`;
+        });
+        });
+
+    </script>
+
     </body>
     </html>
