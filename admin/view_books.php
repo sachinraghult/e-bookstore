@@ -10,8 +10,9 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="../css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" type="text/css" href="../css/book_cards.css">
+    <link rel="stylesheet" type="text/css" href="../css/book_btn.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
 <body>
@@ -70,18 +71,17 @@
               echo "
               <div class='card'>
                   <div class='Box'>
-                  <img src='admin/{$rows['bimage']}'>
+                  <img src='{$rows['bimage']}'>
                   </div>
                   <div class='details'>
-                  <h2>{$rows['bname']}</h2>
-                  <p>{$rows['author']}</p>
-                  <p>{$rows['cat_name']}</p>
+                  <h2 style='color:#1F2739'>{$rows['bname']}</h2>
+                  <p>by {$rows['author']},</p>
+                  <p>{$rows['keywords']}</p>
+                  <p style='float:left;'>{$rows['cat_name']}</p>
                   <p style='float:right; display:inline-block; color:red'>
                       &#8377;{$rows['price']}
-                  </p>
-                  <div class='card_creator'>
-                      <a href='book_det.php?id={$rows["bid"]}'><button>View Book</button></a>
-                  </div>
+                  </p><br><br><br>
+                  <a href='book_det.php?id={$rows['bid']}'><button class='custom-btn btn'>View Book</button></a>
                   </div>
               </div>            
               ";

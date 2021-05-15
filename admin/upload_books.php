@@ -48,7 +48,7 @@
     <label for="author"><b>Author</b></label>
     <input type="text" placeholder="Enter author" name="author" required>
 
-    <label for="keywords" style="margin :auto;"><b>Keywords&emsp;&emsp;&emsp;</b></label>
+    <label for="keywords" style="margin :auto;"><b>Book Description&emsp;&emsp;&emsp;</b></label>
     <br>
     <div style="padding-top:7px">
     <textarea name="keywords" placeholder="Enter keywords" rows="3" cols="35" style="background-color : rgb(243, 243, 243);" required></textarea>
