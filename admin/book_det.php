@@ -12,13 +12,9 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
-    <style>
-    body{
-        background: #eedfcc;
-    }
-    </style>
+   
 </head>
 <body>
 
@@ -31,14 +27,40 @@
     $rows = $res->fetch_assoc();
     if($res->num_rows>0)
     {
-        echo"
-        <div class='card' style='float:left;margin:5% 18%; width: 500px;'>
-            <img src='{$rows["bimage"]}' alt='book image' style='width:100%'>
-            <h1>{$rows["bname"]}</h1>
-            <p>{$rows['author']}</p>
-            <p>{$rows['cat_name']}</p>
-            <p><a href='admin/{$rows["bfile"]}' target = '_blank'><button style='margin-bottom: 0%;'>View Book</button></a></p>
+         echo"
+        <style>
+        .scene:nth-child(1) .movie .poster {
+            background-image: url('{$rows["bimage"]}');
+        }
+        
+        .scene:nth-child(1) .info header {
+            background-image: url('{$rows["bimage"]}');
+        }
+        </style>
+        <div class='container mt30'>
+        <div class='wrapper'>
+            <ul class='stage clearfix'>
+                <li class='scene'>
+                    <div class='movie' onlclick='returntrue'>
+                        <div class='poster'>
+                        </div>
+                        <div class='info'>
+                            <header>
+                                <h1>Heading</h1>
+                                <span class='year'>20015</span>
+                                <span class='rating'>PG</span>
+                                <span class='duration'>102 M</span>
+                            </header>
+                            <p>
+                                CakeCounter provides specially baked cakes and treats that are available for shipping around the Jamshedpur. Our custom baked cakes are made using fresh and wholesome ingredients and are created with skill and artistry. From brownies and cookies or the perfect strawberry cake, our bakery provides just the right items for celebratory moments or everyday treats.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+	    </div>
         </div>
+        
         ";
     }
     else {
@@ -80,6 +102,6 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="../css/book_det_card.css">
 </body>
 </html>

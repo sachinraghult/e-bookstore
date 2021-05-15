@@ -31,16 +31,11 @@
             while($rows2=$res2->fetch_assoc())
             {
                 $img = "admin/".$rows2['bimage'];
-                echo "<style>
-                figure figcaption{
-                    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-                }
-
-                </style>
+                echo "
                 <div onclick='' style='float:left; height: 200px; width: 400px'>
-                <figure style='background-img: '$img''>
-                    <figcaption style='background-img: '$img''>{$rows2['bname']}</figcaption>
-                </figure>
+                <img src='$img'>
+                    <p><img src='$img' style='background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))'>{$rows2['bname']}</p>
+                </img>
                 </div>
                 
                 ";
