@@ -1,174 +1,67 @@
-*, *:after, *:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+/*basic reset*/
+* {margin: 0; padding: 0;}
+/*forcing the body to take 100% height*/
+html, body {min-height: 100%;}
+/*a nice BG*/
 body {
-	background: #00F260;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #0575E6, #00F260);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #0575E6, #00F260);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	font-family: 'Lato', Arial, sans-serif;
-	color: #fff;
-	background-position: center;
-	background-size: cover;
-}
-.mt30 {
-	margin-top: 30px;
-}
-.wrapper {
-	margin: 0 auto 100px auto;
-	max-width: 960px;
-}
-.stage {
-	list-style: none;
-	padding: 0;
+	background: #544; /*fallback*/
+	background: linear-gradient(#544, #565);
 }
 
-/* uild the scene and rotate on hover */
-
-.scene {
-	width: 260px;
-	height: 400px;
-	margin: 30px;
-	float: left;
-	-webkit-perspective: 1000px;
-	-moz-perspective: 1000px;
+/*Thumbnail Background*/
+.thumb {
+	width: 400px; height: 600px; margin: 70px auto;
 	perspective: 1000px;
 }
-.movie {
-	width: 260px;
-	height: 400px;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
+.thumb a {
+	display: block; width: 100%; height: 60%;
+	/*double layered BG for lighting effect*/
+	
+	/*disabling the translucent black bg on the main image*/
+	background-size: 0, cover;
+	/*3d space for children*/
 	transform-style: preserve-3d;
-	-webkit-transform: translateZ(-130px);
-	-moz-transform: translateZ(-130px);
-	transform: translateZ(-130px);
-	-webkit-transition: -webkit-transform 350ms;
-	-moz-transition: -moz-transform 350ms;
-	transition: transform 350ms;
+	transition: all 0.5s;
 }
-.movie:hover {
-	-webkit-transform: rotateY(-78deg) translateZ(20px);
-	-moz-transform: rotateY(-78deg) translateZ(20px);
-	transform: rotateY(-78deg) translateZ(20px);
+.thumb:hover a {transform: rotateX(80deg); transform-origin: bottom;}
+/*bottom surface */
+.thumb a:after {
+	/*36px high element positioned at the bottom of the image*/
+	content: ''; position: absolute; left: 0; bottom: 0; 
+	width: 100%; height: 36px;
+	/*inherit the main BG*/
+	background: inherit; background-size: cover, cover;
+	/*draw the BG bottom up*/
+	background-position: bottom;
+	/*rotate the surface 90deg on the bottom axis*/
+	transform: rotateX(90deg); transform-origin: bottom;
 }
-
-/* Transform and style the two planes */
-
-.movie .poster,	.movie .info {
-	position: absolute;
-	width: 260px;
-	height: 400px;
-	background-color: #fff;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	backface-visibility: hidden;
+/*label style*/
+.thumb a span {
+	color: white; text-transform: uppercase;
+	position: absolute; top: 100%; left: 0; width: 100%;
+	font: bold 12px/36px Montserrat; text-align: center;
+	/*the rotation is a bit less than the bottom surface to avoid flickering*/
+	transform: rotateX(-89.99deg); transform-origin: top;
+	z-index: 1;
 }
-.movie .poster {
-	-webkit-transform: translateZ(130px);
-	-moz-transform: translateZ(130px);
-	transform: translateZ(130px);
-	background-size: cover;
-	background-repeat: no-repeat;
+/*shadow*/
+.thumb a:before {
+	content: ''; position: absolute; top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: rgba(0, 0, 0, 0.5); 
+	box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
+	transition: all 0.5s; 
+	/*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
+	opacity: 0.15;
+	transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+	transform-origin: bottom;
 }
-.movie .info {
-	-webkit-transform: rotateY(90deg) translateZ(130px);
-	-moz-transform: rotateY(90deg) translateZ(130px);
-	transform: rotateY(90deg) translateZ(130px);
-	border: 4px solid #fff;
-	font-size: 0.75em;
-}
-
-/* Shadow beneath the 3D object */
-
-.csstransforms3d .movie::after {
-	content: '';
-	width: 260px;
-	height: 260px;
-	position: absolute;
-	bottom: 0;
-	box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
-	-webkit-transform-origin: 100% 100%;
-	-moz-transform-origin: 100% 100%;
-	transform-origin: 100% 100%;
-	-webkit-transform: rotateX(90deg) translateY(130px);
-	-moz-transform: rotateX(90deg) translateY(130px);
-	transform: rotateX(90deg) translateY(130px);
-	-webkit-transition: box-shadow 350ms;
-	-moz-transition: box-shadow 350ms;
-	transition: box-shadow 350ms;
-}
-.csstransforms3d .movie:hover::after {
-	box-shadow: 20px -5px 50px rgba(0, 0, 0, 0.3);
-}
-
-/* Movie information */
-
-.info header {
-	color: #FFF;
-	padding: 7px 10px;
-	font-weight: bold;
-	height: 195px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
-}
-.info header h1 {
-	margin: 0 0 2px;
-	font-size: 1.4em;
-}
-.info header .rating {
-	border: 1px solid #FFF;
-	padding: 0px 3px;
-}
-.info p {
-	padding: 1.2em 1.4em;
-	margin: 2px 0 0;
-	color: #395065;
-	text-align: justify;
-	line-height: 1.4em;
-	font-family: sans-serif;
-
-}
-
-/* Generate "lighting" using box shadows */
-
-.movie .poster,	.movie .info,	.movie .info header {
-	-webkit-transition: box-shadow 350ms;
-	-moz-transition: box-shadow 350ms;
-	transition: box-shadow 350ms;
-}
-.csstransforms3d .movie .poster {
-	box-shadow: inset 0px 0px 40px rgba(255, 255, 255, 0);
-	background-size: cover;
-	background-position: top;
-}
-.csstransforms3d .movie:hover .poster {
-	box-shadow: inset 300px 0px 40px rgba(255, 255, 255, 0.8);
-}
-
-.csstransforms3d .movie .info,
-.csstransforms3d .movie .info header {
-	box-shadow: inset -300px 0px 40px rgba(0, 0, 0, 0.5);
-}
-.csstransforms3d .movie:hover .info,	.csstransforms3d .movie:hover .info header {
-	box-shadow: inset 0px 0px 40px rgba(0, 0, 0, 0);
-}
-
-
-/* Fallback */
-.no-csstransforms3d .movie .poster,	.no-csstransforms3d .movie .info {
-	position: relative;
-}
-/* Media Queries */
-@media screen and (max-width: 60.75em) {
-	.scene {
-		float: none;
-		margin: 30px auto 60px;
-	}
+.thumb:hover a:before {
+	opacity: 1;
+	/*blurred effect using box shadow as filter: blur is not supported in all browsers*/
+	box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5);
+	/*pushing the shadow down and scaling it down to size*/
+	transform: rotateX(0) translateZ(-60px) scale(0.85);
 }
