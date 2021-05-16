@@ -69,10 +69,6 @@
                     <td><b>{$rows['keywords']}</b></td>
                 </tr>
                 <tr>
-                    <th>PRICE</th>
-                    <td><b>&#8377; {$rows['price']}</b></td>
-                </tr>
-                <tr>
                     <th>CATEGORY</th>
                     <td><b>{$rows['cat_name']}</b></td>
                 </tr>
