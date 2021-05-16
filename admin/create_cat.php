@@ -24,6 +24,25 @@
         $target_img_dir1 = $target_img.basename($_FILES["cat_img1"]["name"]);
         $target_img_dir2 = $target_img.basename($_FILES["cat_img2"]["name"]);
 
+        $qry = "SELECT * from category where cat_image = '{$target_img_dir1}' or cat_image1 = '{$target_img_dir1}'";
+        $result = $db->query($qry);
+        if($result->num_rows>0){
+          $find = basename($target_img_dir1);
+          $ext = pathinfo(basename($target_img_dir1), PATHINFO_EXTENSION);
+          $replace =  str_replace('.', '', basename($target_img_dir1, $ext)).rand(0000,9999).'.'.$ext;
+          $target_img_dir1 = str_replace($find, $replace, $target_img_dir1);
+        }
+
+        $qry1 = "SELECT * from category where cat_image = '{$target_img_dir2}' or cat_image1 = '{$target_img_dir2}'";
+        $result1 = $db->query($qry1);
+        if($result1->num_rows>0){
+          $find1 = basename($target_img_dir2);
+          $ext1 = pathinfo(basename($target_img_dir2), PATHINFO_EXTENSION);
+          $replace1 =  str_replace('.', '', basename($target_img_dir2, $ext1)).rand(0000,9999).'.'.$ext1;
+          $target_img_dir2 = str_replace($find1, $replace1, $target_img_dir2);
+        }
+
+
         if (move_uploaded_file($_FILES["cat_img1"]["tmp_name"],$target_img_dir1)&&
         move_uploaded_file($_FILES["cat_img2"]["tmp_name"],$target_img_dir2)){
           $sql = "INSERT INTO category (cat_name, cat_desc, cat_image, cat_image1) VALUES ('{$_POST["cat_name"]}', '{$_POST["desc"]}', '{$target_img_dir1}', '{$target_img_dir2}');";

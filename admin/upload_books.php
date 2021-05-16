@@ -29,9 +29,27 @@
         $target_img_dir = $target_img.basename($_FILES["bookimg"]["name"]);
 
         $target_img_dir = str_replace(' ', '-', $target_img_dir);
-        $target_img_dir = preg_replace('/[^A-Za-z0-9\-]/', '', $target_img_dir);
+        $target_img_dir = preg_replace('/[^A-Za-z0-9\-_\/.]/', '', $target_img_dir);
 
         $target_file_dir = $target_file.basename($_FILES["bookfile"]["name"]);
+
+        $qry = "SELECT * from book where bimage = '{$target_img_dir}'";
+        $result = $db->query($qry);
+        if($result->num_rows>0){
+          $find = basename($target_img_dir);
+          $ext = pathinfo(basename($target_img_dir), PATHINFO_EXTENSION);
+          $replace =  str_replace('.', '', basename($target_img_dir, $ext)).rand(0000,9999).'.'.$ext;
+          $target_img_dir = str_replace($find, $replace, $target_img_dir);
+        }
+
+        $qry1 = "SELECT * from book where bfile = '{$target_file_dir}'";
+        $result1 = $db->query($qry1);
+        if($result1->num_rows>0){
+          $find1 = basename($target_file_dir);
+          $ext1 = pathinfo(basename($target_file_dir), PATHINFO_EXTENSION);
+          $replace1 =  str_replace('.', '', basename($target_file_dir, $ext1)).rand(0000,9999).'.'.$ext1;
+          $target_file_dir = str_replace($find1, $replace1, $target_file_dir);
+        }
         
         if (move_uploaded_file($_FILES["bookimg"]["tmp_name"],$target_img_dir) &&
         move_uploaded_file($_FILES["bookfile"]["tmp_name"],$target_file_dir)) 

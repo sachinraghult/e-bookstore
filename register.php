@@ -100,6 +100,15 @@
         {
           $target_img = "admin/media/profile_img/";
           $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
+
+          $qry = "SELECT * from customer where cus_image = '{$target_img_dir}'";
+          $result = $db->query($qry);
+          if($result->num_rows>0){
+            $find = basename($target_img_dir);
+            $ext = pathinfo(basename($target_img_dir), PATHINFO_EXTENSION);
+            $replace =  str_replace('.', '', basename($target_img_dir, $ext)).rand(0000,9999).'.'.$ext;
+            $target_img_dir = str_replace($find, $replace, $target_img_dir);
+          }
           
           if (move_uploaded_file($_FILES["profile"]["tmp_name"],$target_img_dir)) 
           {
@@ -129,7 +138,7 @@
     <br>
 
     <div class="user-box">
-      <input type="text" id="name" onkeyup="userCheck(); disfunc()" required>
+      <input type="text" id="name" name="name" onkeyup="userCheck(); disfunc()" required>
       <label>Username</label>
     </div>
 
