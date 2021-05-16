@@ -318,7 +318,7 @@ nav ul li div { position: relative; }
 
 </style>
 <nav>
-  <ul>
+  <ul style="margin-left: -10%; margin-top: 0%; padding: 0;list-style-type: none;">
     <li>
       <div class="home-icon">
         <div class="roof">
