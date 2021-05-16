@@ -1,15 +1,6 @@
 @charset "UTF-8";
 
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.42em;
-  color:#A7A1AE;
-  background-color:#1F2739;
-}
-
-
 .blue { color: #185875; }
 .yellow { color: #FFF842; }
 
@@ -31,8 +22,8 @@ body {
 .container {
 	  text-align: left;
 	  overflow: hidden;
-	  width: 80%;
-	  margin: 0 auto;
+	  width: 70%;
+	  margin: 7% 25%;
   display: table;
 }
 

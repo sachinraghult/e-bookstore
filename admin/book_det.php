@@ -29,19 +29,51 @@
     {
     $img = "{$rows['bimage']}";
     echo"
-        <div class='thumb' style='text-size: 50px;'>
+    <div>
+        <div class='thumb' style='text-size: 50px; float: left; margin-left: 150px;'>
         <a href='#'>
-            <span ><button class='glow-on-hover' type='button' >PAY</button></span>
+            <span ><button class='glow-on-hover' type='button' >View Book</button></span>
         </a>
         </div>   
+
+        <div style='float:right; width:65%; margin-top:10%; margin-bottom:10%'>
+        <table class='container' style='background-color:#1F2739;'>
+        <thead>
+        <tr>
+            <th>BOOK NAME</th>
+            <td><b>{$rows['bname']}</b></td>
+        </tr>
+        <tr>
+            <th>AUTHOR</th>
+            <td><b>{$rows['author']}</b></td>
+        </tr>
+        <tr>
+            <th>DESCRIPTION&ensp;&ensp;&ensp;</th>
+            <td><b>{$rows['keywords']}</b></td>
+        </tr>
+        <tr>
+            <th>PRICE</th>
+            <td><b>&#8377; {$rows['price']}</b></td>
+        </tr>
+        <tr>
+            <th>CATEGORY</th>
+            <td><b>{$rows['cat_name']}</b></td>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        </table>
+        </div>
+    </div>
         ";
     }
     else {
         echo "<p style='color: red'>No Records found</p>";
     }
-
+    
+    echo "<h1 style='text-align:center; clear: both;'>Customer Comments</h1> <br><br>";
+    
     if ($res1->num_rows > 0) {
-        echo "<div style='margin-top:5%; margin-left:55%;'>
+        echo "<div>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
@@ -61,9 +93,9 @@
                 </tr>";
         }
         echo "  
+            </tbody>
             </table>
             </div>
-            </tbody>
             ";
     }
     else {
@@ -76,7 +108,6 @@
 <style>
     @import url(https://fonts.googleapis.com/css?family=Montserrat);
 /*basic reset*/
-* {margin: 0; padding: 0;}
 
 /*a nice BG*/
 body {
@@ -86,7 +117,7 @@ body {
 
 /*Thumbnail Background*/
 .thumb {
-	width: 500px; height: 750px; margin: 70px auto;
+	width: 500px; height: 750px; margin: 70px 0;
 	perspective: 1000px;
 }
 .thumb a {

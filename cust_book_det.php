@@ -19,20 +19,18 @@
 <html>
 <head>
     <title>View Books</title>
-    <link rel="stylesheet" type="text/css" href="css/register.css">
+    
     <link rel="stylesheet" type="text/css" href="css/tables.css">
-    <link rel="stylesheet" type="text/css" href="css/profile.css">
 
     <style>
     body{
         background: #eedfcc;
     }
 
-
     .blackboard {
-        position: relative;
-        width: 640px;
-        margin: 7% auto;
+        position: absolute;
+        width: 40%;
+        margin: 53% auto;
         border: tan solid 12px;
         border-top: #bda27e solid 12px;
         border-left: #b19876 solid 12px;
@@ -91,12 +89,6 @@
         outline: none;
     }
 
-    textarea {
-        height: 120px;
-        font-size: 1.4em;
-        line-height: 1em;
-        resize: none;
-    }
 
     input[type="submit"] {
         cursor: pointer;
@@ -240,7 +232,7 @@
             }
         }
             echo"
-            <p>
+            <p><br>
             <label for='name'><b>Comment</b></label>
             <input type='text' name='comment' required>
             </p><br><br>
@@ -254,7 +246,7 @@
 
 
 
-    echo "<h1 style='text-align:center;'>Customer Comments</h1> <br><br>";
+    echo "<h1 style='margin-left : 800px;font-size:50px'>Customer Comments</h1> <br><br>";
 
     if ($res1->num_rows > 0) {
         echo "<div style='float:right; width:65%'>
