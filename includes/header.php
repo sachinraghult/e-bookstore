@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href="../css/sidenav.css" rel="stylesheet" type="text/css">
+
   <style>
     @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
     *{
@@ -12,27 +19,45 @@
       font-size: 16px;
       line-height: 1.42em;
     }
-
+    .material-icons.md-48 { font-size: 48px; }
+    .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+    
   </style>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/sidenav.css" rel="stylesheet" type="text/css">
 
 </head>
 <body style="size: 18px">
 
-<div style="position: sticky; top: 0; overflow: hidden; z-index: 999; padding:16px; background-color: #ff6600; color: white;text-align: center;"><b style="margin-left: 11%; font-size: 25px; line-height: 25px;">E-BOOKSTORE</b></div>
-<b>
-<div class="sidebar" style="font-size: large;">
 
- <a href="index.php">Home</a>
- <a href="search_books.php">Search Books</a>
- <a href="book_purchased.php">In Your Store</a>
- <a href="cust_request.php">Request</a> 
- <a href="profile.php">Profile</a> 
- <a href="cust_pwd.php">Change Password</a>
- <a href="logout.php">Logout</a>
+<nav>
+  <ul style="margin-top: center; padding: 0; list-style-type: none;">
+    <li>
+    <span class="material-icons md-48 md-light">home</span>
+    </li>
 
-</div>
-<div class="content">
+    <li>
+    <span class="material-icons md-48 md-light">search</span>
+    </li>
+    
+    <li>
+    <span class="material-icons md-48 md-light">shopping_cart</span>
+    </li>
+
+    <li>
+    <span class="material-icons md-48 md-light">recommend</span>
+    </li>
+
+    <li>
+    <span class="material-icons md-48 md-light">account_box</span>
+    </li>
+
+    <li>
+    <span class="material-icons md-48 md-light">lock</span>
+    </li>
+
+    <li>
+    <span class="material-icons md-48 md-light">logout</span>
+    </li>
+  </ul>
+
+<section>
+
