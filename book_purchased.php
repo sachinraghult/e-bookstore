@@ -37,7 +37,7 @@
                 <a href='cust_book_det.php?id={$rows2['bid']}'><div class='cardWrap'>
                   <div class='card'>
                     <div class='cardBg' style='background-image: url({$img});'></div>
-                    <div class='cardInfo'>
+                    <div class='cardInfo' style='width:100%'>
                       <h3 class='cardTitle'>
                         {$rows2['bname']}
                       </h3>
