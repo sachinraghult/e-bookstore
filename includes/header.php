@@ -97,6 +97,7 @@
     font-size: 52px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
+    line-height: 60px;
     text-shadow: 1px 1px 0px #DC143C,
     2px 2px 0px #DC143C,
     3px 3px 0px #DC143C,
