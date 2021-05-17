@@ -64,7 +64,7 @@
       {
         echo "
         </div>
-        <div class='box-container'>
+        <div class='box-container' style='margin-left 10%'>
         ";
       }
 

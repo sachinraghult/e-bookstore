@@ -17,7 +17,7 @@
 <body>
 
 
-<div class="login-box" style="margin: auto">
+<div class="login-box" style="margin-left: auto; margin-top: 100px;">
 <h2>Login</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
   

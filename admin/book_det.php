@@ -4,7 +4,6 @@
   if(!isset($_SESSION["AID"])){
     header("location:../admin_login.php");
   }
-  include("header.php");
 
 ?>
 
@@ -16,8 +15,12 @@
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
+<div class='background'></div>
 
-<?php 
+<?php
+
+    include("header.php");
+
     $sql = "SELECT book.*,category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
     $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
     ORDER BY comment.com_id DESC;";
@@ -27,53 +30,80 @@
 
     if($res->num_rows>0)
     {
-    $img = "{$rows['bimage']}";
+    $file = "{$rows['bfile']}";
     echo"
     <div>
-        <div class='thumb' style='text-size: 50px; float: left; margin-left: 150px;'>
-        <a href='#'>
-            <span ><button class='glow-on-hover' type='button' >View Book</button></span>
-        </a>
-        </div>   
+        <div id='curve' class='card' style='float:left; margin-left: 10%'>
+            <div class='footer'>
+                <div class='connections'>
+                    <a href=$file target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
+                </div>
+                <svg id='curve'>
+                    <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
+                    <rect id='dummyRect' x='0' y='0' height='450' width='400'
+                fill='transparent' />
+                    
+                    <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
+                    
+                    <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
+                    
+                    <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
+                    
+                    <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
+                    
+                    <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
+        
+                    <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
+                </svg>
+                <div class='info'>
+                    <div class='name'>{$rows['bname']}</div>
+                    <div class='job'>{$rows['author']}</div>
+                    <a href=$file target='_blank'>View</a>
+                </div>
+                </div>
+                    <div class='card-blur'></div>
+                </div>
+        </div>  
 
-        <div style='float:right; width:65%; margin-top:10%; margin-bottom:10%'>
-        <table class='container' style='background-color:#1F2739;'>
+
+        <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
+        <table class='container' style='background-color:#1F2739; width: 60%'>
         <thead>
         <tr>
-            <th>BOOK NAME</th>
+            <th style='color: #FB667A'>BOOK NAME</th>
             <td><b>{$rows['bname']}</b></td>
         </tr>
         <tr>
-            <th>AUTHOR</th>
+        <th style='color: #FB667A'>AUTHOR</th>
             <td><b>{$rows['author']}</b></td>
         </tr>
         <tr>
-            <th>DESCRIPTION&ensp;&ensp;&ensp;</th>
+        <th style='color: #FB667A'>DESCRIPTION&ensp;&ensp;&ensp;</th>
             <td><b>{$rows['keywords']}</b></td>
         </tr>
         <tr>
-            <th>PRICE</th>
+        <th style='color: #FB667A'>PRICE</th>
             <td><b>&#8377; {$rows['price']}</b></td>
         </tr>
         <tr>
-            <th>CATEGORY</th>
+        <th style='color: #FB667A'>CATEGORY</th>
             <td><b>{$rows['cat_name']}</b></td>
         </tr>
         </thead>
         <tbody></tbody>
         </table>
         </div>
-    </div>
+        </div>
         ";
     }
     else {
         echo "<p style='color: red'>No Records found</p>";
     }
     
-    echo "<h1 style='text-align:center; clear: both;'>Customer Comments</h1> <br><br>";
+    echo "<h1 style='position: absolute; margin-top: 40%; margin-left: 25%;'>Customer Comments</h1> <br><br>";
     
     if ($res1->num_rows > 0) {
-        echo "<div>
+        echo "<div style='position: absolute; margin-top: 40%; margin-left: 10%; width: 60%'>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
@@ -106,137 +136,146 @@
 ?>
 
 <style>
-    @import url(https://fonts.googleapis.com/css?family=Montserrat);
-/*basic reset*/
-
-/*a nice BG*/
+html,
 body {
-	background: #544; /*fallback*/
-	background: linear-gradient(#544, #565);
-}
-
-/*Thumbnail Background*/
-.thumb {
-	width: 500px; height: 750px; margin: 70px 0;
-	perspective: 1000px;
-}
-.thumb a {
-	display: block; width: 100%; height: 100%;
-	/*double layered BG for lighting effect*/
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(<?php echo $img; ?>) no-repeat center top;
-    
-    background-size: contain;
-	/*disabling the translucent black bg on the main image*/
-	background-size: 0, cover;
-	/*3d space for children*/
-	transform-style: preserve-3d;
-	transition: all 0.5s;
-}
-.thumb:hover a {transform: rotateX(80deg); transform-origin: bottom;}
-/*bottom surface */
-.thumb a:after {
-	/*36px high element positioned at the bottom of the image*/
-	content: ''; position: absolute; left: 0; bottom: 0; 
-	width: 100%; height: 36px;
-	/*inherit the main BG*/
-	background: inherit; background-size: cover, cover;
-	/*draw the BG bottom up*/
-	background-position: bottom;
-	/*rotate the surface 90deg on the bottom axis*/
-	transform: rotateX(90deg); transform-origin: bottom;
-    opacity: 0.65;
-}
-/*label style*/
-.thumb a span {
-	color: white; text-transform: uppercase;
-	position: absolute; top: 100%; left: 0; width: 100%;
-	font: bold 12px/36px Montserrat; text-align: center;
-	/*the rotation is a bit less than the bottom surface to avoid flickering*/
-	transform: rotateX(-89.99deg); transform-origin: top;
-	z-index: 1;
-}
-/*shadow*/
-.thumb a:before {
-	content: ''; position: absolute; top: 0; left: 0;
-	width: 100%; height: 100%;
-	background: rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
-	transition: all 0.5s; 
-	/*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
-	opacity: 0.15;
-	transform: rotateX(95deg) translateZ(-80px) scale(0.75);
-	transform-origin: bottom;
-}
-.thumb:hover a:before {
-	opacity: 1;
-	/*blurred effect using box shadow as filter: blur is not supported in all browsers*/
-	box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5);
-	/*pushing the shadow down and scaling it down to size*/
-	transform: rotateX(0) translateZ(-60px) scale(0.85);
-}
-
-
-
-.glow-on-hover {
-    width: 500px;
-    height: 40px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-}
-
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:active {
-    color: #000
-}
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
     height: 100%;
-    background: #111;
-    left: 0;
+    width: 100%;
+}
+
+.background {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    height: 200%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+}
+
+.card {
+    position: absolute;
+    border-radius: 8px;
+    height: 450px;
+    width: 400px;
     top: 0;
-    border-radius: 10px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 80px -10px black;
+    overflow: hidden;
 }
 
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+.card-blur {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 1px);
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
 }
 
+.card:hover .card-blur {
+    opacity: 0.6;
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+svg#curve {
+    position: absolute;
+    fill: white;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    height: 450px;
+}
+
+.connections {
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.connection {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    background-color: white;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 25px;
+    transform: translateY(200px);
+    transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .connection {
+    transform: translateY(0px);
+}
+
+.info {
+	font-family: Inconsolata;
+    padding-left: 20px;
+    transform: translateY(250px);
+    
+    transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.card:hover .info {
+    transform: translateY(0px);
+}
+
+.name {
+    font-weight: bolder;
+    padding-top: 5px;
+}
+
+.job {
+    margin-top: 10px;
+}
+
+.connection.facebook {
+    height: 40px;
+    width: 70px;
+    margin-left: 20px;
+    padding: 5px 13px;
+    border-radius: 10%;
+    overflow: hidden;
+    background-color: #ff1a75;
+}
+
+.connection.facebook .icon {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card {
+    background-image: url("<?php echo $rows['bimage']?>");
+}
+
+.background {
+    background-image: url("<?php echo $rows['bimage']?>");
+}
 </style>
 </body>
 </html>

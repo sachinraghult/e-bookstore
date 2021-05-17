@@ -32,6 +32,7 @@
         return false;
       }
     }
+
     function check() 
     {
       if (document.getElementById('pwd').value ==
@@ -84,7 +85,7 @@
  
 <?php ?>
 
-<div class="login-box" style="margin: 5%">
+<div class="login-box" style="margin-left: auto; margin-top: 100px">
 <h2>Create Account</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post">
     <p style="color: white">Please fill in this form to create an account.</p>
