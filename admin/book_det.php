@@ -11,7 +11,6 @@
 <html>
 <head>
     <title>View Books</title>
-    
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
@@ -20,7 +19,10 @@
 <?php
 
     include("header.php");
-
+    echo '<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
+    </head>';
+    
     $sql = "SELECT book.*,category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
     $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
     ORDER BY comment.com_id DESC;";
@@ -30,13 +32,14 @@
 
     if($res->num_rows>0)
     {
-    $file = "{$rows['bfile']}";
+    $file = $rows['bfile'];
+    $file = preg_replace('/\s+/', '%20', $file);
     echo"
     <div>
-        <div id='curve' class='card' style='float:left; margin-left: 10%'>
+        <div id='curve' class='card' style='float:left; margin: 10%'>
             <div class='footer'>
                 <div class='connections'>
-                    <a href=$file target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
+                    <a href={$file} target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
                 </div>
                 <svg id='curve'>
                     <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
@@ -58,7 +61,6 @@
                 <div class='info'>
                     <div class='name'>{$rows['bname']}</div>
                     <div class='job'>{$rows['author']}</div>
-                    <a href=$file target='_blank'>View</a>
                 </div>
                 </div>
                     <div class='card-blur'></div>
@@ -100,10 +102,10 @@
         echo "<p style='color: red'>No Records found</p>";
     }
     
-    echo "<h1 style='position: absolute; margin-top: 40%; margin-left: 25%;'>Customer Comments</h1> <br><br>";
+    echo "<h1 style='position: absolute; margin-top: 650px; margin-left: 25%;'>Customer Comments</h1> <br><br>";
     
     if ($res1->num_rows > 0) {
-        echo "<div style='position: absolute; margin-top: 40%; margin-left: 10%; width: 60%'>
+        echo "<div style='position: absolute; margin-top: 680px; margin-left: 10%; width: 60%'>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
@@ -146,7 +148,7 @@ body {
     position: absolute;
     top: -40px;
     left: -40px;
-    height: 200%;
+    height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -158,7 +160,7 @@ body {
 .card {
     position: absolute;
     border-radius: 8px;
-    height: 450px;
+    height: 500px;
     width: 400px;
     top: 0;
     right: 0;

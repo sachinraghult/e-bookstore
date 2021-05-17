@@ -1,4 +1,5 @@
 <?php
+  ob_start();
   session_start();
   if(!isset($_SESSION['CUS_ID']))
   {
@@ -20,7 +21,7 @@
 <html>
 <head>
     <title>View Books</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
     <link rel="stylesheet" type="text/css" href="css/tables.css">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
@@ -136,79 +137,132 @@
     if($res->num_rows>0)
     {
         if($res2->num_rows>0){
-            $img = "admin/{$rows['bimage']}";
+            $file = "admin/{$rows['bfile']}";
+            $file = preg_replace('/\s+/', '%20', $file);
             echo"
             <div>
-                <div class='thumb' style='text-size: 50px; float: left; margin-left: 20px;'>
-                <a href='#'>
-                    <span ><button class='glow-on-hover' type='button' >View Book</button></span>
-                </a>
-                </div>   
-
-                <div style='float:right; width:65%; margin-top:10%; margin-bottom:10%'>
-                <table class='container' style='background-color:#1F2739;'>
-                <thead>
-                <tr>
-                    <th>BOOK NAME</th>
-                    <td><b>{$rows['bname']}</b></td>
-                </tr>
-                <tr>
-                    <th>AUTHOR</th>
-                    <td><b>{$rows['author']}</b></td>
-                </tr>
-                <tr>
-                    <th>DESCRIPTION&ensp;&ensp;&ensp;</th>
-                    <td><b>{$rows['keywords']}</b></td>
-                </tr>
-                <tr>
-                    <th>CATEGORY</th>
-                    <td><b>{$rows['cat_name']}</b></td>
-                </tr>
-                </thead>
-                <tbody></tbody>
-                </table>
+                <div id='curve' class='card' style='float:left; margin: 10%'>
+                <div class='footer'>
+                    <div class='connections'>
+                        <a href={$file} target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
+                    </div>
+                    <svg id='curve'>
+                        <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
+                        <rect id='dummyRect' x='0' y='0' height='450' width='400'
+                    fill='transparent' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
+            
+                        <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
+                    </svg>
+                    <div class='info'>
+                        <div class='name'>{$rows['bname']}</div>
+                        <div class='job'>{$rows['author']}</div>
+                    </div>
+                    </div>
+                        <div class='card-blur'></div>
                 </div>
+            </div> 
+            
+            <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
+            <table class='container' style='background-color:#1F2739; width: 60%'>
+            <thead>
+            <tr>
+                <th style='color: #FB667A'>BOOK NAME</th>
+                <td><b>{$rows['bname']}</b></td>
+            </tr>
+            <tr>
+            <th style='color: #FB667A'>AUTHOR</th>
+                <td><b>{$rows['author']}</b></td>
+            </tr>
+            <tr>
+            <th style='color: #FB667A'>DESCRIPTION&ensp;&ensp;&ensp;</th>
+                <td><b>{$rows['keywords']}</b></td>
+            </tr>
+            <tr>
+            <tr>
+            <th style='color: #FB667A'>CATEGORY</th>
+                <td><b>{$rows['cat_name']}</b></td>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+            </div>
             </div>
           ";
         }
         else{
-            $img = "admin/{$rows['bimage']}";
+            $file = $rows['bfile'];
+            $file = preg_replace('/\s+/', '%20', $file);
             echo"
             <div>
-                <div class='thumb' style='text-size: 50px; float: left; margin-left: 20px;'>
-                <a href='#'>
-                    <span ><button class='glow-on-hover' type='button' >Pay</button></span>
-                </a>
-                </div>   
+                <div id='curve' class='card' style='float:left; margin: 10%'>
+                    <div class='footer'>
+                        <div class='connections'>
+                            <a href='payment.php?id={$rows['bid']}' target='_blank'><div class='connection facebook'><div class='icon'>Buy</div></div></a>
+                        </div>
+                        <svg id='curve'>
+                            <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
+                            <rect id='dummyRect' x='0' y='0' height='450' width='400'
+                        fill='transparent' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
+                
+                            <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
+                        </svg>
+                        <div class='info'>
+                            <div class='name'>{$rows['bname']}</div>
+                            <div class='job'>{$rows['author']}</div>
+                        </div>
+                        </div>
+                            <div class='card-blur'></div>
+                        </div>
+                </div>  
 
-                <div style='float:right; width:65%; margin-top:10%; margin-bottom:10%'>
-                <table class='container' style='background-color:#1F2739;'>
+                <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
+                <table class='container' style='background-color:#1F2739; width: 60%'>
                 <thead>
                 <tr>
-                    <th>BOOK NAME</th>
+                    <th style='color: #FB667A'>BOOK NAME</th>
                     <td><b>{$rows['bname']}</b></td>
                 </tr>
                 <tr>
-                    <th>AUTHOR</th>
+                <th style='color: #FB667A'>AUTHOR</th>
                     <td><b>{$rows['author']}</b></td>
                 </tr>
                 <tr>
-                    <th>DESCRIPTION&ensp;&ensp;&ensp;</th>
+                <th style='color: #FB667A'>DESCRIPTION&ensp;&ensp;&ensp;</th>
                     <td><b>{$rows['keywords']}</b></td>
                 </tr>
                 <tr>
-                    <th>PRICE</th>
+                <th style='color: #FB667A'>PRICE</th>
                     <td><b>&#8377; {$rows['price']}</b></td>
                 </tr>
                 <tr>
-                    <th>CATEGORY</th>
+                <th style='color: #FB667A'>CATEGORY</th>
                     <td><b>{$rows['cat_name']}</b></td>
                 </tr>
                 </thead>
                 <tbody></tbody>
                 </table>
                 </div>
-            </div>
+                </div>
           ";
         }
     }
@@ -220,13 +274,13 @@
 
 
     <?php    
+
+    echo "<h1 style='position: absolute; margin-top: 650px; margin-left: 30%;'>Customer Comments</h1> <br><br>";
+
     
     if($res2->num_rows>0){
         echo "
-        <div style='clear: both;'>
-        <h1 style='text-align:center;'>Customer Comments</h1> <br><br>
-
-        <div class='container content' style='clear: both; float:left;width: 450px; height: 270px; margin:3% 3%;'>
+        <div class='container content' style='position: absolute; float:left; width: 1500px; height: 400px; margin-top: 700px; margin-left: 10%;'>
         <form action='{$_SERVER['REQUEST_URI']}' method='post' >
         <div class='blackboard'>
         <div class='form'>
@@ -253,7 +307,7 @@
     }
 
     if ($res1->num_rows > 0) {
-        echo "<div style='float:right; width:65%'>
+        echo "<div style='position: absolute; float:right; width:50%; margin-top: 700px; margin-left: 600px;'>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
@@ -278,15 +332,157 @@
             </div>
             ";
     }
-    else {
-        echo "
-        <div style='margin-top:5%; margin-left:50%;'>
-        <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
-        </div>";
-    }
 
-    echo '</div>';
+    else {
+        echo "<div style='margin-top:5%; margin-left:50%;'>
+         <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
+         </div>";
+    }
+    ob_end_flush();
 ?>
+
+<style>
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+}
+
+.card {
+    position: absolute;
+    border-radius: 8px;
+    height: 500px;
+    width: 400px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 80px -10px black;
+    overflow: hidden;
+}
+
+.card-blur {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 1px);
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+
+.card:hover .card-blur {
+    opacity: 0.6;
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+svg#curve {
+    position: absolute;
+    fill: white;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    height: 450px;
+}
+
+.connections {
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.connection {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    background-color: white;
+    display: inline-block;
+    padding: 5px;
+    margin-right: 25px;
+    transform: translateY(200px);
+    transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .connection {
+    transform: translateY(0px);
+}
+
+.info {
+	font-family: Inconsolata;
+    padding-left: 20px;
+    transform: translateY(250px);
+    
+    transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.card:hover .info {
+    transform: translateY(0px);
+}
+
+.name {
+    font-weight: bolder;
+    padding-top: 5px;
+}
+
+.job {
+    margin-top: 10px;
+}
+
+.connection.facebook {
+    height: 40px;
+    width: 70px;
+    margin-left: 20px;
+    padding: 5px 13px;
+    border-radius: 10%;
+    overflow: hidden;
+    background-color: #ff1a75;
+}
+
+.connection.facebook .icon {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card {
+    background-image: url("<?php echo "admin/{$rows['bimage']}"?>");
+}
+
+.background {
+    background-image: url("<?php echo "admin/{$rows['bimage']}"?>");
+}
+</style>
 
 </body>
 </html>
