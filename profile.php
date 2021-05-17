@@ -12,7 +12,7 @@
 <head>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/profile1.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
 </head>
@@ -20,11 +20,11 @@
 
 <?php include("includes/header.php");?>
 
-<div class="patterns">
+<div class="patterns" style="margin-right: 10%">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
- <text x="50%" y="60%"  text-anchor="middle"  >
-   User Profile Card
+ <text x="50%" y="50%" text-anchor="middle">
+ <?php echo "{$_SESSION["CUS_NAME"]}"?>
  </text>
  </svg>
 </div>
@@ -38,7 +38,7 @@ document.querySelectorAll('.button').forEach(button => button.innerHTML = '<div>
   $res = $db->query($sql);
   $row = $res->fetch_assoc();
   echo"
-  <div class='box' style='margin-left:35%;margin-top:0%'>
+  <div class='box' style='margin-left:32%;margin-top:0%'>
     <div class='card'>
     <div class='imgBx'>
       <img src='{$row['cus_image']}' alt='profile' style='width:100%'></div>

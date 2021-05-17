@@ -21,6 +21,8 @@
     <title>View Books</title>
     
     <link rel="stylesheet" type="text/css" href="css/tables.css">
+    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
 
     <style>
     body{

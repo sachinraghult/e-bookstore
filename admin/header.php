@@ -39,7 +39,7 @@
       margin-left: 10%;
     }
     
-    .material-icons.md-48 { font-size: 48px; }
+    .material-icons.md-40 { font-size: 40px; }
     .material-icons.md-light { color: rgba(255, 255, 255, 1); }
   </style>
 
@@ -47,6 +47,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/cat_card.css">
+  <link rel="stylesheet" type="text/css" href="../css/font.scss">
   
 </head>
 <body>
@@ -59,19 +61,25 @@
 <nav class="navi">
   <ul style="margin-top: 0%; padding: 0; list-style-type: none;">
 
-    <li onclick="location.replace('index.php')"><span class="material-icons md-48 md-light">home</span></li>
+    <li onclick="location.replace('index.php')"><span class="material-icons md-40 md-light">home</span></li>
 
-    <li onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
+    <li onclick="location.replace('cust_det.php')"><span class="material-icons md-40 md-light">supervisor_account</span></li>
     
-    <li onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
+    <li onclick="location.replace('upload_books.php')"><span class="material-icons md-40 md-light">backup</span></li>
 
-    <li onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
+    <li onclick="location.replace('create_cat.php')"><span class="material-icons md-40 md-light">add_chart</span></li>
 
-    <li onclick="location.replace('profile.php')"><span class="material-icons md-48 md-light">account_box</span></li>
+    <li onclick="location.replace('view_books.php')"><span class="material-icons md-40 md-light">book</span></li>
 
-    <li onclick="location.replace('cust_pwd.php')"><span class="material-icons md-48 md-light">lock</span></li>
+    <li onclick="location.replace('request.php')"><span class="material-icons md-40 md-light">recommend</span></li>
 
-    <li onclick="location.replace('logout.php')"><span class="material-icons md-48 md-light">logout</span></li>
+    <li onclick="location.replace('comment.php')"><span class="material-icons md-40 md-light">question_answer</span></li>
+
+    <li onclick="location.replace('transaction.php')"><span class="material-icons md-40 md-light">paid</span></li>
+
+    <li onclick="location.replace('adminpwd.php')"><span class="material-icons md-40 md-light">lock</span></li>
+
+    <li onclick="location.replace('../logout.php')"><span class="material-icons md-40 md-light">logout</span></li>
 
 
   </ul>
@@ -79,10 +87,24 @@
 </div>
 
 <div class="within">
-<br><br>
+<br><br><br>
 
 <style>
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 520px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar li {
+      float: left;
+    }
+    div.inner {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-height: 715px) {
     .sidebar {
       width: 100%;
       height: auto;
@@ -103,7 +125,6 @@
     float: none;
   }
   }
-
   :after {
     content: "";
   }
@@ -139,7 +160,6 @@
   nav ul li {
     position: relative;
     width: 100px;
-    
     padding: 10px;
     cursor: pointer;
     background: crimson;
@@ -162,29 +182,45 @@
 
   nav ul li:nth-child(1):after { 
     content: "Home";
-    line-height: 88px;
-  }
-  nav ul li:nth-child(2):after { 
-    content: "Search";
-    line-height: 88px;
-  }
-  nav ul li:nth-child(3):after { 
-    content: "Store";
-    line-height: 85px;
-  }
-  nav ul li:nth-child(4):after { 
-    content: "Request";
     line-height: 70px;
   }
+  nav ul li:nth-child(2):after { 
+    content: "Customer Details";
+    line-height: 35px;
+  }
+  nav ul li:nth-child(3):after { 
+    content: "Upload Books";
+    line-height: 35px;
+  }
+  nav ul li:nth-child(4):after { 
+    content: "Create Category";
+    line-height: 35px;
+  }
   nav ul li:nth-child(5):after { 
-    content: "Profile";
+    content: "All Books";
     line-height: 70px;
   }
   nav ul li:nth-child(6):after { 
+    content: "Requests";
+    line-height: 70px;
+  }
+  nav ul li:nth-child(7):after { 
+    content: "Comments";
+    line-height: 70px;
+  }
+
+  nav ul li:nth-child(8):after { 
+    content: "Transactions";
+    line-height: 70px;
+    font-size: 12px;
+  }
+
+  nav ul li:nth-child(9):after { 
     content: "Change Password";
     line-height: 35px;
   }
-  nav ul li:nth-child(7):after { 
+
+  nav ul li:nth-child(10):after { 
     content: "Logout";
     line-height: 70px;
   }

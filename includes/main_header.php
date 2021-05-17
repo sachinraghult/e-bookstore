@@ -33,7 +33,7 @@
       display: block;
       text-decoration: none;
     }
-    .inner{
+    .within{
       margin-top: 0%; 
       margin-bottom: 0%; 
       margin-left: 10%
@@ -75,11 +75,25 @@
 </nav>
 </div>
 
-<div class="inner">
+<div class="within">
 <br><br>
 
 <style>
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 525px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar li {
+      float: left;
+    }
+    div.inner {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-height: 425px) {
     .sidebar {
       width: 100%;
       height: auto;

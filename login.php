@@ -12,6 +12,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
 </head>
 <body>
 

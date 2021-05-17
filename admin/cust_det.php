@@ -12,7 +12,7 @@
     <title>Customer Details</title>
     <link rel="stylesheet" type="text/css" href="../css/cards.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile1.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
 <body>
@@ -20,7 +20,7 @@
 <?php 
     include("header.php");
 ?>
-<div class="patterns">
+<div class="patterns" style="margin-right: 10%">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
  <text x="50%" y="60%"  text-anchor="middle"  >
@@ -54,12 +54,12 @@
     $res = $db->query($sql);
     if($res->num_rows>0)
     {
-        echo "<div class='box'>";
+        echo "<div class='box' style='margin-left: 6%'>";
         $i = 0;
             while($rows=$res->fetch_assoc())
             {
               if (($i++)%3 == 0){
-                echo "</div><div class='box'>";
+                echo "</div><div class='box'  style='margin-left: 6%'>";
               }
                 echo "
                 <div class='card' style='float:left;'>

@@ -25,7 +25,7 @@
 </head>
 <body>
     
-<div class="patterns">
+<div class="patterns" style="margin-right: 10%">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
  <text x="50%" y="60%"  text-anchor="middle"  >
@@ -76,14 +76,14 @@
     {
         echo "
         <div>
-        <table class='container'>
+        <table class='container' style='margin-left: 15%;'>
             <thead>
             <tr>
                 <th>CUSTOMER NAME</th>
                 <th>BOOK NAME</th>
                 <th>COMMENT</th>
                 <th>TIME LOG</th>
-                <th>DELETE</th>
+                <th>DELETE&emsp;&emsp;</th>
             </tr>
             </thead>
             <tbody>

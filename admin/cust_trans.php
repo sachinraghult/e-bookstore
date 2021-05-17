@@ -28,11 +28,11 @@
     $res1=$db->query($sql1);
     $rows1=$res1->fetch_assoc();
 
-    echo "<div class='patterns'>
+    echo "<div class='patterns' style='margin-right: 10%'>
       <svg width='100%' height='50%'>         
         <rect x='0' y='0' width='100%' height='100%' fill='url(#polka-dots)'> </rect>
      <text x='50%' y='60%'  text-anchor='middle'>
-       {$rows1["cus_name"]} Billing Details
+       {$rows1["cus_name"]} Transactions
      </text>
      </svg>
     </div>";
@@ -40,7 +40,7 @@
     {
         echo "
         <div>
-        <table class='container'>
+        <table class='container' style='margin-left: 15%'>
         <thead>
             <tr>
                 <th>TRANSACTION ID</th>

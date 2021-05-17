@@ -79,10 +79,24 @@
 </div>
 
 <div class="within">
-<br><br>
+<br><br><br>
 
 <style>
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 720px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar li {
+      float: left;
+    }
+    div.inner {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-height: 580px) {
     .sidebar {
       width: 100%;
       height: auto;

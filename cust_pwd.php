@@ -12,6 +12,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
     <title>Change password</title>
 
     <script type="text/javascript">

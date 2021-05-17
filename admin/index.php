@@ -21,16 +21,16 @@
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 </head>
 <body>
-<div class="patterns">
+<div class="patterns" style="margin-right: 10%">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
- <text x="50%" y="60%"  text-anchor="middle"  >
+ <text x="50%" y="60%"  text-anchor="middle">
    Welcome Admin
  </text>
  </svg>
 </div>
     <div>
-    <table class='container'>
+    <table class='container' style="margin-left: 15%">
         <thead>
             <tr>
                 <th>TOTAL RECORDS</th>

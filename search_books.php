@@ -9,6 +9,7 @@
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <link rel="stylesheet" type="text/css" href="css/book_btn.css">
 

@@ -13,6 +13,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
  
     <script type="text/javascript">
     function CheckPassword() 
@@ -86,7 +87,7 @@
 <div class="login-box" style="margin: 5%">
 <h2>Create Account</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" enctype = "multipart/form-data" method = "post">
-    <p>Please fill in this form to create an account.</p>
+    <p style="color: white">Please fill in this form to create an account.</p>
     <hr>
  
     <?php
