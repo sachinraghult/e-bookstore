@@ -46,7 +46,7 @@
       <svg width='100%' height='50%'>         
         <rect x='0' y='0' width='100%' height='100%' fill='url(#polka-dots)'> </rect>
      <text x='50%' y='60%'  text-anchor='middle'>
-       Welcome '{$_SESSION["CUS_NAME"]}'
+       Welcome {$_SESSION["CUS_NAME"]}
      </text>
      </svg>
     </div>";
@@ -72,7 +72,7 @@
       $img2 = "admin/{$rows['cat_image1']}";
 
       echo"
-      <div class='box-item' style='float: left'>
+      <div class='box-item' style='float: left;'>
       <div class='flip-box'>
         <div class='flip-box-front text-center' style='background-image: url({$img1});'>
           <div class='inner color-white'>

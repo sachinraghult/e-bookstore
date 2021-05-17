@@ -1,4 +1,5 @@
 <?php
+  ob_start();
   session_start();
   if(isset($_SESSION["CUS_ID"])){
     header("location:index.php");
@@ -60,7 +61,7 @@
 </div>
 
 
-<?php include("includes/footer.php"); ?>
+<?php include("includes/footer.php"); ob_end_flush();?>
 
 </body>
 </html>

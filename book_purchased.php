@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>View Books</title>
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
+    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/book_pur_cards.css">
 </head>
 <body>
@@ -22,13 +24,14 @@
         inner join category on category.cat_id = book.cat_id
         ORDER by payments.bill_id DESC";
 
+
         $res2=$db->query($sql2);
         echo"<h3>Your Store : )</h3><br>";
         
         if($res2->num_rows>0)
         { 
             echo " 
-            <div class='container'>
+            <div class='container1'>
             ";
             while($rows2=$res2->fetch_assoc())
             {
@@ -100,6 +103,6 @@
         });
 
     </script>
-
+    
     </body>
     </html>

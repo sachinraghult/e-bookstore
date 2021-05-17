@@ -1,4 +1,5 @@
 <?php
+  ob_start();
   session_start();
   if(isset($_SESSION["AID"])){
     header("location:admin/");
@@ -58,7 +59,7 @@
       </form>
     </div>
 
-<?php include("includes/footer.php"); ?>
+<?php include("includes/footer.php"); ob_end_flush();?>
 
 </body>
 </html>
