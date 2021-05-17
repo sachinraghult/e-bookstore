@@ -28,9 +28,10 @@
     }
 
     .blackboard {
-        position: absolute;
-        width: 40%;
-        margin: 53% auto;
+        position: relative;
+        width: 35%;
+        float:left;
+        margin: 0% auto;
         border: tan solid 12px;
         border-top: #bda27e solid 12px;
         border-left: #b19876 solid 12px;
@@ -249,7 +250,7 @@
     echo "<h1 style='margin-left : 800px;font-size:50px'>Customer Comments</h1> <br><br>";
 
     if ($res1->num_rows > 0) {
-        echo "<div style='float:right; width:65%'>
+        echo "<div style='float:right; width:65%;'>
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
