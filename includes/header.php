@@ -52,7 +52,7 @@
 <body>
 
 <div class="header">
-  <b style="font-size: 30px; line-height: 30px;">E-BOOKSTORE</b>
+<b><div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div></b>
 </div>
 
 <div class="sidebar">
@@ -221,4 +221,118 @@
 
   nav ul li div { position: relative; }
 
-</style>
+    @import url(https://fonts.googleapis.com/css?family=Khula:700);
+    .hidden {
+      opacity:0;
+    }
+    .console-container {
+      
+      font-family:sans-serif;
+      font-size:1.5em;
+      text-align:center;
+      display:block;
+      position:relative;
+      color:white;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      margin:auto;
+    }
+    .console-underscore {
+      display:inline-block;
+      position:relative;
+      top:-0.14em;
+      left:10px;
+    }
+  </style>
+
+  <script>
+      const wrapper = document.querySelectorAll(".cardWrap");
+
+      wrapper.forEach(element => {
+      let state = {
+          mouseX: 0,
+          mouseY: 0,
+          height: element.clientHeight,
+          width: element.clientWidth
+      };
+
+      element.addEventListener("mousemove", ele => {
+          const card = element.querySelector(".card");
+          const cardBg = card.querySelector(".cardBg");
+          state.mouseX = ele.pageX - element.offsetLeft - state.width / 2;
+          state.mouseY = ele.pageY - element.offsetTop - state.height / 2;
+
+          // parallax angle in card
+          const angleX = (state.mouseX / state.width) * 30;
+          const angleY = (state.mouseY / state.height) * -30;
+          card.style.transform = `rotateY(${angleX}deg) rotateX(${angleY}deg) `;
+
+          // parallax position of background in card
+          const posX = (state.mouseX / state.width) * -40;
+          const posY = (state.mouseY / state.height) * -40;
+          cardBg.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
+      });
+
+      element.addEventListener("mouseout", () => {
+          const card = element.querySelector(".card");
+          const cardBg = card.querySelector(".cardBg");
+          card.style.transform = `rotateY(0deg) rotateX(0deg) `;
+          cardBg.style.transform = `translateX(0px) translateY(0px)`;
+      });
+      });
+
+
+      // function([string1, string2],target id,[color1,color2])    
+    consoleText(['E-BOOKSTORE.', 'E-BOOKSTORE.', 'E-BOOKSTORE.'], 'text',['#FF9933','#FFFFFF','#138808','#000080']);
+
+    function consoleText(words, id, colors) {
+      if (colors === undefined) colors = ['#fff'];
+      var visible = true;
+      var con = document.getElementById('console');
+      var letterCount = 1;
+      var x = 1;
+      var waiting = false;
+      var target = document.getElementById(id)
+      target.setAttribute('style', 'color:' + colors[0])
+      window.setInterval(function() {
+
+        if (letterCount === 0 && waiting === false) {
+          waiting = true;
+          target.innerHTML = words[0].substring(0, letterCount)
+          window.setTimeout(function() {
+            var usedColor = colors.shift();
+            colors.push(usedColor);
+            var usedWord = words.shift();
+            words.push(usedWord);
+            x = 1;
+            target.setAttribute('style', 'color:' + colors[0])
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (letterCount === words[0].length + 1 && waiting === false) {
+          waiting = true;
+          window.setTimeout(function() {
+            x = -1;
+            letterCount += x;
+            waiting = false;
+          }, 1000)
+        } else if (waiting === false) {
+          target.innerHTML = words[0].substring(0, letterCount)
+          letterCount += x;
+        }
+      }, 120)
+      window.setInterval(function() {
+        if (visible === true) {
+          con.className = 'console-underscore hidden'
+          visible = false;
+
+        } else {
+          con.className = 'console-underscore'
+
+          visible = true;
+        }
+      }, 400)
+    }
+  </script>
