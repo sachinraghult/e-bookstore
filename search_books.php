@@ -149,7 +149,7 @@
 
 ?>
 
-<div class="patterns">
+<div class="patterns" style="margin-right: 10%;">
   <svg width="100%" height="50%">         
     <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"> </rect>
  <text x="50%" y="60%"  text-anchor="middle">
@@ -158,6 +158,7 @@
  </svg>
 </div>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
+<div style="margin-right:10%">
       <div class="blackboard">
           <div class="form">
     <hr>
@@ -178,7 +179,7 @@
       <input type="submit" name="search" value="Search:-" />&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
       <input type="submit" value="Clear:-" />
     </p>
-  </div></div>
+  </div></div></div>
 </form>
 <?php
     if (isset($_SESSION["CUS_ID"])) 
