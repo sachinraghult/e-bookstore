@@ -87,14 +87,14 @@
 </div>
 
 <div class="within">
-<br><br><br>
+<br><br><br><br>
 
 <style>
   @media screen and (max-width: 520px) {
     .sidebar {
       width: 100%;
       height: auto;
-      position: relative;
+      position: fixed;
     }
     .sidebar li {
       float: left;
@@ -108,7 +108,7 @@
     .sidebar {
       width: 100%;
       height: auto;
-      position: relative;
+      position: fixed;
     }
     .sidebar li {
       float: left;

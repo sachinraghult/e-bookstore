@@ -21,7 +21,7 @@
 }
 .card:hover
 {
-  z-index: 10000;
+  z-index: 998;
   transform: perspective(2000px) rotate(-10deg);
   box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
 }
