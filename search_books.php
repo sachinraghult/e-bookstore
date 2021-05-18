@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/book_btn.css">
 
     <style>
-        
+
         .blackboard {
                 position: relative;
                 width: 640px;
@@ -172,12 +172,16 @@
     </select></p>
     <br>
     <p>
-    <label for="name">Search&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+    <label for="name">Search</label>
     <input type="text" name="name" placeholder="Enter text to search" />
     </p><br>
-    <p class="wipeout">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-      <input type="submit" name="search" value="Search:-" />&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <p class="wipeout">
+      <div style="float: left; margin-left: 10%">
+      <input type="submit" name="search" value="Search:-"/>
+      </div>
+      <div style="float: right; margin-right: 10%">
       <input type="submit" value="Clear:-" />
+      </div><br>
     </p>
   </div></div></div>
 </form>
