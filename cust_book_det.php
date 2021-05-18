@@ -21,7 +21,7 @@
     <style>
     .blackboard {
         position: absolute;
-        width: 35%;
+        width: 500px;
         border: tan solid 12px;
         border-top: #bda27e solid 12px;
         border-left: #b19876 solid 12px;
@@ -290,8 +290,8 @@
     
     if($res2->num_rows>0){
         echo "
-        <div class='container content' style='position: absolute; float:left; width: 1500px; height: 400px; margin-top: 700px; margin-left: 10%;'>
-        <form action='{$_SERVER['REQUEST_URI']}' method='post' >
+        <div class='container content' style='position: absolute; float:left; height: 400px; margin-top: 700px; margin-left: 10%;'>
+        <form action='{$_SERVER['REQUEST_URI']}' method='post'>
         <div class='blackboard'>
         <div class='form'>
         <hr>";

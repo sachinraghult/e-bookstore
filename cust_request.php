@@ -28,6 +28,7 @@ ob_start();
     <title>Request books</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
     <link rel="stylesheet" type="text/css" href="css/tables.css">
+    <link rel="stylesheet" type="text/css" href="css/cat_card.scss">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
 
     <style>
@@ -243,5 +244,3 @@ ob_start();
     </style>
 
     <?php include("includes/footer.php"); ob_end_flush();?>
-    </body>
-</html>

@@ -60,5 +60,5 @@ document.querySelectorAll('.button').forEach(button => button.innerHTML = '<div>
     color: #8ae600;
   }
 </style>
+<?php include("includes/footer.php");?>
 
-</html>

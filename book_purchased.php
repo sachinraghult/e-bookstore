@@ -194,5 +194,4 @@
         color: #8ae600;
       }
     </style>
-    </body>
-    </html>
+    <?php include("includes/footer.php");?>
