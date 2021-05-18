@@ -122,6 +122,8 @@
     </style>
 </head>
 <body>
+<div class='background'></div>
+
 
 <?php
 
