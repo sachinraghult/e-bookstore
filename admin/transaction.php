@@ -227,7 +227,7 @@
     {
         echo "
         <div>
-        <table class='container' style='margin-left: 10%'>
+        <table class='container' style='margin-left: 10%; background-color:#1F2739;'>
             <thead>
             <tr>
                 <th>TRANSACTION ID</th>

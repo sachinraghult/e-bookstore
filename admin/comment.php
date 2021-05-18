@@ -206,7 +206,7 @@
     {
         echo "
         <div>
-        <table class='container' style='margin-left: 12%;'>
+        <table class='container' style='margin-left: 12%; background-color:#1F2739;'>
             <thead>
             <tr>
                 <th>CUSTOMER NAME</th>

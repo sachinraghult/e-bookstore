@@ -197,7 +197,7 @@ ob_start();
         {
             echo "
             <div style='margin-right:26%'>
-            <table class='container'>
+            <table class='container' style='background-color:#1F2739;'>
             <thead>
                 <tr>
                     <th>BOOK NAME</th>

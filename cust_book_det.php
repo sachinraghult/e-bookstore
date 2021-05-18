@@ -345,8 +345,8 @@
         }
         echo "  
         </tbody>
-            </table>
-            </div>
+        </table>
+        </div>
             ";
     }
 

@@ -40,7 +40,7 @@
     {
         echo "
         <div>
-        <table class='container' style='margin-left: 15%'>
+        <table class='container' style='margin-left: 15%; background-color:#1F2739;'>
         <thead>
             <tr>
                 <th>TRANSACTION ID</th>
