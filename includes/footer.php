@@ -68,7 +68,7 @@
       }
 
       footer {
-        width:100vw;
+        width:99vw;
         bottom:0px
       }
       footer div {
