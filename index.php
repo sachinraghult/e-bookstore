@@ -11,13 +11,6 @@
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
-    <style>
-        wrapper{
-        background-image: url(images/9.gif);
-        background-repeat: no-repeat;
-        background-size: cover;
-        }
-    </style>
 </head>
 <body style="size: 16px">
 
@@ -101,5 +94,6 @@
   #home:after{
     color: #8ae600;
   }
+  
 </style>
 <?php include("includes/footer.php"); ?>
