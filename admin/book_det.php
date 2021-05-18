@@ -4,7 +4,7 @@
   if(!isset($_SESSION["AID"])){
     header("location:../admin_login.php");
   }
-
+  $i=0;
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
-<div class='background'></div>
 
 <?php
 
-    include("header.php");
-    echo '<head>
-    <meta name="viewport" content="width=device-width, initial-scale=0.3">
-    </head>';
-    
     $sql = "SELECT book.*,category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
     $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
     ORDER BY comment.com_id DESC;";
     $res = $db->query($sql);
     $res1 = $db->query($sql1);
+    $res2 = $db->query($sql1);
     $rows = $res->fetch_assoc();
+
+    while($rows2 = $res2->fetch_assoc()){
+        $i++;
+    }
+
+    echo '<div class="background"></div>';
+    include("header.php");
+    echo '<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
+    </head>';
 
     if($res->num_rows>0)
     {
@@ -36,10 +41,11 @@
     $file = preg_replace('/\s+/', '%20', $file);
     echo"
     <div>
+        <a href={$file} target='_blank' style='text-decoration:none;'>
         <div id='curve' class='card' style='float:left; margin: 10%'>
             <div class='footer'>
                 <div class='connections'>
-                    <a href={$file} target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
+                    <div class='connection facebook'><div class='icon'>View</div></div>
                 </div>
                 <svg id='curve'>
                     <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
@@ -59,13 +65,14 @@
                     <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
                 </svg>
                 <div class='info'>
-                    <div class='name'>{$rows['bname']}</div>
-                    <div class='job'>{$rows['author']}</div>
+                    <div class='name' style='color:black'>{$rows['bname']}</div>
+                    <div class='job' style='color:black'>{$rows['author']}</div>
                 </div>
                 </div>
                     <div class='card-blur'></div>
                 </div>
-        </div>  
+        </div> 
+        </a>
 
 
         <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
@@ -88,6 +95,9 @@
             <td><b>&#8377; {$rows['price']}</b></td>
         </tr>
         <tr>
+        <th style='color: #FB667A'>CATEGORY</th>
+            <td><b>{$rows['cat_name']}</b></td>
+        </tr>
         <th style='color: #FB667A'>CATEGORY</th>
             <td><b>{$rows['cat_name']}</b></td>
         </tr>
@@ -131,10 +141,11 @@
             ";
     }
     else {
-        echo "<div style='margin-top:5%; margin-left:50%;'>
+        echo "<div style='margin: 680px; margin-left:600px; margin-right:0px; position:absolute; float:right'>
          <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
          </div>";
     }
+
 ?>
 
 <style>
@@ -148,8 +159,8 @@ body {
     position: absolute;
     top: -40px;
     left: -40px;
-    height: 100%;
-    width: 100%;
+    height: <?php echo 150+($i*7.5)?>%;
+    width: 103%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

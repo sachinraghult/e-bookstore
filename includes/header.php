@@ -25,7 +25,7 @@
       width: 100px;
       height: 100%;
       float: left;
-      position: absolute;
+      position: fixed;
       margin-top: 60px;
       background-color: crimson;
     }

@@ -1,30 +1,22 @@
 <?php
   ob_start();
   session_start();
-  if(!isset($_SESSION['CUS_ID']))
-  {
-      include("includes/main_header.php");
-  }
-  else
-  {
-      include("includes/header.php");
-  }
 
   if(!isset($_SESSION["CUS_ID"])){
     header("location:login.php");
   }
 
   include("db.php");
+  $i=0;
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>View Books</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.3">
     <link rel="stylesheet" type="text/css" href="css/tables.css">
-    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
-    <link rel="stylesheet" type="text/css" href="css/font.scss">
+ 
 
     <style>
     .blackboard {
@@ -122,10 +114,9 @@
     </style>
 </head>
 <body>
-<div class='background'></div>
 
 
-<?php
+<?php 
 
     $sql = "SELECT book.*, category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
     $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
@@ -133,8 +124,21 @@
     $sql2 = "SELECT * from payments where cus_id = {$_SESSION["CUS_ID"]} and bid = {$_GET["id"]}";
     $res = $db->query($sql);
     $res1 = $db->query($sql1);
+    $res3 = $db->query($sql1);
     $res2 = $db->query($sql2);
     $rows = $res->fetch_assoc();
+
+    while($rows3 = $res3->fetch_assoc()){
+        $i++;
+    }
+
+    echo '<div class="background"></div>';
+    include("includes/header.php");
+    echo '<head>
+    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
+    </head>';
 
     if($res->num_rows>0)
     {
@@ -143,36 +147,38 @@
             $file = preg_replace('/\s+/', '%20', $file);
             echo"
             <div>
+                <a href={$file} target='_blank' style='text-decoration:none;'>
                 <div id='curve' class='card' style='float:left; margin: 10%'>
-                <div class='footer'>
-                    <div class='connections'>
-                        <a href={$file} target='_blank'><div class='connection facebook'><div class='icon'>View</div></div></a>
-                    </div>
-                    <svg id='curve'>
-                        <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
-                        <rect id='dummyRect' x='0' y='0' height='450' width='400'
-                    fill='transparent' />
-                        
-                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
-                        
-                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
-                        
-                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
-                        
-                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
-                        
-                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
-            
-                        <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
-                    </svg>
-                    <div class='info'>
-                        <div class='name'>{$rows['bname']}</div>
-                        <div class='job'>{$rows['author']}</div>
-                    </div>
-                    </div>
-                        <div class='card-blur'></div>
-                </div>
-            </div> 
+                    <div class='footer'>
+                        <div class='connections'>
+                            <div class='connection facebook'><div class='icon'>View</div></div>
+                        </div>
+                        <svg id='curve'>
+                            <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
+                            <rect id='dummyRect' x='0' y='0' height='450' width='400'
+                        fill='transparent' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
+                            
+                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
+                
+                            <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
+                        </svg>
+                        <div class='info'>
+                            <div class='name' style='color:black'>{$rows['bname']}</div>
+                            <div class='job' style='color:black'>{$rows['author']}</div>
+                        </div>
+                        </div>
+                            <div class='card-blur'></div>
+                        </div>
+                </div> 
+                </a>
             
             <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
             <table class='container' style='background-color:#1F2739; width: 60%'>
@@ -206,37 +212,39 @@
             $file = preg_replace('/\s+/', '%20', $file);
             echo"
             <div>
-                <div id='curve' class='card' style='float:left; margin: 10%'>
-                    <div class='footer'>
-                        <div class='connections'>
-                            <a href='payment.php?id={$rows['bid']}' target='_blank'><div class='connection facebook'><div class='icon'>Buy</div></div></a>
-                        </div>
-                        <svg id='curve'>
-                            <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
-                            <rect id='dummyRect' x='0' y='0' height='450' width='400'
-                        fill='transparent' />
-                            
-                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
-                            
-                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
-                            
-                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
-                            
-                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
-                            
-                            <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
-                
-                            <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
-                        </svg>
-                        <div class='info'>
-                            <div class='name'>{$rows['bname']}</div>
-                            <div class='job'>{$rows['author']}</div>
-                        </div>
-                        </div>
-                            <div class='card-blur'></div>
-                        </div>
-                </div>  
-
+            <a href='payment.php?id={$rows['bid']}' target='_blank' style='text-decoration:none;'>
+            <div id='curve' class='card' style='float:left; margin: 10%'>
+                <div class='footer'>
+                    <div class='connections'>
+                        <div class='connection facebook'><div class='icon'>Buy</div></div>
+                    </div>
+                    <svg id='curve'>
+                        <path id='p' d='M0,200 Q80,100 400,200 V150 H0 V50' transform='translate(0 300)' />
+                        <rect id='dummyRect' x='0' y='0' height='450' width='400'
+                    fill='transparent' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,100 400,50 V150 H0 V50' fill='freeze' begin='dummyRect.mouseover' end='dummyRect.mouseout' dur='0.1s' id='bounce1' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,0 400,50 V150 H0 V50' fill='freeze' begin='bounce1.end' end='dummyRect.mouseout' dur='0.15s' id='bounce2' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,80 400,50 V150 H0 V50' fill='freeze' begin='bounce2.end' end='dummyRect.mouseout' dur='0.15s' id='bounce3' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,45 400,50 V150 H0 V50' fill='freeze' begin='bounce3.end' end='dummyRect.mouseout' dur='0.1s' id='bounce4' />
+                        
+                        <animate xlink:href='#p' attributeName='d' to='M0,50 Q80,50 400,50 V150 H0 V50' fill='freeze' begin='bounce4.end' end='dummyRect.mouseout' dur='0.05s' id='bounce5' />
+            
+                        <animate xlink:href='#p' attributeName='d' to='M0,200 Q80,100 400,200 V150 H0 V50' fill='freeze' begin='dummyRect.mouseout' dur='0.15s' id='bounceOut' />
+                    </svg>
+                    <div class='info'>
+                        <div class='name' style='color:black'>{$rows['bname']}</div>
+                        <div class='job' style='color:black'>{$rows['author']}</div>
+                    </div>
+                    </div>
+                        <div class='card-blur'></div>
+                    </div>
+            </div> 
+            </a>
+    
                 <div style='float:right;  margin-left: 20%; margin-top: 5%; position: absolute;'>
                 <table class='container' style='background-color:#1F2739; width: 60%'>
                 <thead>
@@ -307,9 +315,16 @@
         </form>
         </div>";
     }
-
+   
     if ($res1->num_rows > 0) {
-        echo "<div style='position: absolute; float:right; width:50%; margin-top: 700px; margin-left: 600px;'>
+        if($res2->num_rows>0){
+            echo "<div style='position: absolute; float:right; width:50%; margin-top: 700px; margin-left: 600px;'>";
+        }
+        else{
+            echo "<div style='position: absolute; margin-top: 680px; margin-left: 10%; width: 60%'>";
+
+        }
+        echo"
         <table class='container' style='background-color:#1F2739;'>
         <thead>
         <tr>
@@ -336,9 +351,15 @@
     }
 
     else {
-        echo "<div style='margin-top:5%; margin-left:50%;'>
-         <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
-         </div>";
+        if($res2->num_rows>0){
+            echo "<div style='margin: 680px; margin-left:1000px; margin-right:0px; position:absolute; float:right'>";
+        }
+        else{
+            echo "<div style='margin: 680px; margin-left:700px; margin-right:0px; position:absolute; float:right'>";
+        }
+        echo"
+        <p style='color: red; text-align:center; font-size:30px'><span style=' background-color:white;'>No Comments</span></p>
+        </div>";
     }
     ob_end_flush();
 ?>
@@ -354,14 +375,15 @@ body {
     position: absolute;
     top: -40px;
     left: -40px;
-    height: 100%;
-    width: 100%;
+    height: <?php echo 150+($i*7.5)?>%;
+    width: 103%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     -webkit-filter: blur(30px);
     filter: blur(30px);
 }
+
 
 .card {
     position: absolute;
