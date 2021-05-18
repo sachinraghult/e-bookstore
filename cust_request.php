@@ -28,6 +28,7 @@ ob_start();
     <title>Request books</title>
     <link rel="stylesheet" type="text/css" href="css/cards.css">
     <link rel="stylesheet" type="text/css" href="css/tables.css">
+    <link rel="stylesheet" type="text/css" href="css/font.scss">
 
     <style>
        .blackboard {
@@ -155,6 +156,7 @@ ob_start();
 
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>"  method = "post">
+<div style="margin-right: 10%;">
   <div class="blackboard">
       <div class="form">
     <hr>
@@ -184,7 +186,7 @@ ob_start();
     <p class="wipeout" style="text-align:center">
       <input type="submit" class="submit" name="submit" value="Submit" /></p>
     </div>
-  </div>
+  </div></div>
 </form>
 <br>
     <?php
@@ -194,7 +196,7 @@ ob_start();
         if($res->num_rows>0)
         {
             echo "
-            <div>
+            <div style='margin-right:26%'>
             <table class='container'>
             <thead>
                 <tr>

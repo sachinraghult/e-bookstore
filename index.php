@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>E-Book Store</title>
+    <title>Welcome</title>
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <style>

@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Books</title>
+    <title>In Your Store</title>
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <link rel="stylesheet" type="text/css" href="css/font1.scss">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
@@ -28,7 +28,7 @@
 
         $res2=$db->query($sql2);
 
-        echo"<b><div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div></b><br>";
+        echo"<br><b><div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div></b>";
         
         if($res2->num_rows>0)
         { 

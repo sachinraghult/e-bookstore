@@ -1,7 +1,8 @@
 .container
 {
   max-width: 1000px;
-  margin: 100px auto;
+  margin-top: 100px;
+  margin-left: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
