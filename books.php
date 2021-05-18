@@ -60,7 +60,7 @@
         }
         else
         {
-            echo "<p style='color: red'>No Books found  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 150px'>No Books found  :(</p>";
         }
 
     }
@@ -114,7 +114,7 @@
         }
         else
         {
-            echo "<p style='color: red'>You did'nt purchase any book in {$rows1['cat_name']}  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 350px'>You did'nt purchase any book in {$rows1['cat_name']}  :(</p>";
         }
 
         $sql3="SELECT * from book where book.cat_id={$_GET["id"]}
@@ -154,7 +154,7 @@
         }
         else
         {
-            echo "<p style='color: red'>No Books found  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 150px'>No Books found  :(</p>";
         }
     }
     ?>

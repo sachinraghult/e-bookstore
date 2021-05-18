@@ -77,5 +77,16 @@
   </div>
 </form>
 </div>
+
+<style>
+  #category{
+    background: #8ae600;
+  }
+
+  #category:after{
+    color: #8ae600;
+  }
+</style>
+
 </body>
 </html>

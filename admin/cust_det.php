@@ -157,19 +157,23 @@
     <div class="form">
     <hr><br>
     <p>
-    <label for="name"><b>Name</b></label>
+    <label for="name"><b>Name&emsp;</b></label>
     <input type="text" placeholder="Name" name="name">
     <br></p><p><br>
-    <p class="wipeout">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-      <input type="submit" name="search" value="Search:-" />&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <p class="wipeout">
+    <span style="float: left; margin-left: 10%">
+      <input type="submit" name="search" value="Search:-"/>
+      </span>
+      <span style="float: right; margin-right: 10%">
       <input type="submit" value="Clear:-" />
+      </span><br>
     </p></div>
   </div></div>
 </form>
 <div style="display: inline-flexbox;">
 <?php
     if (!isset($_POST["search"])) {
-        $sql = "SELECT * FROM CUSTOMER";
+        $sql = "SELECT * FROM CUSTOMER ORDER BY cus_id DESC;";
     }
     else {
         $sql = "SELECT * FROM CUSTOMER WHERE cus_name LIKE '%{$_POST['name']}%'";
@@ -205,6 +209,16 @@
     }
 
 ?>
+
+    <style>
+      #customers{
+        background: #8ae600;
+      }
+
+      #customers:after{
+        color: #8ae600;
+      }
+    </style>
 
     </div></div>
     </body>

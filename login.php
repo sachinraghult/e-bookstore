@@ -62,6 +62,15 @@
   </form>
 </div>
 
+<style>
+  #login{
+    background: #8ae600;
+  }
+
+  #login:after{
+    color: #8ae600;
+  }
+</style>
 
 <?php include("includes/footer.php"); ob_end_flush();?>
 

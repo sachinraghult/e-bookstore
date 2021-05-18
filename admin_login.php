@@ -61,6 +61,16 @@
       </form>
     </div>
 
+<style>
+  #admin{
+    background: #8ae600;
+  }
+
+  #admin:after{
+    color: #8ae600;
+  }
+</style>
+
 <?php include("includes/footer.php"); ob_end_flush();?>
 
 </body>

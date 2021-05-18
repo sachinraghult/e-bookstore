@@ -176,11 +176,11 @@ ob_start();
         }
     ?>
     <p><br>
-    <label for="bname">Book Name</label>&ensp;&ensp;
+    <label for="bname">Book Name&emsp;</label>
     <input type="text" placeholder="Enter text" name="bname" required>
     </p>
     <p>
-    <label for="request" style="vertical-align:top;">Request</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <label for="request" style="vertical-align:top;">Request&emsp;</label>
     <textarea name="request" placeholder="Enter your request" required></textarea>
     </p>
     <p class="wipeout" style="text-align:center">
@@ -231,6 +231,17 @@ ob_start();
             echo "<p style='color: red'>No requests</p>";
         }
     ?>
-<?php include("includes/footer.php"); ob_end_flush();?>
+
+    <style>
+    #request{
+        background: #8ae600;
+    }
+
+    #request:after{
+        color: #8ae600;
+    }
+    </style>
+
+    <?php include("includes/footer.php"); ob_end_flush();?>
     </body>
 </html>

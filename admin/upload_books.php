@@ -108,5 +108,15 @@
   </div>
 </form>
 
+<style>
+  #upload{
+    background: #8ae600;
+  }
+
+  #upload:after{
+    color: #8ae600;
+  }
+</style>
+
 </body>
 </html>

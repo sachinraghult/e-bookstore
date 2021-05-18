@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
     include("../db.php");
     if(!isset($_SESSION["AID"])){
@@ -163,7 +164,7 @@
       <div class="form">
     <hr>
     <p>
-    <label for="searchby">Search by&ensp;&ensp;</label>
+    <label for="searchby">Search by&emsp;</label>
     <select name="searchby">
         <option value="book.bname">Book</option>   
         <option value="customer.cus_name">Customer</option>
@@ -171,12 +172,16 @@
     </select></p>
     
     <p>
-    <label for="name">Search&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+    <label for="name">Search&emsp;</label>
     <input type="text" name="name" placeholder="Enter text to search" />
     </p><br>
-    <p class="wipeout">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-      <input type="submit" name="search" value="Search:-" />&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <p class="wipeout">
+    <span style="float: left; margin-left: 10%">
+      <input type="submit" name="search" value="Search:-"/>
+      </span>
+      <span style="float: right; margin-right: 10%">
       <input type="submit" value="Clear:-" />
+      </span><br>
     </p>
     </div></div>
   </div>
@@ -201,7 +206,7 @@
     {
         echo "
         <div>
-        <table class='container' style='margin-left: 15%;'>
+        <table class='container' style='margin-left: 12%;'>
             <thead>
             <tr>
                 <th>CUSTOMER NAME</th>
@@ -236,9 +241,20 @@
     {
         echo "<p style='color: red'>No comments</p>";
     }
-?>
-    
+    ob_end_flush();
+?>   
 
 </div>
+
+<style>
+  #comments{
+    background: #8ae600;
+  }
+
+  #comments:after{
+    color: #8ae600;
+  }
+</style>
+
 </body>
 </html>

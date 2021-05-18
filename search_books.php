@@ -163,7 +163,7 @@
           <div class="form">
     <hr>
     <p>
-    <label for="searchby">Search by&ensp;&ensp;</label>
+    <label for="searchby">Search by&emsp;</label>
     <select name="searchby">
           <option value="book.bname">Name</option>
           <option value="book.author">Author</option>
@@ -172,16 +172,16 @@
     </select></p>
     <br>
     <p>
-    <label for="name">Search</label>
+    <label for="name">Search&emsp;</label>
     <input type="text" name="name" placeholder="Enter text to search" />
     </p><br>
     <p class="wipeout">
-      <div style="float: left; margin-left: 10%">
+      <span style="float: left; margin-left: 10%">
       <input type="submit" name="search" value="Search:-"/>
-      </div>
-      <div style="float: right; margin-right: 10%">
+      </span>
+      <span style="float: right; margin-right: 10%">
       <input type="submit" value="Clear:-" />
-      </div><br>
+      </span><br>
     </p>
   </div></div></div>
 </form>
@@ -232,7 +232,7 @@
         }
         else
         {
-            echo "<p style='color: red'>You did'nt purchase any book  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 255px'>You did'nt purchase any book  :(</p>";
         }
 
         if(!isset($_POST["search"]))
@@ -283,7 +283,7 @@
         }
         else
         {
-            echo "<p style='color: red'>No Books found  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 150px'>No Books found  :(</p>";
         }
     } 
     else {
@@ -464,5 +464,15 @@
         }, 400)
         }
         </script>
+    
+    <style>
+        #search{
+            background: #8ae600;
+        }
+
+        #search:after{
+            color: #8ae600;
+        }
+    </style>
     </body>
     </html>

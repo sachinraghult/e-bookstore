@@ -61,7 +61,7 @@
         }
         else
         {
-            echo "<p style='color: red'>Sorry, you did'nt purchase any book  :(</p>";
+            echo "<p style='color: red; background-color: white; font-size: large; width: 310px'>Sorry, you did'nt purchase any book  :(</p>";
         }
     }
 ?>
@@ -185,5 +185,14 @@
       }
     </script>
     
+    <style>
+      #store{
+        background: #8ae600;
+      }
+
+      #store:after{
+        color: #8ae600;
+      }
+    </style>
     </body>
     </html>

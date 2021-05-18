@@ -31,6 +31,31 @@
           document.getElementById('message').innerHTML = 'not matching';
         }
       }
+      function CheckPassword() 
+      { 
+        var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
+        if(document.getElementById('newpwd').value.match(decimal)) 
+        { 
+          document.getElementById('pwdmessage').style.color = 'green';
+          document.getElementById('pwdmessage').innerHTML = 'Valid Password';
+        }
+        else
+        { 
+          document.getElementById('pwdmessage').style.color = 'red';
+          document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
+        }
+      }
+      function disfunc()
+      {
+        if(document.getElementById('message').style.color == 'green' &&
+          document.getElementById('pwdmessage').style.color == 'green')
+          {
+          document.getElementById("reset").removeAttribute("disabled");
+        }
+        else{
+          document.getElementById("reset").setAttribute("disabled", "disabled");
+        }
+      }
     </script>
 
 </head>
@@ -39,7 +64,7 @@
 <div class="login-box" style="margin: auto">
 <h2>Change Password</h2>
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-    <hr>
+    <hr><br>
     <?php
       if (isset($_POST["reset"])) 
       {
@@ -79,23 +104,35 @@
     </div>
 
     <div class="user-box">
-      <input type="password" name="newpwd" id="newpwd" onkeyup="check();" required>
+      <input type="password" name="newpwd" id="newpwd" onkeyup="CheckPassword(); check(); disfunc()" required>
       <label>New Password</label>
+      <i><div id="message" style="float: right;"></div><i>
     </div>
 
     <div class="user-box">
-      <input type="password" name="cnfmpwd" id="cnfmpwd" onkeyup="check();" required>
+      <input type="password" name="cnfmpwd" id="cnfmpwd" onkeyup="check(); disfunc()" required>
       <label>Confirm Password</label>
     </div>
 
-    <i><span id="message"></span></i><br><br>
+    <i><div id="pwdmessage"></div><i>
+    <br>
 
     <a>
-    <button type="submit" class="resetpwd" name="reset" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; cursor: pointer;">
+    <button type="submit" class="resetpwd" id="reset" name="reset" style="color: white; font-size: 100%; font-family: inherit; border: none; padding: 0!important; background: none!important; cursor: pointer;">
       <span></span>
       <span></span>
       Reset Password
     </button>
     </a>
   </form>
-</div> 
+</div>
+
+<style>
+  #pwd{
+    background: #8ae600;
+  }
+
+  #pwd:after{
+    color: #8ae600;
+  }
+</style>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
+  ob_start();
   session_start();
   if(isset($_SESSION["CUS_ID"])){
     header("location:index.php");
@@ -24,13 +25,11 @@
       { 
         document.getElementById('pwdmessage').style.color = 'green';
         document.getElementById('pwdmessage').innerHTML = 'Valid Password';
-        return true;
       }
       else
       { 
         document.getElementById('pwdmessage').style.color = 'red';
         document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
-        return false;
       }
     }
 
@@ -41,13 +40,11 @@
       {
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerHTML = 'matching';
-        return true;
       } 
       else 
       {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'not matching';
-        return false;
       }
     }
     function userCheck()
@@ -57,18 +54,15 @@
       {
         document.getElementById('usermessage').style.color = 'green';
         document.getElementById('usermessage').innerHTML = 'Valid Username';
-        return true;
       } 
       else 
       {
         document.getElementById('usermessage').style.color = 'red';
         document.getElementById('usermessage').innerHTML = 'Only special characters   _ @ . | -  are allowed';
-        return false;
       }
     }
     function disfunc()
     {
-      console.log(11);
       if(document.getElementById('usermessage').style.color == 'green' &&
         document.getElementById('message').style.color == 'green' &&
         document.getElementById('pwdmessage').style.color == 'green')
@@ -178,8 +172,18 @@
     </a>
 
 </form>
- 
-<?php include("includes/footer.php"); ?>
+
+<style>
+  #register{
+    background: #8ae600;
+  }
+
+  #register:after{
+    color: #8ae600;
+  }
+</style>
+
+<?php include("includes/footer.php"); ob_end_flush();?>
  
 </body>
 </html>

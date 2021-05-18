@@ -14,9 +14,10 @@
       overflow: hidden; 
       z-index: 999; 
       width: 100%;
+      height: 70px;
       padding:16px; 
       color: white;
-      background-color: #ff6600; 
+      background-color: crimson; 
       text-align: center; 
     }
     .sidebar{
@@ -26,7 +27,7 @@
       height: 100%;
       float: left;
       position: fixed;
-      margin-top: 60px;
+      margin-top: 69px;
       background-color: crimson;
     }
     .sidebar li {
@@ -59,17 +60,17 @@
 <nav class="navi">
   <ul style="margin-top: 0%; padding: 0; list-style-type: none;">
 
-    <li onclick="location.replace('index.php')"><span class="material-icons md-48 md-light">home</span></li>
+    <li id="home" onclick="location.replace('index.php')"><span class="material-icons md-48 md-light">home</span></li>
 
-    <li onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
+    <li id="search" onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
     
-    <li onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
+    <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
 
-    <li onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
+    <li id="request" onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
 
-    <li onclick="location.replace('profile.php')"><span class="material-icons md-48 md-light">account_box</span></li>
+    <li id="profile" onclick="location.replace('profile.php')"><span class="material-icons md-48 md-light">account_box</span></li>
 
-    <li onclick="location.replace('cust_pwd.php')"><span class="material-icons md-48 md-light">lock</span></li>
+    <li id="pwd" onclick="location.replace('cust_pwd.php')"><span class="material-icons md-48 md-light">lock</span></li>
 
     <li onclick="location.replace('logout.php')"><span class="material-icons md-48 md-light">logout</span></li>
 

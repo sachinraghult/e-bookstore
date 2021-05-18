@@ -14,9 +14,10 @@
       overflow: hidden; 
       z-index: 999; 
       width: 100%;
+      height: 70px;
       padding:16px; 
       color: white;
-      background-color: #ff6600; 
+      background-color: crimson; 
       text-align: center; 
     }
     .sidebar{
@@ -26,7 +27,7 @@
       height: 100%;
       float: left;
       position: fixed;
-      margin-top: 60px;
+      margin-top: 69px;
       background-color: crimson;
     }
     .sidebar li {
@@ -61,15 +62,15 @@
 <nav class="navi">
   <ul style="margin-top: 0%; padding: 0; list-style-type: none;">
 
-    <li onclick="location.replace('index.php')"><span class="material-icons md-48 md-light">home</span></li>
+    <li id="home" onclick="location.replace('index.php')"><span class="material-icons md-48 md-light">home</span></li>
 
-    <li onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
+    <li id="search" onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
 
-    <li onclick="location.replace('login.php')"><span class="material-icons md-48 md-light">login</span></li>
+    <li id="login" onclick="location.replace('login.php')"><span class="material-icons md-48 md-light">login</span></li>
     
-    <li onclick="location.replace('register.php')"><span class="material-icons md-48 md-light">how_to_reg</span></li>
+    <li id="register" onclick="location.replace('register.php')"><span class="material-icons md-48 md-light">how_to_reg</span></li>
 
-    <li onclick="location.replace('admin_login.php')"><span class="material-icons md-48 md-light">admin_panel_settings</span></li>
+    <li id="admin" onclick="location.replace('admin_login.php')"><span class="material-icons md-48 md-light">admin_panel_settings</span></li>
 
   </ul>
 </nav>
@@ -150,7 +151,6 @@
   nav ul li {
     position: relative;
     width: 100px;
-    
     padding: 10px;
     cursor: pointer;
     background: crimson;

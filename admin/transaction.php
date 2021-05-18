@@ -159,25 +159,29 @@
       <div class="form">
     <hr>
     <p>
-    <label for="searchby">Search by&ensp;&ensp;</label>
+    <label for="searchby">Search by&emsp;</label>
     <select name="searchby">
           <option value="book.bname">Book</option>
           <option value="customer.cus_name">Customer</option>
     </select></p>
 
     <p>
-    <label for="name">Search&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+    <label for="name">Search&emsp;&emsp;&ensp;</label>
     <input type="text" name="name" placeholder="Enter text to search" />
     </p><br><hr style="width:45%; float: left"><span style="text-align:center">&ensp;or&nbsp;</span><hr style="width:49%; float: right"><br><br>
     <p>
-    <label for="pricebelow">Price Range</label>&ensp;&ensp;
-    <input type="number" placeholder="Above" name="pricebelow" style="width:20%">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <label for="pricebelow">Price Range</label>&emsp;
+    <input type="number" placeholder="Above" name="pricebelow" style="width:20%">&emsp;&emsp;&emsp;
     <input type="number" placeholder="Below" name="priceabove" style="width:20%">
     </p>
         <br><br>
-    <p class="wipeout">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-      <input type="submit" name="search" value="Search:-" />&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+    <p class="wipeout">
+    <span style="float: left; margin-left: 10%">
+      <input type="submit" name="search" value="Search:-"/>
+      </span>
+      <span style="float: right; margin-right: 10%">
       <input type="submit" value="Clear:-" />
+      </span><br>
     </p>
     </div></div>
   </div>
@@ -191,7 +195,14 @@
         order by payments.logs DESC;";
     }
     else {
-        if ($_POST['pricebelow']) {
+        
+        if ($_POST['pricebelow'] && $_POST['priceabove']) {
+            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
+            from payments inner join book on book.bid=payments.bid
+            inner join customer on customer.cus_id=payments.cus_id where book.price BETWEEN {$_POST['pricebelow']} and {$_POST['priceabove']}
+            order by payments.logs DESC;";
+        }
+        elseif ($_POST['pricebelow']) {
             $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             inner join customer on customer.cus_id=payments.cus_id where book.price > {$_POST['pricebelow']} 
@@ -201,12 +212,6 @@
             $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
             from payments inner join book on book.bid=payments.bid
             inner join customer on customer.cus_id=payments.cus_id where book.price < {$_POST['priceabove']}
-            order by payments.logs DESC;";
-        }
-        elseif ($_POST['pricebelow'] && $_POST['pricebelow']) {
-            $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs
-            from payments inner join book on book.bid=payments.bid
-            inner join customer on customer.cus_id=payments.cus_id where book.price BETWEEN {$_POST['pricebelow']} and {$_POST['priceabove']}
             order by payments.logs DESC;";
         }
         else {
@@ -257,9 +262,19 @@
     {
         echo "<p style='color: red'>No Transactions</p>";
     }
-?>
-    
+?>   
 
 </div>
+
+<style>
+  #transactions{
+    background: #8ae600;
+  }
+
+  #transactions:after{
+    color: #8ae600;
+  }
+</style>
+
 </body>
 </html>

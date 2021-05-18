@@ -148,6 +148,7 @@
 
 ?>
 
+
 <style>
 html,
 body {
@@ -159,7 +160,7 @@ body {
     position: absolute;
     top: -40px;
     left: -40px;
-    height: <?php echo 150+($i*7.5)?>%;
+    height: <?php echo 170+($i*7.5)?>%;
     width: 103%;
     background-size: cover;
     background-position: center;
@@ -290,5 +291,16 @@ svg#curve {
     background-image: url("<?php echo $rows['bimage']?>");
 }
 </style>
+
+<style>
+  #books{
+    background: #8ae600;
+  }
+
+  #books:after{
+    color: #8ae600;
+  }
+</style>
+
 </body>
 </html>

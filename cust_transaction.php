@@ -151,3 +151,13 @@
     }
 
 ?>
+
+<style>
+  #profile{
+    background: #8ae600;
+  }
+
+  #profile:after{
+    color: #8ae600;
+  }
+</style>

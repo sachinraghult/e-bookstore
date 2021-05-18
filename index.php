@@ -93,5 +93,13 @@
     }
     echo"</div>";
     ?>
+<style>
+  #home{
+    background: #8ae600;
+  }
 
+  #home:after{
+    color: #8ae600;
+  }
+</style>
 <?php include("includes/footer.php"); ?>

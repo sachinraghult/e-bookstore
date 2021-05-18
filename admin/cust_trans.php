@@ -74,7 +74,16 @@
         echo "<p style='color: red'>No Transactions</p>";
     }
 ?>
-    
+ 
+<style>
+    #customers{
+    background: #8ae600;
+    }
+
+    #customers:after{
+    color: #8ae600;
+    }
+</style>
 
 </div>
 </body>

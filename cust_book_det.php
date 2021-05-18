@@ -375,7 +375,7 @@ body {
     position: absolute;
     top: -40px;
     left: -40px;
-    height: <?php echo 150+($i*7.5)?>%;
+    height: <?php echo 200+($i*7.5)?>%;
     width: 103%;
     background-size: cover;
     background-position: center;

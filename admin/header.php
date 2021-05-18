@@ -14,9 +14,10 @@
       overflow: hidden; 
       z-index: 999; 
       width: 100%;
+      height: 70px;
       padding:16px; 
       color: white;
-      background-color: #ff6600; 
+      background-color: crimson; 
       text-align: center; 
     }
     .sidebar{
@@ -26,7 +27,7 @@
       height: 100%;
       float: left;
       position: fixed;
-      margin-top: 60px;
+      margin-top: 69px;
       background-color: crimson;
     }
     .sidebar li {
@@ -61,23 +62,23 @@
 <nav class="navi">
   <ul style="margin-top: 0%; padding: 0; list-style-type: none;">
 
-    <li onclick="location.replace('index.php')"><span class="material-icons md-40 md-light">home</span></li>
+    <li id="home" onclick="location.replace('index.php')"><span class="material-icons md-40 md-light">home</span></li>
 
-    <li onclick="location.replace('cust_det.php')"><span class="material-icons md-40 md-light">supervisor_account</span></li>
+    <li id="customers" onclick="location.replace('cust_det.php')"><span class="material-icons md-40 md-light">supervisor_account</span></li>
     
-    <li onclick="location.replace('upload_books.php')"><span class="material-icons md-40 md-light">backup</span></li>
+    <li id="upload" onclick="location.replace('upload_books.php')"><span class="material-icons md-40 md-light">backup</span></li>
 
-    <li onclick="location.replace('create_cat.php')"><span class="material-icons md-40 md-light">add_chart</span></li>
+    <li id="category" onclick="location.replace('create_cat.php')"><span class="material-icons md-40 md-light">add_chart</span></li>
 
-    <li onclick="location.replace('view_books.php')"><span class="material-icons md-40 md-light">book</span></li>
+    <li id="books" onclick="location.replace('view_books.php')"><span class="material-icons md-40 md-light">book</span></li>
 
-    <li onclick="location.replace('request.php')"><span class="material-icons md-40 md-light">recommend</span></li>
+    <li id="requests" onclick="location.replace('request.php')"><span class="material-icons md-40 md-light">recommend</span></li>
 
-    <li onclick="location.replace('comment.php')"><span class="material-icons md-40 md-light">question_answer</span></li>
+    <li id="comments" onclick="location.replace('comment.php')"><span class="material-icons md-40 md-light">question_answer</span></li>
 
-    <li onclick="location.replace('transaction.php')"><span class="material-icons md-40 md-light">paid</span></li>
+    <li id="transactions" onclick="location.replace('transaction.php')"><span class="material-icons md-40 md-light">paid</span></li>
 
-    <li onclick="location.replace('adminpwd.php')"><span class="material-icons md-40 md-light">lock</span></li>
+    <li id="pwd" onclick="location.replace('adminpwd.php')"><span class="material-icons md-40 md-light">lock</span></li>
 
     <li onclick="location.replace('../logout.php')"><span class="material-icons md-40 md-light">logout</span></li>
 
