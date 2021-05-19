@@ -53,7 +53,9 @@
 <body>
 
 <div class="header">
+  <div class="hi">
   <b style="font-size: 30px; line-height: 30px;">E-BOOKSTORE</b>
+  </div>
 </div>
 
 <div class="sidebar">
@@ -64,9 +66,7 @@
 
     <li id="search" onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
     
-    <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">local_library</span></li>
-
-    <li id="cart" onclick="location.replace('cart.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
+    <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
 
     <li id="request" onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
 
@@ -190,22 +190,18 @@
     line-height: 85px;
   }
   nav ul li:nth-child(4):after { 
-    content: "Cart";
-    line-height: 70px;
-  }
-  nav ul li:nth-child(5):after { 
     content: "Request";
     line-height: 70px;
   }
-  nav ul li:nth-child(6):after { 
+  nav ul li:nth-child(5):after { 
     content: "Profile";
     line-height: 70px;
   }
-  nav ul li:nth-child(7):after { 
+  nav ul li:nth-child(6):after { 
     content: "Change Password";
     line-height: 35px;
   }
-  nav ul li:nth-child(8):after { 
+  nav ul li:nth-child(7):after { 
     content: "Logout";
     line-height: 70px;
   }
@@ -227,5 +223,33 @@
   }
 
   nav ul li div { position: relative; }
+
+  .hi {
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, gray, #fff, gray);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 4s linear infinite;
+  position: relative;
+  margin-top: -0.5%;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
 
 </style>
