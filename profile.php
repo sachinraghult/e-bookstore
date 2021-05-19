@@ -15,6 +15,14 @@
     <link rel="stylesheet" type="text/css" href="css/profile.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <style>
+      body{
+        background-image: url("http://csshint.com/wp-content/uploads/2020/01/CSS-Animated-Backgrounds.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: center;
+      }
+    </style>
 </head>
 <body>
 
@@ -60,5 +68,5 @@ document.querySelectorAll('.button').forEach(button => button.innerHTML = '<div>
     color: #8ae600;
   }
 </style>
-<?php include("includes/footer.php");?>
+
 
