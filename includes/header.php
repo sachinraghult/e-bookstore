@@ -66,7 +66,9 @@
 
     <li id="search" onclick="location.replace('search_books.php')"><span class="material-icons md-48 md-light">search</span></li>
     
-    <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
+    <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">local_library</span></li>
+    
+    <li id="cart" onclick="location.replace('cart.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
 
     <li id="request" onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
 
@@ -190,18 +192,22 @@
     line-height: 85px;
   }
   nav ul li:nth-child(4):after { 
-    content: "Request";
+    content: "Cart";
     line-height: 70px;
   }
   nav ul li:nth-child(5):after { 
-    content: "Profile";
+    content: "Request";
     line-height: 70px;
   }
   nav ul li:nth-child(6):after { 
+    content: "Profile";
+    line-height: 70px;
+  }
+  nav ul li:nth-child(7):after { 
     content: "Change Password";
     line-height: 35px;
   }
-  nav ul li:nth-child(7):after { 
+  nav ul li:nth-child(8):after { 
     content: "Logout";
     line-height: 70px;
   }
