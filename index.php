@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Welcome</title>
-    <link rel="stylesheet" type="text/css" href="css/cat_card.css">
+    <link rel="stylesheet" type="text/css" href="cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
 </head>
 <body style="size: 16px">
