@@ -250,7 +250,7 @@
         }
 
         $res3=$db->query($sql3);
-        echo "<br><br><b><div class='console-container'><span id='text1'></span><div class='console-underscore' id='console1'>&#95;</div></div></b>";
+        echo "<br><br><b><div id='recommendations' class='console-container'><span id='text1'></span><div class='console-underscore' id='console1'>&#95;</div></div></b>";
         
         if($res3->num_rows>0)
         {

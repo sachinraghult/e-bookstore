@@ -9,6 +9,12 @@
   include("db.php");
   $i=0;
 
+  if(isset($_GET["bid"])){
+    $qry="INSERT INTO cart (cus_id, bid) values ({$_SESSION["CUS_ID"]}, {$_GET["bid"]});";
+    $db->query($qry);
+    header("location:cust_book_det.php?id={$_GET['bid']}");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@
 <head>
     <title>View Books</title>
     <link rel="stylesheet" type="text/css" href="css/tables.css">
- 
+    <link rel="stylesheet" type="text/css" href="css/book_btn.css">
 
     <style>
     .blackboard {
@@ -267,7 +273,33 @@
                 <tr>
                 <th style='color: #FB667A'>CATEGORY</th>
                     <td><b>{$rows['cat_name']}</b></td>
+                </tr>";
+
+                $qry1="SELECT * from cart where cart.bid={$_GET["id"]} and cart.cus_id={$_SESSION["CUS_ID"]}";
+                $ans=$db->query($qry1);
+                echo"
+                <tr>
+                    <th  colspan='2' style='color: #FB667A; text-align:center; background-color:#5499C7'>";
+                    if($ans->num_rows==0){
+                        echo"
+                        <a style='text-decoration:none' href='cust_book_det.php?bid={$rows['bid']}'>
+                            <button class='custom-btn btn' style='background-color: red; background-image: linear-gradient(315deg, orange 0%, tomato 74%)'>
+                            <b>Add to Cart</b>
+                            </button>
+                        </a>";
+                    }
+                    else{
+                        echo"
+                        <a style='text-decoration:none'>
+                            <button class='custom-btn btn' style='background-color: green; background-image: linear-gradient(315deg, green 0%, greenyellow 74%)' disabled>
+                            <b><span style='color:black'>Added to Cart</span></b>
+                            </button>
+                        </a>";
+                    }
+                echo"
+                    </th>
                 </tr>
+
                 </thead>
                 <tbody></tbody>
                 </table>

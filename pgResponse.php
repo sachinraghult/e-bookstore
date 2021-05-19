@@ -29,10 +29,16 @@ if($isValidChecksum == "TRUE") {
 
             $sql = "SELECT * from temp_payments WHERE txn_id='{$_POST["ORDERID"]}';";
             $res = $db->query($sql);
-            $row = $res->fetch_assoc();
 
-            $sql1 = "INSERT INTO payments (txn_id, cus_id, bid, logs) VALUES ('{$row['txn_id']}', {$row['cus_id']}, {$row['bid']}, '{$_POST['TXNDATE']}')";
-            $res1 = $db->query($sql1);
+            $res1=0;
+            while($row = $res->fetch_assoc())
+            {
+                $sql1 = "INSERT INTO payments (txn_id, cus_id, bid, logs) VALUES ('{$row['txn_id']}', {$row['cus_id']}, {$row['bid']}, '{$_POST['TXNDATE']}')";
+                $res1 = $db->query($sql1);
+
+                $sql3 = "DELETE FROM cart WHERE bid={$row['bid']} and cus_id={$row['cus_id']};";
+                $res3 = $db->query($sql3);    
+            }
 
             $sql2 = "DELETE FROM temp_payments WHERE txn_id='{$_POST["ORDERID"]}';";
             $res2 = $db->query($sql2);

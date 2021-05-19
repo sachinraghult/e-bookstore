@@ -23,17 +23,27 @@
 <body>
 
 <?php
+  if(isset($_GET['id'])){
     $sql="SELECT book.bname, book.price from book where book.bid={$_GET["id"]};";
     $res=$db->query($sql);
     $rows=$res->fetch_assoc();
 
     $sql1="INSERT INTO temp_payments (txn_id, cus_id, bid) values ('{$ran}', {$_SESSION['CUS_ID']}, {$_GET['id']});";
     $db->query($sql1);
-
-    if(isset($_POST["ODRER_ID"]))
-    {
-        header("location:profile.php");
+  }
+  else{
+    $sql="SELECT book.bid, book.bname, book.price from book inner join cart where book.bid=cart.bid and cart.cus_id={$_SESSION["CUS_ID"]};";
+    $res=$db->query($sql);
+    $price = 0;
+    $bnames = '';
+    while($rows=$res->fetch_assoc()){
+      $sql1="INSERT INTO temp_payments (txn_id, cus_id, bid) values ('{$ran}', {$_SESSION['CUS_ID']}, {$rows['bid']});";
+      $db->query($sql1);
+      $price += $rows['price'];
+      $bnames = $bnames.$rows['bname'].', ';
     }
+    $bnames = substr_replace($bnames, '', strlen($bnames)-2);
+  }
 ?>
 
 <form method="POST" action="pgRedirect.php?">
@@ -60,13 +70,26 @@
       <div class="col-12"> 
       <fieldset class="form-group">
       <label class="form-label" for="TXN_AMOUNT">Transaction Amount</label>
-      <input type="text" class="form-control" id="TXN_AMOUNT" name="TXN_AMOUNT" value="<?php echo $rows['price'];?>" readonly/>
+      <input type="text" class="form-control" id="TXN_AMOUNT" name="TXN_AMOUNT" 
+      value="<?php 
+      if(isset($_GET['id']))
+        echo $rows['price'];
+      else
+        echo $price;
+      ?>" readonly/>
       </fieldset></div>
       
       <div class="col-12"> 
       <fieldset class="form-group">
       <label class="form-label" for="bname"><b>Book Name</b></label>
-      <input type="text" class="form-control" name="bname" id="bname" value="<?php echo $rows['bname'];?>" readonly>
+      <input type="text" class="form-control" name="bname" id="bname" 
+      value="<?php 
+      if(isset($_GET['id']))
+        echo $rows['bname'];
+      else{
+        echo $bnames;
+      }
+      ;?>" readonly>
       </fieldset></div>
       
       <div style="display: none;">
