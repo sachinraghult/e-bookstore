@@ -163,7 +163,7 @@
         to {transform: translateX(-100%);}
       }
       @keyframes ball {
-        to {transform: translateY(20%);}
+        to {transform: translateY(10%);}
       }
 
       </style>
