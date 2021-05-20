@@ -22,12 +22,12 @@
         if (document.getElementById('newpwd').value ==
         document.getElementById('cnfmpwd').value) 
         {
-          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').style.color = 'lime';
           document.getElementById('message').innerHTML = 'matching';
         } 
         else 
         {
-          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').style.color = 'tomato';
           document.getElementById('message').innerHTML = 'not matching';
         }
       }
@@ -36,19 +36,19 @@
         var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
         if(document.getElementById('newpwd').value.match(decimal)) 
         { 
-          document.getElementById('pwdmessage').style.color = 'green';
+          document.getElementById('pwdmessage').style.color = 'lime';
           document.getElementById('pwdmessage').innerHTML = 'Valid Password';
         }
         else
         { 
-          document.getElementById('pwdmessage').style.color = 'red';
+          document.getElementById('pwdmessage').style.color = 'tomato';
           document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
         }
       }
       function disfunc()
       {
-        if(document.getElementById('message').style.color == 'green' &&
-          document.getElementById('pwdmessage').style.color == 'green')
+        if(document.getElementById('message').style.color == 'lime' &&
+          document.getElementById('pwdmessage').style.color == 'lime')
           {
           document.getElementById("reset").removeAttribute("disabled");
         }
@@ -72,15 +72,15 @@
         $res1 = $db->query($sql1);
         if ($res1->num_rows == 0) 
         {
-          echo "<p style='color:red;'>Incorrect old password</p>";
+          echo "<p style='color:tomato;'>Incorrect old password</p>";
         }
         else if ($_POST["newpwd"] != $_POST["cnfmpwd"]) 
         {
-          echo "<p style='color:red;'>Enter confirm password properly !</p>";
+          echo "<p style='color:tomato;'>Enter confirm password properly !</p>";
         }
         else if ($_POST["oldpwd"] == $_POST["newpwd"]) 
         {
-          echo "<p style='color:red;'>New password should not be same !</p>";
+          echo "<p style='color:tomato;'>New password should not be same !</p>";
         }
         else 
         {
@@ -88,11 +88,11 @@
           $res = $db->query($sql);
           if ($res) 
           {
-            echo "<p style='color:green;'>Password Updated Successfully</p>";
+            echo "<p style='color:lime;'>Password Updated Successfully</p>";
           }
           else 
           {
-            echo "<p style='color:red;'>Password Update failed !</p>";
+            echo "<p style='color:tomato;'>Password Update failed !</p>";
           }
         }
       }

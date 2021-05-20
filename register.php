@@ -23,13 +23,13 @@
       var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,}$/;
       if(document.getElementById('pwd').value.match(decimal)) 
       { 
-        document.getElementById('pwdmessage').style.color = 'green';
+        document.getElementById('pwdmessage').style.color = 'lime';
         document.getElementById('pwdmessage').innerHTML = 'Valid Password';
       }
       else
       { 
-        document.getElementById('pwdmessage').style.color = 'red';
-        document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 8 characters with at least a numeric, uppercase ,lowercase and special character';
+        document.getElementById('pwdmessage').style.color = 'tomato';
+        document.getElementById('pwdmessage').innerHTML = 'Should contain minimum 6 characters with at least a numeric, uppercase ,lowercase and special character';
       }
     }
 
@@ -38,12 +38,12 @@
       if (document.getElementById('pwd').value ==
       document.getElementById('cnfmpwd').value) 
       {
-        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').style.color = 'lime';
         document.getElementById('message').innerHTML = 'matching';
       } 
       else 
       {
-        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').style.color = 'tomato';
         document.getElementById('message').innerHTML = 'not matching';
       }
     }
@@ -52,20 +52,20 @@
       var regex=  /^[A-Za-z0-9_@.|-]*$/;
       if (document.getElementById('name').value.match(regex)) 
       {
-        document.getElementById('usermessage').style.color = 'green';
+        document.getElementById('usermessage').style.color = 'lime';
         document.getElementById('usermessage').innerHTML = 'Valid Username';
       } 
       else 
       {
-        document.getElementById('usermessage').style.color = 'red';
+        document.getElementById('usermessage').style.color = 'tomato';
         document.getElementById('usermessage').innerHTML = 'Only special characters   _ @ . | -  are allowed';
       }
     }
     function disfunc()
     {
-      if(document.getElementById('usermessage').style.color == 'green' &&
-        document.getElementById('message').style.color == 'green' &&
-        document.getElementById('pwdmessage').style.color == 'green')
+      if(document.getElementById('usermessage').style.color == 'lime' &&
+        document.getElementById('message').style.color == 'lime' &&
+        document.getElementById('pwdmessage').style.color == 'lime')
         {
         document.getElementById("submit").removeAttribute("disabled");
       }
@@ -111,7 +111,7 @@
           {
             $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
              $res = $db->query($sql);
-             echo "<p style='color:green'>Registration Successful</p>";
+             echo "<p style='color:lime'>Registration Successful</p>";
   
              header("location:login.php");
           }
@@ -119,14 +119,14 @@
           {
             $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', 'admin/media/profile_img/def99864.jpg', '{$_POST['email']}', '{$_POST['pwd']}');";
              $res = $db->query($sql);
-             echo "<p style='color:green'>Registration Successful</p>";
+             echo "<p style='color:lime'>Registration Successful</p>";
   
              header("location:login.php");
           }
         }
         else
         {
-          echo "<p style='color:red'>Email Id already exists !</p>";
+          echo "<p style='color:tomato'>Email Id already exists !</p>";
         }
       }
     ?>

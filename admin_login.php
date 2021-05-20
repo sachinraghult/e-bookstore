@@ -36,7 +36,7 @@
           header("location:admin/");
         }
         else{
-          echo "<p style='color: red'>Invalid user details!</p>";
+          echo "<p style='color: tomato'>Invalid user details!</p>";
         }
       }
     ?>

@@ -53,7 +53,7 @@ if($isValidChecksum == "TRUE") {
             $res2 = $db->query($sql2);
 
             if($res1){
-                echo "<div class='aa_htmlTable'><h2 class='aa_h2' style='text-align:center; color:green;'>Transaction Successful</h2>";
+                echo "<div class='aa_htmlTable'><h2 class='aa_h2' style='text-align:center; color:lime;'>Transaction Successful</h2>";
             }else{
                 echo "<div class='aa_htmlTable'><h2 class='aa_h2' style='text-align:center; color:red;'>Transaction status failure</h2>";
             }
