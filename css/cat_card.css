@@ -33,7 +33,7 @@ html {
   .box-item {
     position: relative;
     -webkit-backface-visibility: hidden;
-    width: 400px;
+    width: 320px;
     margin-bottom: 35px;
     max-width: 100%;
   }
@@ -51,7 +51,7 @@ html {
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    min-height: 475px;
+    min-height: 400px;
     -ms-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     -webkit-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
