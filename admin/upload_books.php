@@ -55,19 +55,22 @@
         move_uploaded_file($_FILES["bookfile"]["tmp_name"],$target_file_dir)) 
         {
           $sql = "INSERT INTO book (bname, author, bimage, bfile, keywords, cat_id, price) 
-           VALUES ('{$_POST['name']}','{$_POST['author']}', '{$target_img_dir}', '{$target_file_dir}','{$_POST['keywords']}',{$_POST['book_category']},{$_POST['price']});";
+           VALUES ('{$_POST['book_name']}','{$_POST['author']}', '{$target_img_dir}', '{$target_file_dir}','{$_POST['keywords']}',{$_POST['book_category']},{$_POST['price']});";
            $res = $db->query($sql);
-           echo "<p style='color:green'>Upload successful</p>";
+           if($res)
+            echo "<br><br><b><p style='color:green'>Upload successful</p></b>";
+           else
+            echo "<br><br><b><p style='color:red'>Upload unsuccessful</p></b>";
         }
         else {
-          echo "<p style='color:red'>Upload unsuccessful</p>";
-      }
+          echo "<br><br><b><p style='color:red'>Upload unsuccessful</p></b>";
+        }
     }
     ?>
     <br>
     <div class="formfield"><br>
     <label for="name">Name of the book</label></div><br>
-    <input type="text" name="name" required>
+    <input type="text" name="book_name" required>
     
     <div class="formfield"><br>
     <label for="author">Author</label></div><br>
@@ -75,7 +78,7 @@
     
     <div class="formfield"><br>
     <label for="keywords" style="margin :auto;">Book Description</label></div><br>
-    <textarea name="keywords" required></textarea>
+    <textarea name="keywords" max-length="250" required></textarea>
     
     <div class="formfield"><br>
     <label for="book_category">Category</label></div><br>
@@ -102,7 +105,7 @@
     <input type="number" name="price" required><br><br>
     
     <div class="formfield">
-    <input type="button" class="upload" name="upload" value="Upload">
+    <button type="submit" class="upload" name="upload">UPLOAD</button>
     <div id="expand"></div></div>
     </div>
   </div>
@@ -170,7 +173,7 @@
         .formfield {
           position: relative;
         }
-        input[type="button"] {
+        button[type="submit"] {
           padding: 5px 15px;
           background: none;
           border: none;
@@ -182,10 +185,12 @@
           font-weight: lighter;
           margin: 25px 0px;
           box-shadow: 0px 0px 0px 2px #F4F4F8;
+          cursor: pointer;
         }
-        input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus {
+        button[type="submit"]:hover, button[type="submit"]:active, button[type="submit"]:focus {
           /*border: solid 1px #fc4144;*/
           box-shadow: none;
+          cursor: pointer;
           /*box-shadow: inset 90px 0px 0px 1px #fc4144;*/
         }
         input[type="text"], input[type="number"], textarea, option, select {
@@ -255,7 +260,7 @@
           transform: translate(-50%, -50%);
           border-radius: 50%;
         }
-        input[type="button"]:hover + #expand, input[type="button"]:active + #expand, input[type="button"]:focus + #expand {
+        button[type="submit"]:hover + #expand, button[type="submit"]:active + #expand, button[type="submit"]:focus + #expand {
           height: 1200px;
           width: 1200px;
         }

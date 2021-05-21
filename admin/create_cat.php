@@ -47,10 +47,10 @@
         move_uploaded_file($_FILES["cat_img2"]["tmp_name"],$target_img_dir2)){
           $sql = "INSERT INTO category (cat_name, cat_desc, cat_image, cat_image1) VALUES ('{$_POST["cat_name"]}', '{$_POST["desc"]}', '{$target_img_dir1}', '{$target_img_dir2}');";
           $res = $db->query($sql);
-          echo "<p style='color:green'>Category created successfully</p>";
+          echo "<br><br><b><p style='color:green'>Category created successfully</p><b>";
         }
         else {
-          echo "<p style='color:red'>Category creation unsuccessful</p>";
+          echo "<br><br><b><p style='color:red'>Category creation unsuccessful</p><b>";
       }
       }
     ?>
@@ -62,7 +62,7 @@
     
     <div class="formfield"><br>
     <label for="desc" style="margin :auto;">Description</label></div><br>
-    <textarea name="desc" required></textarea>
+    <textarea name="desc" max-length="250" required></textarea>
     
     <div class="formfield"><br> 
     <label for="image">Category pic1</label>&emsp;&emsp;
@@ -72,7 +72,7 @@
     <input type="file" placeholder="image" name="cat_img2" accept="image/*" style="margin-top:15px"  required></div>
     <div class="formfield">
     <br><br>
-    <input type="button" class="upload" name="upload" value="Create">
+    <button type="submit" class="upload" name="submit">CREATE</button>
     <div id="expand"></div></div>
     </div>
   </div>
@@ -139,7 +139,7 @@
         .formfield {
           position: relative;
         }
-        input[type="button"] {
+        button[type="submit"] {
           padding: 5px 15px;
           background: none;
           border: none;
@@ -150,11 +150,13 @@
           letter-spacing: 1.5px;
           font-weight: lighter;
           margin: 25px 0px;
+          cursor: pointer;
           box-shadow: 0px 0px 0px 2px #F4F4F8;
         }
-        input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus {
+        button[type="submit"]:hover, button[type="submit"]:active, button[type="submit"]:focus {
           /*border: solid 1px #fc4144;*/
           box-shadow: none;
+          cursor: pointer;
           /*box-shadow: inset 90px 0px 0px 1px #fc4144;*/
         }
         input[type="text"], input[type="number"], textarea, option, select {
@@ -224,7 +226,7 @@
           transform: translate(-50%, -50%);
           border-radius: 50%;
         }
-        input[type="button"]:hover + #expand, input[type="button"]:active + #expand, input[type="button"]:focus + #expand {
+        button[type="submit"]:hover + #expand, button[type="submit"]:active + #expand, button[type="submit"]:focus + #expand {
           height: 700px;
           width: 700px;
         }
