@@ -55,7 +55,7 @@
 <body>
 
 <div class="header">
-  <div class="hi">
+  <div class="shimmer">
   <b style="font-size: 30px; line-height: 30px;">E-BOOKSTORE</b>
   </div>
 </div>
@@ -247,22 +247,21 @@
   nav ul li div { position: relative; }
 
   .hi {
-  font-weight: 700;
-  text-align: center;
-  font-size: 40px;
-  font-family: Hack, sans-serif;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, gray, #fff, gray);
-  letter-spacing: 5px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  animation: shine 4s linear infinite;
-  position: relative;
-  margin-top: -0.5%;
-}
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, gray, #fff, gray);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 4s linear infinite;
+    position: relative;
+  }
 
 @keyframes shine {
   0% {
