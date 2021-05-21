@@ -80,7 +80,7 @@ if($isValidChecksum == "TRUE") {
         <tr style='border-style: hidden'>
         <div style='display: inline;' align='center'><br><br>
         <td><div><button onclick='window.print()' style='color: white; background-color: #00ff00; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px;font-size: 100%;''>Print</button></div></td>
-        <td><div><a href='book_purchased.php'><button style='color: white; background-color: #0099ff; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; font-size: 100%;'>Back</button></a></div></td>
+        <td><div><a href='book_purchased.php'><button style='color: white; background-color: #0099ff; padding: 15px 32px; text-align: center; text-decoration: none; border-radius: 4px; font-size: 100%;'>Back to store</button></a></div></td>
         </div>
         </tr>
         </tbody></table></div>

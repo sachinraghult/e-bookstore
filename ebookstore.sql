@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2021 at 12:43 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Generation Time: May 20, 2021 at 09:18 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -63,19 +62,39 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`bid`, `bname`, `author`, `bimage`, `bfile`, `keywords`, `cat_id`, `price`) VALUES
-(1, 'Alice in Wonderland', 'Lewis Carroll', 'media/book_img/Alice in Wonderland.jpg', 'media/book_file/Alice in Wonderland.pdf', 'A young girl named Alice, who falls into a subterranean fantasy world populated by peculiar, anthropomorphic creatures.', 2, 400),
-(2, 'Artificial Intelligence - A Modern Approach', 'Pearson', 'media/book_img/Artificial Intelligence - A Modern Approach.jpg', 'media/book_file/Artificial Intelligence - A Modern Approach.pdf', 'A Modern Approach explores the full breadth and depth of the field of artificial intelligence (AI).', 5, 550),
-(3, 'Life of Captain Marvel', 'Stan Lee', 'media/book_img/Life of Captain Marvel.jpg', 'media/book_file/Life of Captain Marvel.pdf', 'Carol Danvers is one of the mightiest heroes not just on Earth but in the entire galaxy! Now learn exactly how she became the woman she is - The Avenger', 3, 700),
-(4, 'National Geographic - The Fight For Clean Air', 'NatGeo. April', 'media/book_img/National Geographic - The Fight For Clean Air.jpg', 'media/book_file/National Geographic - The Fight For Clean Air.pdf', 'Air pollution kills millions every year, like a ‘pandemic in slow motion’.', 6, 150),
-(5, 'Phoenix Project', 'Gene Kim', 'media/book_img/Phoenix Project.jpg', 'media/book_file/Phoenix Project.pdf', 'The business novel tells the story of an IT manager who has ninety days to rescue an over-budget and late IT initiative, code-named The Phoenix.', 5, 350),
-(6, 'Principle of Relativity', 'Albert Einstein', 'media/book_img/Principle of Relativity.jpg', 'media/book_file/Principle of Relativity.pdf', 'In physics, the principle of relativity is the requirement that the equations describing the laws of physics have the same form in all admissible frames of reference.', 1, 650),
-(7, 'Quantum Physics', 'Douglas Ross FRS', 'media/book_img/Quantum Physics.jpg', 'media/book_file/Quantum Physics.pdf', 'The physics that explains how everything works: the best description we have of the nature of the particles that make up matter and the forces with which they interact.', 1, 800),
-(8, 'Romeo and Juliet', 'William Shakespeare', 'media/book_img/Romeo and Juliet.jpg', 'media/book_file/Romeo and Juliet.pdf', 'A tragedy written by William Shakespeare early in his career about two young Italian star-crossed lovers whose deaths ultimately reconcile their feuding families.', 2, 999),
+(1, 'Alice in Wonderland', 'Lewis Carroll', 'media/book_img/Alice-in-Wonderland.jpg', 'media/book_file/Alice in Wonderland.pdf', 'A young girl named Alice, who falls into a subterranean fantasy world populated by peculiar, anthropomorphic creatures.', 2, 400),
+(2, 'Artificial Intelligence - A Modern Approach', 'Pearson', 'media/book_img/Artificial-Intelligence-A-Modern-Approach.jpg', 'media/book_file/Artificial Intelligence - A Modern Approach.pdf', 'A Modern Approach explores the full breadth and depth of the field of artificial intelligence (AI).', 5, 550),
+(3, 'Life of Captain Marvel', 'Stan Lee', 'media/book_img/Life-of-Captain-Marvel.jpg', 'media/book_file/Life of Captain Marvel.pdf', 'Carol Danvers is one of the mightiest heroes not just on Earth but in the entire galaxy! Now learn exactly how she became the woman she is - The Avenger', 3, 700),
+(4, 'National Geographic - The Fight For Clean Air', 'NatGeo. April', 'media/book_img/National-Geographic-The-Fight-For-Clean-Air.jpg', 'media/book_file/National Geographic - The Fight For Clean Air.pdf', 'Air pollution kills millions every year, like a ‘pandemic in slow motion’.', 6, 150),
+(5, 'Phoenix Project', 'Gene Kim', 'media/book_img/Phoenix-Project.jpg', 'media/book_file/Phoenix Project.pdf', 'The business novel tells the story of an IT manager who has ninety days to rescue an over-budget and late IT initiative, code-named The Phoenix.', 5, 350),
+(6, 'Principle of Relativity', 'Albert Einstein', 'media/book_img/Principle-of-Relativity.jpg', 'media/book_file/Principle of Relativity.pdf', 'In physics, the principle of relativity is the requirement that the equations describing the laws of physics have the same form in all admissible frames of reference.', 1, 650),
+(7, 'Quantum Physics', 'Douglas Ross FRS', 'media/book_img/Quantum-Physics.jpg', 'media/book_file/Quantum Physics.pdf', 'The physics that explains how everything works: the best description we have of the nature of the particles that make up matter and the forces with which they interact.', 1, 800),
+(8, 'Romeo and Juliet', 'William Shakespeare', 'media/book_img/Romeo-and-Juliet.jpg', 'media/book_file/Romeo and Juliet.pdf', 'A tragedy written by William Shakespeare early in his career about two young Italian star-crossed lovers whose deaths ultimately reconcile their feuding families.', 2, 999),
 (9, 'Spider-Verse', 'Stan Lee', 'media/book_img/Spider-Verse.jpg', 'media/book_file/Spider-Verse.pdf', 'After gaining superpowers from a spider bite, Miles Morales protects the city as Spider-Man. Soon, he meets alternate versions of himself and gets embroiled in an epic battle to save the multiverse.', 3, 750),
-(10, 'The Invisible Man', 'H.G Wells', 'media/book_img/The Invisible Man.jpg', 'media/book_file/The Invisible Man.pdf', 'A brilliant scientist uncovers the secret to invisibility, but his grandiose dreams and the power he unleashes cause him to spiral into intrigue, madness, and murder.', 4, 249),
-(11, 'Time Magazine - Women and the Pandemic', 'Time, March', 'media/book_img/Time Magazine - Women and the Pandemic.jpg', 'media/book_file/Time Magazine - Women and the Pandemic.pdf', 'COVID-19 has made it impossible to deny the ways broken systems hurt women.', 6, 199),
-(12, 'The Black Cat', 'Edgar Allan Poe', 'media/book_img/The Black Cat.jpg', 'media/book_file/The Black Cat.pdf', 'In the story, an unnamed narrator has a strong affection for pets until he perversely turns to abusing them.', 4, 99),
-(13, 'Sachin The Billion Dreams', 'Sachin Tendulkar', 'media/book_img/Sachin The Billion Dreams.jpg', 'media/book_file/Sachin The Billion Dreams.pdf', 'Sachin Tendulkar recounts his journey of becoming one of the most famous names in cricket.', 7, 1200);
+(10, 'The Invisible Man', 'H.G Wells', 'media/book_img/The-Invisible-Man.jpg', 'media/book_file/The Invisible Man.pdf', 'A brilliant scientist uncovers the secret to invisibility, but his grandiose dreams and the power he unleashes cause him to spiral into intrigue, madness, and murder.', 4, 249),
+(11, 'Time Magazine - Women and the Pandemic', 'Time, March', 'media/book_img/Time-Magazine-Women-and-the-Pandemic.jpg', 'media/book_file/Time Magazine - Women and the Pandemic.pdf', 'COVID-19 has made it impossible to deny the ways broken systems hurt women.', 6, 199),
+(12, 'The Black Cat', 'Edgar Allan Poe', 'media/book_img/The-Black-Cat.jpg', 'media/book_file/The Black Cat.pdf', 'In the story, an unnamed narrator has a strong affection for pets until he perversely turns to abusing them.', 4, 99),
+(13, 'Sachin The Billion Dreams', 'Sachin Tendulkar', 'media/book_img/Sachin-The-Billion-Dreams.jpg', 'media/book_file/Sachin The Billion Dreams.pdf', 'Sachin Tendulkar recounts his journey of becoming one of the most famous names in cricket.', 7, 1200);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `itm_no` int(11) NOT NULL,
+  `cus_id` int(11) NOT NULL,
+  `bid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`itm_no`, `cus_id`, `bid`) VALUES
+(15, 1, 6),
+(20, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -126,7 +145,9 @@ INSERT INTO `comment` (`com_id`, `cus_id`, `bid`, `comment`, `logs`) VALUES
 (1, 2, 2, 'Fantastic!', '2021-05-15 15:24:50'),
 (2, 3, 5, 'Amazing stuff', '2021-05-15 15:33:14'),
 (3, 3, 6, 'Woww, must read book.', '2021-05-15 15:37:08'),
-(4, 1, 10, 'Expected something more', '2021-05-15 15:38:34');
+(4, 1, 10, 'Expected something more', '2021-05-15 15:38:34'),
+(5, 3, 9, 'Nice Book', '2021-05-17 23:32:13'),
+(6, 3, 5, 'Great book', '2021-05-17 23:39:21');
 
 -- --------------------------------------------------------
 
@@ -188,7 +209,17 @@ INSERT INTO `payments` (`bill_id`, `txn_id`, `cus_id`, `bid`, `logs`) VALUES
 (12, 'OD1381200', 2, 9, '2021-05-15 15:25:21'),
 (13, 'OD2595454', 3, 12, '2021-05-15 15:32:40'),
 (14, 'OD999937', 1, 12, '2021-05-15 15:39:28'),
-(15, 'OD3584137', 1, 13, '2021-05-15 16:07:15');
+(15, 'OD3584137', 1, 13, '2021-05-15 16:07:15'),
+(16, 'OD4620397', 3, 10, '2021-05-19 14:10:55'),
+(17, 'OD4620397', 3, 13, '2021-05-19 14:10:55'),
+(18, 'OD4620397', 3, 8, '2021-05-19 14:10:55'),
+(19, 'OD8540852', 3, 4, '2021-05-19 14:13:24'),
+(20, 'OD7443029', 3, 11, '2021-05-19 14:15:41'),
+(21, 'OD5558278', 1, 4, '2021-05-19 14:22:54'),
+(22, 'OD2595581', 1, 5, '2021-05-19 14:23:14'),
+(23, 'OD9120726', 3, 7, '2021-05-19 22:21:16'),
+(24, 'OD2289972', 3, 1, '2021-05-20 10:03:21'),
+(25, 'OD2380734', 3, 3, '2021-05-20 12:24:58');
 
 -- --------------------------------------------------------
 
@@ -235,7 +266,27 @@ INSERT INTO `temp_payments` (`bill_id`, `txn_id`, `cus_id`, `bid`) VALUES
 (8, 'OD44734', 1, 10),
 (14, 'OD1306308', 7, 11),
 (16, 'OD8537612', 6, 11),
-(17, 'OD270870', 1, 8);
+(17, 'OD270870', 1, 8),
+(23, 'OD3622384', 3, 7),
+(24, 'OD3030374', 3, 7),
+(25, 'OD4464982', 3, 7),
+(30, 'OD3400646', 3, 7),
+(31, 'OD3400646', 3, 10),
+(32, 'OD3400646', 3, 13),
+(33, 'OD3400646', 3, 8),
+(38, 'OD4580596', 3, 11),
+(39, 'OD989536', 3, 11),
+(41, 'OD6493209', 3, 2),
+(42, 'OD6493209', 3, 1),
+(43, 'OD9732930', 3, 2),
+(44, 'OD9732930', 3, 1),
+(45, 'OD4683399', 3, 2),
+(46, 'OD4683399', 3, 1),
+(47, 'OD171513', 3, 2),
+(48, 'OD171513', 3, 1),
+(51, 'OD6779269', 1, 3),
+(52, 'OD6710951', 3, 7),
+(53, 'OD7921949', 3, 7);
 
 --
 -- Indexes for dumped tables
@@ -253,6 +304,14 @@ ALTER TABLE `admin`
 ALTER TABLE `book`
   ADD PRIMARY KEY (`bid`),
   ADD KEY `cat_id` (`cat_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`itm_no`),
+  ADD KEY `cus_id` (`cus_id`),
+  ADD KEY `bid` (`bid`);
 
 --
 -- Indexes for table `category`
@@ -314,6 +373,12 @@ ALTER TABLE `book`
   MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `itm_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -323,7 +388,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -335,19 +400,19 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `temp_payments`
 --
 ALTER TABLE `temp_payments`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables
@@ -358,6 +423,13 @@ ALTER TABLE `temp_payments`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `category` (`cat_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`cus_id`) REFERENCES `customer` (`cus_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `book` (`bid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `comment`
