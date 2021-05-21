@@ -257,7 +257,7 @@
   -moz-background-clip: text;
   background-clip: text;
   animation-name: shimmer;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-color: #222;
