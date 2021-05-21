@@ -57,18 +57,21 @@
     <h2>Create Category</h2>
     <hr><br>
     <div class="formfield"><br>
+    <label for="name">Category Name</label></div><br>
     <input type="text" name="cat_name" required>
-    <label for="name">Category Name</label></div>
+    
     <div class="formfield"><br>
+    <label for="desc" style="margin :auto;">Description</label></div><br>
     <textarea name="desc" required></textarea>
-    <label for="desc" style="margin :auto;">Description</label></div>
+    
     <div class="formfield"><br> 
-    <label for="image">Category pic1</label>
+    <label for="image">Category pic1</label>&emsp;&emsp;
     <input type="file"  placeholder="image" name="cat_img1" accept="image/*" style="margin-top:15px" required></div><br>
     <div class="formfield"><br> 
-    <label for="image">Category pic2</label>
+    <label for="image">Category pic2</label>&emsp;&emsp;
     <input type="file" placeholder="image" name="cat_img2" accept="image/*" style="margin-top:15px"  required></div>
     <div class="formfield">
+    <br><br>
     <input type="button" class="upload" name="upload" value="Create">
     <div id="expand"></div></div>
     </div>
@@ -142,7 +145,6 @@
           border: none;
           /*border: solid 1px #F4F4F8;*/
           font-family: sans-serif;
-          text-transform: uppercase;
           color: #F4F4F8;
           font-size: 20px;
           letter-spacing: 1.5px;
@@ -163,7 +165,6 @@
           border-bottom: solid 1px #ff9b9d;
           margin-bottom: 10px;
           font-family: sans-serif;
-          text-transform: uppercase;
           color: #F4F4F8;
           font-size: 14px;
           letter-spacing: 1.5px;
@@ -185,7 +186,7 @@
         }
 
         label {
-          position: absolute;
+          position: relative;
           left: 5px;
           top: 5px;
           font-size: 15px;

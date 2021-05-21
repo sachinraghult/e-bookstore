@@ -66,15 +66,19 @@
     ?>
     <br>
     <div class="formfield"><br>
-    <input type="text" name="name" required>
     <label for="name">Name of the book</label></div><br>
+    <input type="text" name="name" required>
+    
     <div class="formfield"><br>
-    <input type="text"  name="author" required>
     <label for="author">Author</label></div><br>
+    <input type="text"  name="author" required>
+    
     <div class="formfield"><br>
-    <textarea name="keywords" required></textarea>
     <label for="keywords" style="margin :auto;">Book Description</label></div><br>
+    <textarea name="keywords" required></textarea>
+    
     <div class="formfield"><br>
+    <label for="book_category">Category</label></div><br>
     <select name="book_category"  style="margin-top:10px;" required>
         <?php
           $sql1 = "SELECT * from category";
@@ -86,16 +90,17 @@
           }
         ?>
     </select>
-    <label for="book_category">Category</label></div><br>
+    
     <div class="formfield"><br>
-    <label for="book_img">Book Image</label>
+    <label for="book_img">Book Image</label>&emsp;&emsp;
     <input type="file" accept="image/*" placeholder="Image of book" name="bookimg" style="margin-top:15px" required></div><br>
     <div class="formfield"><br>
-    <label for="book">Book File</label>
+    <label for="book">Book File</label>&emsp;&emsp;
     <input type="file" placeholder="bookfile" name="bookfile" style="margin-top:15px;" required></div><br>
     <div class="formfield"><br>
-    <input type="number" name="price" required>
-    <label for="price">Price</label></div>
+    <label for="price">Price</label></div><br>
+    <input type="number" name="price" required><br><br>
+    
     <div class="formfield">
     <input type="button" class="upload" name="upload" value="Upload">
     <div id="expand"></div></div>
@@ -171,7 +176,6 @@
           border: none;
           /*border: solid 1px #F4F4F8;*/
           font-family: sans-serif;
-          text-transform: uppercase;
           color: #F4F4F8;
           font-size: 20px;
           letter-spacing: 1.5px;
@@ -192,7 +196,6 @@
           border-bottom: solid 1px #ff9b9d;
           margin-bottom: 10px;
           font-family: sans-serif;
-          text-transform: uppercase;
           color: #F4F4F8;
           font-size: 14px;
           letter-spacing: 1.5px;
@@ -214,7 +217,7 @@
         }
 
         label {
-          position: absolute;
+          position: relative;
           left: 5px;
           top: 5px;
           font-size: 15px;
