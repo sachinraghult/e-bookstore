@@ -191,6 +191,9 @@
         where customer.cus_id=request.cus_id;";
     }
     else {
+        
+        $_POST['name'] = addslashes($_POST['name']);
+
         $sql = "SELECT customer.cus_name, request.*
         from request inner join customer
         where customer.cus_id=request.cus_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%';";

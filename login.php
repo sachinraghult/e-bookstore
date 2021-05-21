@@ -25,6 +25,10 @@
 
     <?php
       if(isset($_POST["submit"])){
+
+        $_POST["email"] = addslashes($_POST["email"]);
+        $_POST["pwd"] = addslashes($_POST["pwd"]);
+
         $sql = "SELECT * FROM CUSTOMER WHERE CUS_MAIL = '{$_POST["email"]}' AND CUS_PASS = '{$_POST["pwd"]}'";
         $res = $db->query($sql);
         

@@ -164,6 +164,10 @@ ob_start();
 
     <?php
         if (isset($_POST["submit"])) {
+
+            $_POST["bname"] = addslashes($_POST["bname"]);
+            $_POST["request"] = addslashes($_POST["request"]);
+
             $sql = "INSERT INTO request (cus_id ,bname, request, logs) VALUES ({$_SESSION["CUS_ID"]},'{$_POST["bname"]}','{$_POST["request"]}', now());";
             $res = $db->query($sql);
 

@@ -195,6 +195,7 @@
         order by payments.logs DESC;";
     }
     else {
+        $_POST['name'] = addslashes($_POST['name']);
         
         if ($_POST['pricebelow'] && $_POST['priceabove']) {
             $sql = "SELECT customer.cus_name, book.bname, book.price, payments.txn_id, payments.logs

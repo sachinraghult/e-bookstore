@@ -33,6 +33,13 @@
 
         $target_file_dir = $target_file.basename($_FILES["bookfile"]["name"]);
 
+        $target_img_dir = addslashes($target_img_dir);
+        $target_file_dir = addslashes($target_file_dir);
+        $_POST['book_name'] = addslashes($_POST['book_name']);
+        $_POST['author'] = addslashes($_POST['author']);
+        $_POST['keywords'] = addslashes($_POST['keywords']);
+
+
         $qry = "SELECT * from book where bimage = '{$target_img_dir}'";
         $result = $db->query($qry);
         if($result->num_rows>0){

@@ -89,7 +89,10 @@
     <?php
       if(isset($_POST['submit']))
       {
- 
+        $_POST['email'] = addslashes($_POST['email']);
+        $_POST['name'] = addslashes($_POST['name']);
+        $_POST['pwd'] = addslashes($_POST['pwd']);
+
         $sql1="SELECT * from customer where customer.cus_mail='{$_POST['email']}';";
         $res1=$db->query($sql1);
  
@@ -97,6 +100,8 @@
         {
           $target_img = "admin/media/profile_img/";
           $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
+
+          $target_img_dir = addslashes($target_img_dir);
 
           $qry = "SELECT * from customer where cus_image = '{$target_img_dir}'";
           $result = $db->query($qry);

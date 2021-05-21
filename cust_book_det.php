@@ -328,6 +328,9 @@
         <div class='form'>
         <hr>";
         if(isset($_POST["submit"])){
+
+            $_POST["comment"] = addslashes($_POST["comment"]);
+
             $sql3 = "INSERT into comment (cus_id, bid, comment, logs) values ({$_SESSION["CUS_ID"]}, {$_GET["id"]}, '{$_POST["comment"]}', now())";
             $res3 = $db->query($sql3);
             if($res){
