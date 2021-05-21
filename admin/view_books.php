@@ -186,6 +186,7 @@
         $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id";
     }
     else {
+        $_POST['name'] = addslashes($_POST['name']);
         $sql = "SELECT book.*, category.* from book inner join category where book.cat_id = category.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'";
     }
     $res = $db->query($sql);

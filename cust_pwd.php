@@ -68,6 +68,11 @@
     <?php
       if (isset($_POST["reset"])) 
       {
+
+        $_POST['oldpwd'] = addslashes($_POST['oldpwd']);
+        $_POST['newpwd'] = addslashes($_POST['newpwd']);
+        $_POST['cnfmpwd'] = addslashes($_POST['cnfmpwd']);
+        
         $sql1 = "SELECT * FROM customer where cus_pass = '{$_POST['oldpwd']}'";
         $res1 = $db->query($sql1);
         if ($res1->num_rows == 0) 

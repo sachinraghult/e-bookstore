@@ -24,6 +24,11 @@
         $target_img_dir1 = $target_img.basename($_FILES["cat_img1"]["name"]);
         $target_img_dir2 = $target_img.basename($_FILES["cat_img2"]["name"]);
 
+        $target_img_dir1 = addslashes($target_img_dir1);
+        $target_img_dir2 = addslashes($target_img_dir2);
+        $_POST['cat_name'] = addslashes($_POST['cat_name']);
+        $_POST['desc'] = addslashes($_POST['desc']);
+
         $qry = "SELECT * from category where cat_image = '{$target_img_dir1}' or cat_image1 = '{$target_img_dir1}'";
         $result = $db->query($qry);
         if($result->num_rows>0){

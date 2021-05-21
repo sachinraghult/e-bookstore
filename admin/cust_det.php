@@ -176,6 +176,7 @@
         $sql = "SELECT * FROM CUSTOMER ORDER BY cus_id DESC;";
     }
     else {
+        $_POST['name'] = addslashes($_POST['name']);
         $sql = "SELECT * FROM CUSTOMER WHERE cus_name LIKE '%{$_POST['name']}%'";
     }
     $res = $db->query($sql);

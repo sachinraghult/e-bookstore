@@ -20,12 +20,15 @@
 
 <div class="login-box" style="margin: auto">
 <h2>Admin Login</h2>
-<form action="<?php echo $_SERVER["PHP_SELF"];?>" method = "post">
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
 
     <?php
       if(isset($_POST["submit"])){
+
+        $_POST["aname"] = addslashes($_POST["aname"]);
+        $_POST["apass"] = addslashes($_POST["apass"]);
+
         $sql = "SELECT * FROM ADMIN WHERE ANAME = '{$_POST["aname"]}' AND APASS = '{$_POST["apass"]}'";
         $res = $db->query($sql);
         
