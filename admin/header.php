@@ -246,29 +246,29 @@
 
   nav ul li div { position: relative; }
 
-  .hi {
-    font-weight: 700;
-    text-align: center;
-    font-size: 40px;
-    font-family: Hack, sans-serif;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, gray, #fff, gray);
-    letter-spacing: 5px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 80%;
-    animation: shine 4s linear infinite;
-    position: relative;
-  }
+  .shimmer {
+  font-family: lato;
+  color: rgba(105,105,105,0.6);
+  background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+  background: -moz-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+  background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+  background-size: 125px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  animation-name: shimmer;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-color: #222;
+}
 
-@keyframes shine {
+@keyframes shimmer {
   0% {
-    background-position-x: -500%;
+    background-position: calc(0% - 125px) 0%;
   }
   100% {
-    background-position-x: 500%;
+    background-position: calc(100% + 125px) 0%;
   }
 }
 
