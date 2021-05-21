@@ -195,6 +195,9 @@
         order by comment.com_id DESC;";
     }
     else {
+
+        $_POST['name'] = addslashes($_POST['name']);
+        
         $sql = "SELECT customer.cus_name, book.bname, comment.*
         from comment inner join customer on customer.cus_id=comment.cus_id
         inner join book on book.bid=comment.bid where {$_POST['searchby']} LIKE '%{$_POST['name']}%'
