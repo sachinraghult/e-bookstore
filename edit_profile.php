@@ -162,14 +162,14 @@
 </script>
 
 <style>
-  #category{
-    background: #8ae600;
-  }
+        #profile{
+          background: #8ae600;
+        }
 
-  #category:after{
-    color: #8ae600;
-  }
-  * {
+        #profile:after{
+          color: #8ae600;
+        }
+        * {
           margin: 0 auto;
           transition: 0.5s ease all;
         }
