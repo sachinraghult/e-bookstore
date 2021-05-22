@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Books</title>
+    <title>Book</title>
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 <body>
@@ -95,9 +95,6 @@
             <td><b>&#8377; {$rows['price']}</b></td>
         </tr>
         <tr>
-        <th style='color: #FB667A'>CATEGORY</th>
-            <td><b>{$rows['cat_name']}</b></td>
-        </tr>
         <th style='color: #FB667A'>CATEGORY</th>
             <td><b>{$rows['cat_name']}</b></td>
         </tr>

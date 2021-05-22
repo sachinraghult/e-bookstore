@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer Request</title>
+    <title>Requests</title>
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
 

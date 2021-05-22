@@ -51,6 +51,7 @@
   <link rel="stylesheet" type="text/css" href="../css/cat_card.css">
   <link rel="stylesheet" type="text/css" href="../css/font.scss">
   
+  
 </head>
 <body>
 
@@ -67,10 +68,10 @@
     <li id="home" onclick="location.replace('index.php')"><span class="material-icons md-40 md-light">home</span></li>
 
     <li id="customers" onclick="location.replace('cust_det.php')"><span class="material-icons md-40 md-light">supervisor_account</span></li>
-    
-    <li id="upload" onclick="location.replace('upload_books.php')"><span class="material-icons md-40 md-light">backup</span></li>
 
-    <li id="category" onclick="location.replace('create_cat.php')"><span class="material-icons md-40 md-light">add_chart</span></li>
+    <li id="category" onclick="location.replace('category.php')"><span class="material-icons md-40 md-light">add_chart</span></li>
+
+    <li id="upload" onclick="location.replace('upload_books.php')"><span class="material-icons md-40 md-light">backup</span></li>
 
     <li id="books" onclick="location.replace('view_books.php')"><span class="material-icons md-40 md-light">book</span></li>
 
@@ -192,11 +193,11 @@
     line-height: 35px;
   }
   nav ul li:nth-child(3):after { 
-    content: "Upload Books";
+    content: "Manage Category";
     line-height: 35px;
   }
   nav ul li:nth-child(4):after { 
-    content: "Create Category";
+    content: "Upload Books";
     line-height: 35px;
   }
   nav ul li:nth-child(5):after { 
