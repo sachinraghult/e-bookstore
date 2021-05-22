@@ -218,12 +218,12 @@
   background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
   background: -moz-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
   background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
-  background-size: 125px 100%;
+  background-size: 200px 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
   animation-name: shimmer;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   background-repeat: no-repeat;
   background-color: #222;
