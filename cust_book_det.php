@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Books</title>
+    <title>Book</title>
     <link rel="stylesheet" type="text/css" href="css/tables.css">
     <link rel="stylesheet" type="text/css" href="css/book_btn.css">
 

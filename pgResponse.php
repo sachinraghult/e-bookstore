@@ -22,7 +22,7 @@ $isValidChecksum = verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecks
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register</title>
+  <title>Response</title>
     <link rel="stylesheet" type="text/css" href="css/pay_table.scss">
 </head>
 <body style="margin-top: 0%">

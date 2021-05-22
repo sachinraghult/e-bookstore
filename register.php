@@ -101,6 +101,9 @@
           $target_img = "admin/media/profile_img/";
           $target_img_dir = $target_img.basename($_FILES["profile"]["name"]);
 
+          $target_img_dir = str_replace(' ', '-', $target_img_dir);
+          $target_img_dir = preg_replace('/[^A-Za-z0-9\-_\/.]/', '', $target_img_dir);
+
           $target_img_dir = addslashes($target_img_dir);
 
           $qry = "SELECT * from customer where cus_image = '{$target_img_dir}'";

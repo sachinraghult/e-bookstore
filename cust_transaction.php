@@ -78,11 +78,11 @@
 ?>
 
 <style>
-  #profile{
+  #transaction{
     background: #8ae600;
   }
 
-  #profile:after{
+  #transaction:after{
     color: #8ae600;
   }
 </style>

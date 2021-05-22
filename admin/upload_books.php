@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Upload books</title>
+    <title>Upload Books</title>
 </head>
 <body>
 
@@ -85,7 +85,7 @@
     
     <div class="formfield"><br>
     <label for="keywords" style="margin :auto;">Book Description</label></div><br>
-    <textarea name="keywords" max-length="250" required></textarea>
+    <textarea name="keywords" rows = "4" max-length="250" required></textarea>
     
     <div class="formfield"><br>
     <label for="book_category">Category</label></div><br>
@@ -169,7 +169,7 @@
           padding: 25px 0px;
           width: 90%;
           font-weight: 100;
-          font-size: 50px;
+          font-size: 40px;
           letter-spacing: 3px;
           margin-left:7%;
         }

@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customer Transactions</title>
+    <title>Transactions</title>
     <link rel="stylesheet" type="text/css" href="../css/tables.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
     

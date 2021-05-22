@@ -53,7 +53,7 @@ document.querySelectorAll('.button').forEach(button => button.innerHTML = '<div>
       <div class='details'><b>
       <h2>{$row['cus_name']}</h2>
       <h2><span>{$row['cus_mail']}<br><br>
-      <a href='cust_transaction.php' class='rainbow rainbow-1' style='border-radius:30px;text-decoration:none'>View Transactions</a></span></h2>
+      <a href='edit_profile.php' class='rainbow rainbow-1' style='border-radius:30px;text-decoration:none'>Edit Profile</a></span></h2>
     </div></div></div>";
 ?>
 

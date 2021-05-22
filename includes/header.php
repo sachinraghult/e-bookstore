@@ -72,6 +72,8 @@
 
     <li id="request" onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
 
+    <li id="transaction" onclick="location.replace('cust_transaction.php')"><span class="material-icons md-48 md-light">paid</span></li>
+
     <li id="profile" onclick="location.replace('profile.php')"><span class="material-icons md-48 md-light">account_box</span></li>
 
     <li id="pwd" onclick="location.replace('cust_pwd.php')"><span class="material-icons md-48 md-light">lock</span></li>
@@ -200,14 +202,19 @@
     line-height: 70px;
   }
   nav ul li:nth-child(6):after { 
+    content: "Transactions";
+    line-height: 70px;
+    font-size: 12px;
+  }
+  nav ul li:nth-child(7):after { 
     content: "Profile";
     line-height: 70px;
   }
-  nav ul li:nth-child(7):after { 
+  nav ul li:nth-child(8):after { 
     content: "Change Password";
     line-height: 35px;
   }
-  nav ul li:nth-child(8):after { 
+  nav ul li:nth-child(9):after { 
     content: "Logout";
     line-height: 70px;
   }

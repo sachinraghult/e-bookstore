@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Books</title>
+    <title>Book</title>
     <link rel="stylesheet" type="text/css" href="../css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="../css/book_btn.css">
     <link rel="stylesheet" type="text/css" href="../css/font.scss">
@@ -210,7 +210,8 @@
                   <p style='float:right; display:inline-block; color:red'>
                       &#8377;{$rows['price']}
                   </p><br><br><br>
-                  <a href='book_det.php?id={$rows['bid']}'><button class='custom-btn btn'>View Book</button></a>
+                  <a style='float:left' href='book_det.php?id={$rows['bid']}'><button class='custom-btn btn'>View</button></a>
+                  <a style='float:right' href='edit_book.php?id={$rows['bid']}'><button type='submit' class='custom-btn btn2'>Edit</button></a>
                   </div>
               </div>            
               ";
@@ -226,6 +227,48 @@
 
 ?>
 </div>
+
+<style>
+      
+  .custom-btn {
+      width: 100px;
+  }
+ 
+  .btn2{
+      border: none;
+      transition: all 0.3s ease;
+      overflow: hidden;
+  }
+  .btn2:after {
+      position: absolute;
+      content: " ";
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #009933;
+      background-image: linear-gradient(315deg, #009933 0%, #79ff4d 74%);
+      transition: all 0.3s ease;
+  }
+  .btn2:hover {
+      background: transparent;
+      box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                  -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+      color: #fff;
+  }
+  .btn2:hover:after {
+      -webkit-transform: scale(2) rotate(180deg);
+      transform: scale(2) rotate(180deg);
+      box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                  -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  }
+
+</style>
 
 <style>
   #books{

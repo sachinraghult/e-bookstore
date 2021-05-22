@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>Category Books</title>
     <link rel="stylesheet" type="text/css" href="css/book_cards.css">
     <link rel="stylesheet" type="text/css" href="css/book_btn.css">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
