@@ -1,4 +1,6 @@
   </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <footer>
     <svg viewBox="0 0 120 28">
     <defs> 
@@ -18,11 +20,11 @@
       <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
       
     <g class="topball" id="scrollToTopBtn">
-      <circle class="ball" cx="110" cy="8" r="4" stroke="none" stroke-width="0" fill="red" />
+      <circle class="ball" cx="110" cy="10" r="3" stroke="none" stroke-width="0" fill="red" />
 
         <g class="arrow">
-        <polyline class="" points="108,8 110,6 112,8" fill="none"  />
-        <polyline class="" points="110,6 110,10.5" fill="none"  />
+        <polyline class="" points="108,10 110,8 112,10" fill="none"  />
+        <polyline class="" points="110,8 110,12.5" fill="none"  />
         </g>
         
       </g>
@@ -52,31 +54,54 @@
 
     </svg>
 
-      <div>Made with Love - by Three Idiots</div>
+      <b><div>
+        <span style="margin-left:120px;">
+        Copyright © 2021 | Made with 💗 - E BOOKSTORE    
+        </span>  
+        <span style="float:right; margin-right:50px">
+          Developed and Maintained By - &ensp;
+
+          <div class="tooltip">
+            <i class="fa fa-linkedin-square" style="color:#BA0020FF;font-size:24px; cursor:pointer"></i>
+            <span class="tooltiptext">Profile</span>
+          </div>
+          &ensp;
+
+          <div class="tooltip">
+            <i class="fa fa-linkedin-square" style="color:#006747FF;font-size:24px; cursor:pointer"></i>
+            <span class="tooltiptext">Profile</span>
+          </div>
+          &ensp;
+
+          <div class="tooltip">
+            <i class="fa fa-linkedin-square" style="color:#4F2C1DFF;font-size:24px; cursor:pointer"></i>
+            <span class="tooltiptext">Profile</span>
+          </div>
+        </span>
+      </div></b>
+
     </footer>
 
       <style>
        @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
       body {
-        font-family: Lato, sans-serif;
-        --col-deepblue: #4478e3;
+        --col-deepblue:#00cc66;
       }
 
       main {
         height: 200vmin
       }
 
-      footer {
+      footer { 
         width:99vw;
         bottom:0px
       }
       footer div {
-        background-color:#4478e3;
-        margin: -6px 0px 0px 0px;
+        background-color:#00cc66;
+        margin: -7px 0px 0px 0px;
         padding:0px;
-        color: #fff;
-        text-align:center;
+        color:  #000099;
       }
       svg {
         width:100%;
@@ -96,7 +121,7 @@
       .wave {
         animation: wave 3s linear;
         animation-iteration-count:infinite;
-        fill: #4478e3;
+        fill: #00cc66;
       }
       .drop {
         fill: var(--col-deepblue);
@@ -108,9 +133,7 @@
         transform-box: fill-box;
         transform-origin: 50% 100%;
       }
-      .drop1 {
-        
-      }
+
       .drop2 {
         animation-delay: 3s;
         animation-duration:3s;
@@ -166,7 +189,56 @@
         to {transform: translateY(10%);}
       }
 
-      </style>
+
+      /*TOOL tip styles*/
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+      }
+
+      /* Tooltip text */
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text */
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+
+        /* Fade in tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      /* Tooltip arrow */
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      /* Show the tooltip text when you mouse over the tooltip container */
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+
+</style>
 
       <script>
         var scrollToTopBtn = document.getElementById("scrollToTopBtn")
