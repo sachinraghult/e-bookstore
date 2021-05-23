@@ -63,6 +63,13 @@
       Login
     </button>
     </a>
+    <br><br>
+    <i>
+    <div style="color: whitesmoke;">
+      New User? &ensp;<span onclick="location.replace('register.php')" 
+      style="color:yellowgreen; text-decoration:underline; cursor:pointer">Register Here..</span>
+    </div>
+    </i>
   </form>
 </div>
 

@@ -139,7 +139,7 @@
       }
     ?>
  
-    <i><div id="usermessage"></div><i>
+    <i><div id="usermessage"></div></i>
     <br>
 
     <div class="user-box">
@@ -178,7 +178,13 @@
       Register
     </button>
     </a>
-
+    <br><br>
+    <i>
+    <div style="color: whitesmoke;">
+      Existing User? &ensp;<span onclick="location.replace('login.php')" 
+      style="color:yellowgreen; text-decoration:underline; cursor:pointer">Login Here..</span>
+    </div>
+    </i>
 </form>
 
 <style>
