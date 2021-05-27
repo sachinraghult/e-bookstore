@@ -16,7 +16,14 @@
   <title>Register</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
- 
+
+    <style>
+    body{
+      background-image: url("images/register.gif");
+      background-size: cover;
+    }
+    </style>
+
     <script type="text/javascript">
     function CheckPassword() 
     { 

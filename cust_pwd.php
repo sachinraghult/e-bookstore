@@ -15,6 +15,13 @@
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <title>Change password</title>
 
+    <style>
+    body{
+      background-image: url("images/sky.gif");
+      background-size: cover;
+    }
+    </style>
+
     <script type="text/javascript">
     
       function check() 

@@ -247,4 +247,4 @@ ob_start();
     }
     </style>
 
-    <?php include("includes/footer.php"); ob_end_flush();?>
+    <?php ob_end_flush();?>

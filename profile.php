@@ -15,7 +15,12 @@
     <link rel="stylesheet" type="text/css" href="css/profile.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
-
+    <style>
+    body{
+      background-image: url("images/profile.gif");
+      background-size: cover;
+    }
+    </style>
 </head>
 <body>
 

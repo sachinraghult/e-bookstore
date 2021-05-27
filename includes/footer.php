@@ -56,27 +56,33 @@
 
       <b><div>
         <span style="margin-left:120px;">
-        Copyright © 2021 | Made with 💗 - E BOOKSTORE    
+        Copyright © 2021 | Made with 💗 - Three Idiots    
         </span>  
         <span style="float:right; margin-right:50px">
           Developed and Maintained By - &ensp;
 
+          <a href="https://github.com/ersanjeevkm" target="_blank" style="text-decoration: none">
           <div class="tooltip">
-            <i class="fa fa-linkedin-square" style="color:#BA0020FF;font-size:24px; cursor:pointer"></i>
-            <span class="tooltiptext">Profile</span>
+            <i class="fa fa-github" style="color: black; font-size: 30px; cursor: pointer"></i>
+            <span class="tooltiptext">Sanjeev</span>
           </div>
+          </a>
           &ensp;
 
+          <a href="https://www.instagram.com/srivatsav_r/" target="_blank" style="text-decoration: none">
           <div class="tooltip">
-            <i class="fa fa-linkedin-square" style="color:#006747FF;font-size:24px; cursor:pointer"></i>
-            <span class="tooltiptext">Profile</span>
+            <i class="fa fa-instagram" style="color: #833AB4; font-size: 30px; cursor: pointer"></i>
+            <span class="tooltiptext">Srivatsav</span>
           </div>
+          </a>
           &ensp;
 
+          <a href="https://twitter.com/sachin_raghul?s=08" target="_blank" style="text-decoration: none">
           <div class="tooltip">
-            <i class="fa fa-linkedin-square" style="color:#4F2C1DFF;font-size:24px; cursor:pointer"></i>
-            <span class="tooltiptext">Profile</span>
+            <i class="fa fa-twitter" style="color: #1DA1F2; font-size: 30px; cursor: pointer"></i>
+            <span class="tooltiptext">Sachin</span>
           </div>
+          </a>
         </span>
       </div></b>
 
@@ -86,7 +92,7 @@
        @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
       body {
-        --col-deepblue:#00cc66;
+        --col-deepblue:#94b8b8;
       }
 
       main {
@@ -98,10 +104,10 @@
         bottom:0px
       }
       footer div {
-        background-color:#00cc66;
+        background-color:#94b8b8;
         margin: -7px 0px 0px 0px;
         padding:0px;
-        color:  #000099;
+        color:  red;
       }
       svg {
         width:100%;
@@ -121,7 +127,7 @@
       .wave {
         animation: wave 3s linear;
         animation-iteration-count:infinite;
-        fill: #00cc66;
+        fill: #94b8b8;
       }
       .drop {
         fill: var(--col-deepblue);

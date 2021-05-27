@@ -57,7 +57,7 @@
 
 <div class="header">
   <div class="shimmer">
-  <b style="font-size: 30px; line-height: 30px;">E-BOOKSTORE</b>
+  <b style="font-size: 30px; line-height: 30px;"><span class="material-icons">sailing</span>&ensp;PAPER BOAT</b>
   </div>
 </div>
 
