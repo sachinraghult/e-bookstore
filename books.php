@@ -118,8 +118,8 @@
         }
 
         $sql3="SELECT * from book where book.cat_id={$_GET["id"]}
-               EXCEPT
-               (SELECT book.* from book inner join payments where payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']});";
+               AND book.bid NOT IN
+               (SELECT book.bid from book inner join payments where payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']});";
         $res3=$db->query($sql3);
 
         echo "<br><b><div class='console-container'><span id='text1'></span><div class='console-underscore' id='console1'>&#95;</div></div></b>";

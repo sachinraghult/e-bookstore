@@ -124,7 +124,7 @@
           
           if (move_uploaded_file($_FILES["profile"]["tmp_name"],$target_img_dir)) 
           {
-            $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
+            $sql="INSERT INTO customer (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', '{$target_img_dir}', '{$_POST['email']}', '{$_POST['pwd']}');";
              $res = $db->query($sql);
              echo "<p style='color:lime'>Registration Successful</p>";
   
@@ -132,7 +132,7 @@
           }
           else 
           {
-            $sql="INSERT INTO CUSTOMER (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', 'admin/media/profile_img/def99864.jpg', '{$_POST['email']}', '{$_POST['pwd']}');";
+            $sql="INSERT INTO customer (cus_name, cus_image, cus_mail, cus_pass) VALUES ('{$_POST['name']}', 'admin/media/profile_img/def99864.jpg', '{$_POST['email']}', '{$_POST['pwd']}');";
              $res = $db->query($sql);
              echo "<p style='color:lime'>Registration Successful</p>";
   

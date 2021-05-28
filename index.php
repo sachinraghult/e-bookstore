@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome</title>
+    <title>Paperboat - Welcome</title>
     <link rel="stylesheet" type="text/css" href="css/cat_card.css">
     <link rel="stylesheet" type="text/css" href="css/font.scss">
 </head>
@@ -45,7 +45,7 @@
     </div>";
     }
 
-    $sql="SELECT * FROM CATEGORY;";
+    $sql="SELECT * FROM category;";
     $res=$db->query($sql);
 
     echo"<div class='box-container'>";
@@ -85,6 +85,11 @@
       ";
     }
     echo"</div>";
+
+    if($res->num_rows == 0)
+    {
+      echo "<p style='color: red; background-color: white; font-size: large; width: 150px'>No categories found</p>";
+    }
     ?>
 <style>
   #home{

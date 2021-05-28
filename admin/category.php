@@ -31,7 +31,7 @@
     <br>
     ';
 
-    $sql="SELECT * FROM CATEGORY;";
+    $sql="SELECT * FROM category;";
     $res=$db->query($sql);
 
     echo"<div class='box-container'>";

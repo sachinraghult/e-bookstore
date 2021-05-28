@@ -35,7 +35,7 @@
         $_POST["aname"] = addslashes($_POST["aname"]);
         $_POST["apass"] = addslashes($_POST["apass"]);
 
-        $sql = "SELECT * FROM ADMIN WHERE ANAME = '{$_POST["aname"]}' AND APASS = '{$_POST["apass"]}'";
+        $sql = "SELECT * FROM admin WHERE aname = '{$_POST["aname"]}' AND apass = '{$_POST["apass"]}'";
         $res = $db->query($sql);
         
         if($res->num_rows>0){

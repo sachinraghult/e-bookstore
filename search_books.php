@@ -239,16 +239,16 @@
         if(!isset($_POST["search"]))
         {
             $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id
-                   EXCEPT
-                   (SELECT book.*,category.cat_name from book inner join payments
-                   on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";
+                WHERE book.bid NOT IN
+                (SELECT book.bid from book inner join payments
+                on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']});";
         }
         else{
             $_POST['name'] = addslashes($_POST['name']);
             $sql3="SELECT book.*,category.cat_name from book inner join category on category.cat_id = book.cat_id and {$_POST['searchby']} LIKE '%{$_POST['name']}%'
-                   EXCEPT
-                   (SELECT book.*,category.cat_name from book inner join payments
-                   on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']} inner join category on category.cat_id = book.cat_id);";    
+                   WHERE book.bid NOT IN
+                   (SELECT book.bid from book inner join payments
+                   on payments.bid=book.bid and payments.cus_id={$_SESSION['CUS_ID']});";    
         }
 
         $res3=$db->query($sql3);

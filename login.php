@@ -36,7 +36,7 @@
         $_POST["email"] = addslashes($_POST["email"]);
         $_POST["pwd"] = addslashes($_POST["pwd"]);
 
-        $sql = "SELECT * FROM CUSTOMER WHERE CUS_MAIL = '{$_POST["email"]}' AND CUS_PASS = '{$_POST["pwd"]}'";
+        $sql = "SELECT * FROM customer WHERE cus_mail = '{$_POST["email"]}' AND cus_pass = '{$_POST["pwd"]}'";
         $res = $db->query($sql);
         
         if($res->num_rows>0)
