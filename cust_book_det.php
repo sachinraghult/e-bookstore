@@ -10,9 +10,12 @@
   $i=0;
 
   if(isset($_GET["bid"])){
-    $qry="INSERT INTO cart (cus_id, bid) values ({$_SESSION["CUS_ID"]}, {$_GET["bid"]});";
-    $db->query($qry);
-    header("location:cust_book_det.php?id={$_GET['bid']}");
+    $chk1 = $db->query("SELECT * from payments where bid={$_GET['bid']} and cus_id={$_SESSION["CUS_ID"]}");
+    if($chk1->num_rows == 0){
+        $qry="INSERT INTO cart (cus_id, bid) values ({$_SESSION["CUS_ID"]}, {$_GET["bid"]});";
+        $db->query($qry);
+        header("location:cust_book_det.php?id={$_GET['bid']}");
+    }
 }
 
 ?>
