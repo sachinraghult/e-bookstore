@@ -63,7 +63,7 @@
         $_POST['newpwd'] = addslashes($_POST['newpwd']);
         $_POST['cnfmpwd'] = addslashes($_POST['cnfmpwd']);
 
-        $sql1 = "SELECT * FROM admin where apass = '{$_POST['oldpwd']}'";
+        $sql1 = "SELECT * FROM admin where apass = '{$_POST['oldpwd']}' and aid = '{$_SESSION['AID']}'";
         $res1 = $db->query($sql1);
         if ($res1->num_rows == 0) 
         {

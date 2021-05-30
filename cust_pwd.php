@@ -80,7 +80,7 @@
         $_POST['newpwd'] = addslashes($_POST['newpwd']);
         $_POST['cnfmpwd'] = addslashes($_POST['cnfmpwd']);
         
-        $sql1 = "SELECT * FROM customer where cus_pass = '{$_POST['oldpwd']}'";
+        $sql1 = "SELECT * FROM customer where cus_pass = '{$_POST['oldpwd']}' and cus_id = '{$_SESSION['CUS_ID']}'";
         $res1 = $db->query($sql1);
         if ($res1->num_rows == 0) 
         {
