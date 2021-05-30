@@ -11,7 +11,8 @@
 
   if(isset($_GET["bid"])){
     $chk1 = $db->query("SELECT * from payments where bid={$_GET['bid']} and cus_id={$_SESSION["CUS_ID"]}");
-    if($chk1->num_rows == 0){
+    $chk2 = $db->query("SELECT * from cart where bid={$_GET['bid']} and cus_id={$_SESSION["CUS_ID"]}");
+    if($chk1->num_rows == 0 && $chk2->num_rows == 0){
         $qry="INSERT INTO cart (cus_id, bid) values ({$_SESSION["CUS_ID"]}, {$_GET["bid"]});";
         $db->query($qry);
         header("location:cust_book_det.php?id={$_GET['bid']}");
@@ -127,9 +128,11 @@
 
 <?php 
 
-    $sql = "SELECT book.*, category.cat_name from book inner join category on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
-    $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
-    ORDER BY comment.com_id DESC;";
+    $sql = "SELECT book.*, category.cat_name from book inner join category 
+            on book.cat_id = category.cat_id where book.bid = {$_GET['id']};";
+    $sql1 = "SELECT comment.comment, comment.logs, customer.cus_name from comment inner join customer 
+            where comment.cus_id = customer.cus_id and comment.bid = {$_GET['id']}
+            ORDER BY comment.com_id DESC;";
     $sql2 = "SELECT * from payments where cus_id = {$_SESSION["CUS_ID"]} and bid = {$_GET["id"]}";
     $res = $db->query($sql);
     $res1 = $db->query($sql1);
