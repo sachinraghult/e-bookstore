@@ -1,3 +1,9 @@
+<?php
+    include("db.php");
+    $cart=$db->query("SELECT count(*) from cart where cart.cus_id = {$_SESSION['CUS_ID']};");
+    $cartres=$cart->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +74,13 @@
     
     <li id="store" onclick="location.replace('book_purchased.php')"><span class="material-icons md-48 md-light">local_library</span></li>
     
-    <li id="cart" onclick="location.replace('cart.php')"><span class="material-icons md-48 md-light">shopping_cart</span></li>
+    <li id="cart" onclick="location.replace('cart.php')"><span class="material-icons md-48 md-light" id="cart">shopping_cart
+    
+    <?php 
+        if($cartres['count(*)'])
+            echo "<div class='cart_badge'>{$cartres['count(*)']}</div>";
+    ?>
+    </span></li>
 
     <li id="request" onclick="location.replace('cust_request.php')"><span class="material-icons md-48 md-light">recommend</span></li>
 
@@ -89,6 +101,28 @@
 <br><br><br>
 
 <style>
+
+  /* Define what each icon button should look like */
+  #cart {
+      color: white;
+      display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+      position: relative; /* All 'absolute'ly positioned elements are relative to this one */
+      padding: 2px 5px; /* Add some padding so it looks nice */
+      }
+
+      /* Make the badge float in the top right corner of the button */
+      .cart_badge {
+      background-color: #5499C7;
+      border-radius: 10px;
+      color: white;
+      
+      padding: 1px 3px;
+      font-size: 15px;
+      
+      position: absolute; /* Position the badge within the relatively positioned button */
+      top: 0;
+      right: 0;
+  }
   @media screen and (max-width: 720px) {
     .sidebar {
       width: 100%;
