@@ -29,7 +29,7 @@ For Admin,
 ![image](https://user-images.githubusercontent.com/69163882/150554330-71257268-3813-40b3-901c-b1c1d7ea17e8.png)
 
 
-# Books
+# Books available
 
 ![image](https://user-images.githubusercontent.com/69163882/150554167-8401caeb-9e97-42d8-9c9a-68f45a5f6a92.png)
 
@@ -37,6 +37,8 @@ For Admin,
 # User Registration
 
 ![image](https://user-images.githubusercontent.com/69163882/150554681-b31b2268-8f28-40e0-9bfb-efd4e151fec6.png)
+
+Similary for user login.
 
 
 # USER SIDE
@@ -49,6 +51,16 @@ For Admin,
 # Cart or Wishlist
 
 ![image](https://user-images.githubusercontent.com/69163882/150555043-c2f128a9-76b8-4133-99bd-933f2cc85df2.png)
+
+
+# Payment
+
+![image](https://user-images.githubusercontent.com/69163882/150624101-1a708546-1137-427a-9cde-e0791c83da71.png)
+
+
+# PAYTM Integration
+
+![image](https://user-images.githubusercontent.com/69163882/150624134-5655d971-bbf8-469b-bd73-dc24352d43dc.png)
 
 
 # Book page
