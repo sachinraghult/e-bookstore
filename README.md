@@ -8,11 +8,11 @@ and also have it in the cart or wishlist, by the way the commenting and requesti
 
 https://paperboat.epizy.com/
 
-For user,
-    -> Register first to login
+For user
+    --> Register first to login
 
-For Admin,
-    -> UserID : admin, PASSWORD : admin
+For Admin
+    --> UserID : admin, PASSWORD : admin
        (incase to view admin console)
          
   
